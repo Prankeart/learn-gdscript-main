@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://xwn5etqlcmy"]
+
+[ext_resource type="PackedScene" path="res://course/lesson-24-access-array-indices/visuals/inventory/Item.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dsijc0ip03i24" path="res://course/lesson-24-access-array-indices/visuals/inventory/Inventory.gd" id="6"]
+
+[node name="Inventory" type="GridContainer" unique_id=1206754418]
+custom_minimum_size = Vector2(240, 420)
+offset_right = 240.0
+offset_bottom = 420.0
+columns = 2
+script = ExtResource("6")
+
+[node name="Item" parent="." unique_id=478629874 instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="Item2" parent="." unique_id=785890351 instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="Item3" parent="." unique_id=1492045805 instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="Item4" parent="." unique_id=2057561114 instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="Item5" parent="." unique_id=1684370779 instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="Item6" parent="." unique_id=1498432109 instance=ExtResource("1")]
+layout_mode = 2

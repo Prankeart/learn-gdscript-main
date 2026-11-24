@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://u12xl2infgce"]
+
+[node name="CodeWholeNumbers" type="CodeEdit" unique_id=912523086]
+custom_minimum_size = Vector2(300, 100)
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -1620.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+text = "func level_up():
+	scale = Vector2(1.5, 1.5)
+	# ..."
+context_menu_enabled = false
+shortcut_keys_enabled = false
+caret_blink = true
+draw_tabs = true
+draw_spaces = true

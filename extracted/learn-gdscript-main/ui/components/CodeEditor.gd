@@ -1,0 +1,187 @@
+@tool
+class_name CodeEditor
+extends PanelContainer
+
+signal text_changed(text)
+signal action_taken(action)
+signal console_toggled
+
+const ACTIONS := {
+	"RUN": "run",
+	"PAUSE": "pause",
+	"SOLUTION": "solution",
+	"RESTORE": "restore",
+	"CONTINUE": "continue",
+	"DFMODE": "dfmode",
+}
+
+const EDITOR_EXPAND_ICON := preload("res://ui/assets/icons/expand.png")
+const EDITOR_COLLAPSE_ICON := preload("res://ui/assets/icons/collapse.png")
+
+@export var text := "":
+	get = get_text, set = set_text # (String, MULTILINE)
+
+var _initial_text := ""
+
+# When pressing the run button, we disable buttons until the checks complete.
+# Once done, we use this var to restore the buttons' previous disabled state.
+var _buttons_previous_disabled_state := { }
+
+@onready var slice_editor: SliceEditor = %SliceEditor
+@onready var _run_button: Button = %RunButton
+@onready var _pause_button: Button = %PauseButton
+@onready var _restore_button: Button = %RestoreButton
+@onready var _solution_button: Button = %SolutionButton
+@onready var _console_button: Button = %ConsoleButton
+@onready var _continue_button: Button = %ContinueButton
+@onready var _distraction_free_mode_button: Button = %DFMButton
+@onready var _locked_overlay: Control = %LockedOverlay
+@onready var _locked_overlay_label: Label = $Column/PanelContainer/LockedOverlay/Layout/Label
+
+# Buttons to toggle disabled when running the code, until the server responds.
+@onready var _buttons_to_disable := [
+	_run_button,
+	_pause_button,
+	_solution_button,
+	_restore_button,
+	_continue_button,
+]
+# We generate a shortcut tooltip for each of those buttons.
+@onready var _buttons_with_shortcuts := [
+	_run_button,
+	_restore_button,
+	_solution_button,
+	_console_button,
+	_pause_button,
+	_distraction_free_mode_button,
+]
+
+
+func _ready() -> void:
+	_distraction_free_mode_button.icon = EDITOR_EXPAND_ICON
+	_locked_overlay.hide()
+
+	_restore_button.disabled = true
+	_restore_button.pressed.connect(_on_restore_button_pressed)
+	_run_button.pressed.connect(_on_run_button_pressed)
+	_pause_button.pressed.connect(action_taken.emit.bind(ACTIONS.PAUSE))
+	_solution_button.pressed.connect(action_taken.emit.bind(ACTIONS.SOLUTION))
+	_continue_button.pressed.connect(action_taken.emit.bind(ACTIONS.CONTINUE))
+	_distraction_free_mode_button.pressed.connect(action_taken.emit.bind(ACTIONS.DFMODE))
+	_console_button.pressed.connect(console_toggled.emit)
+
+	slice_editor.text_changed.connect(_on_text_changed)
+	slice_editor.gui_input.connect(_gui_input)
+	await get_tree().process_frame
+	_initial_text = text
+
+	slice_editor.grab_focus()
+
+	if not Engine.is_editor_hint():
+		for button: BaseButton in _buttons_with_shortcuts:
+			assert(
+				button.shortcut.events.any(func(event: InputEvent) -> bool: return event is InputEventAction),
+				"Buttons must use an action as a shortcut to generate a shortcut tooltip for them.",
+			)
+			var action_name: String = button.shortcut.events.back().action
+			button.tooltip_text += "\n" + TextUtils.convert_input_action_to_tooltip(action_name)
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("run_code") and not _run_button.disabled:
+		_on_run_button_pressed()
+		accept_event()
+
+
+func update_cursor_position(line: int, column: int) -> void:
+	# Fix for lines with TAB indent
+	column = column - 1
+	line = line - 1
+	var string = slice_editor.get_line(line)
+	var tabs = min(column, string.count("\t"))
+	column = 3 * tabs + column
+
+	slice_editor.set_caret_line(1000000 if line < 0 else line)
+	slice_editor.set_caret_column(1000000 if column < 0 else column)
+
+
+func set_text(new_text: String) -> void:
+	text = new_text
+	if not is_inside_tree():
+		await self.ready
+	slice_editor.text = new_text
+
+
+func get_text() -> String:
+	if not is_inside_tree():
+		return text
+	return slice_editor.text
+
+
+func set_distraction_free_state(enabled: bool) -> void:
+	if enabled:
+		_distraction_free_mode_button.icon = EDITOR_COLLAPSE_ICON
+	else:
+		_distraction_free_mode_button.icon = EDITOR_EXPAND_ICON
+
+
+func is_pause_button_pressed() -> bool:
+	return _pause_button.button_pressed
+
+
+func set_pause_button_pressed(is_pressed: bool) -> void:
+	_pause_button.button_pressed = is_pressed
+
+
+func is_solution_button_pressed() -> bool:
+	return _solution_button.button_pressed
+
+
+func set_solution_button_pressed(is_pressed: bool) -> void:
+	_solution_button.button_pressed = is_pressed
+
+
+func set_restore_allowed(allowed: bool) -> void:
+	_restore_button.disabled = not allowed
+
+
+func set_continue_allowed(allowed: bool) -> void:
+	_continue_button.disabled = not allowed
+
+
+func lock_editor() -> void:
+	for button in _buttons_to_disable:
+		_buttons_previous_disabled_state[button] = button.disabled
+		button.disabled = true
+
+	_locked_overlay.show()
+
+
+# Restores the disabled state of the disabled buttons.
+func unlock_editor() -> void:
+	for button in _buttons_previous_disabled_state:
+		button.disabled = _buttons_previous_disabled_state[button]
+	_run_button.disabled = false
+
+	_locked_overlay.hide()
+	set_locked_message("")
+
+
+func set_locked_message(message: String) -> void:
+	_locked_overlay_label.text = message
+
+
+func _on_text_changed() -> void:
+	_restore_button.disabled = false
+	text_changed.emit(slice_editor.text)
+
+
+func _on_restore_button_pressed() -> void:
+	set_text(_initial_text)
+	unlock_editor()
+	action_taken.emit(ACTIONS.RESTORE)
+	_restore_button.disabled = true
+
+
+func _on_run_button_pressed() -> void:
+	action_taken.emit(ACTIONS.RUN)

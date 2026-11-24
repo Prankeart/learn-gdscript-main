@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ci5au3xm0v26p"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cenbu4icsubte" path="res://course/common/turtle/DrawingTurtle.tscn" id="3"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Node2D
+
+var length := 200
+
+@onready var _turtle: DrawingTurtle = $DrawingTurtle
+
+func _ready() -> void:
+	reset()
+
+func reset():
+	_turtle.reset()
+	_turtle.position.x = -length / 2.0
+
+
+func run() -> void:
+	reset()
+	_turtle.move_forward(length)
+	_turtle.play_draw_animation()
+"
+
+[node name="ExampleMoveForward" type="PanelContainer" unique_id=817258003]
+offset_right = 14.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=258293062 instance=ExtResource("1")]
+layout_mode = 2
+gdscript_code = "func run():
+	move_forward(200)"
+
+[node name="DemoDrawingMoveForward" type="Node2D" parent="RunnableCodeExample" unique_id=146472504]
+script = SubResource("1")
+
+[node name="DrawingTurtle" parent="RunnableCodeExample/DemoDrawingMoveForward" unique_id=355796564 instance=ExtResource("3")]

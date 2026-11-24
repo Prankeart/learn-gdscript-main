@@ -1,0 +1,31 @@
+extends Node2D
+
+@export var _camera: Camera2D
+
+var _position_start: Vector2
+var _scale_start: Vector2
+
+@onready var _animation_tree := find_child("AnimationTree")
+
+func _ready() -> void:
+	_position_start = position
+	_scale_start = scale
+	_camera.set_as_top_level(true)
+	reset()
+
+# EXPORT reset
+func reset_robot():
+	scale = Vector2(1.0, 1.0)
+	position = Vector2(0.0, 0.0)
+# /EXPORT reset
+
+func _run() -> void:
+	reset_robot()
+	await get_tree().create_timer(1).timeout
+	Events.practice_run_completed.emit()
+	_animation_tree.travel("saying_hi")
+
+func reset():
+	position = _position_start
+	scale = _scale_start
+	_animation_tree.travel("idle")

@@ -1,0 +1,113 @@
+class_name PracticeTestDisplay
+extends Control
+
+signal marking_finished
+
+enum Status { IDLE, FAILED, PASSED, PENDING }
+
+const COLOR_IDLE = Color.WHITE
+const COLOR_PASSED = Color(0.239216, 1, 0.431373)
+const COLOR_FAILED = Color(1, 0.094118, 0.321569)
+const COLOR_PENDING = Color(0.572549, 0.560784, 0.721569)
+
+const FADE_TOTAL_DURATION := 0.8
+const FADE_COLOR_DURATION := 0.2
+const FADE_SCALE_DURATION := 0.65
+const FADE_SCALE_START_AT := 2.5
+
+var status: int = Status.IDLE:
+	set = set_status
+var title := "":
+	set = set_title
+var tooltip := "":
+	set = set_tooltip
+
+@onready var _icon := $IconAnchors/Icon as TextureRect
+@onready var _label := $Label as Label
+
+
+func mark_as_failed(immediate: bool = false) -> void:
+	set_status(Status.FAILED)
+	if immediate:
+		return
+
+	_fade_in_status()
+
+
+func mark_as_passed(immediate: bool = false) -> void:
+	set_status(Status.PASSED)
+	if immediate:
+		return
+
+	_fade_in_status()
+
+
+func mark_as_pending(immediate: bool = false) -> void:
+	set_status(Status.PENDING)
+	if immediate:
+		return
+
+	_fade_in_status()
+
+
+func unmark(immediate: bool = false) -> void:
+	set_status(Status.IDLE)
+	if immediate:
+		return
+
+	_fade_in_status()
+
+
+func set_title(new_title: String) -> void:
+	title = new_title
+	if not is_inside_tree():
+		await self.ready
+	_label.text = new_title
+
+
+func set_tooltip(new_tooltip: String) -> void:
+	tooltip = new_tooltip
+	if not is_inside_tree():
+		await self.ready
+	_label.tooltip_text = new_tooltip
+
+
+func set_status(new_status: int) -> void:
+	status = new_status
+
+	if not is_inside_tree():
+		await self.ready
+
+	match status:
+		Status.PASSED:
+			_icon.texture = preload("res://ui/assets/icons/checkmark_valid.svg")
+			modulate = COLOR_PASSED
+		Status.FAILED:
+			_icon.texture = preload("res://ui/assets/icons/checkmark_invalid.svg")
+			modulate = COLOR_FAILED
+		Status.PENDING:
+			_icon.texture = preload("res://ui/assets/icons/checkmark_none.svg")
+			modulate = COLOR_PENDING
+		_:
+			_icon.texture = preload("res://ui/assets/icons/checkmark_none.svg")
+			modulate = COLOR_IDLE
+
+
+func _fade_in_status() -> void:
+	if not is_inside_tree():
+		return
+
+	var final_color := Color.WHITE
+	match status:
+		Status.PASSED:
+			final_color = COLOR_PASSED
+		Status.FAILED:
+			final_color = COLOR_FAILED
+		Status.PENDING:
+			final_color = COLOR_PENDING
+
+	var _tween := create_tween().set_parallel()
+	_tween.tween_property(self, "modulate", final_color, FADE_COLOR_DURATION).from(Color.WHITE).set_trans(Tween.TRANS_QUAD)
+	_tween.tween_property(_icon, "scale:x", 1.0, FADE_SCALE_DURATION).from(FADE_SCALE_START_AT).set_trans(Tween.TRANS_QUAD)
+	_tween.tween_property(_icon, "scale:y", 1.0, FADE_SCALE_DURATION).from(FADE_SCALE_START_AT).set_trans(Tween.TRANS_QUAD)
+	_tween.tween_callback(emit_signal.bind("marking_finished")).set_delay(FADE_TOTAL_DURATION)

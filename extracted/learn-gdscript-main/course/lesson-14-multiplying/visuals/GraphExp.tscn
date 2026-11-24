@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://npktnl2j3nlm"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://ct75r36mr211y" path="res://course/lesson-14-multiplying/visuals/Graph.tscn" id="2"]
+
+[sub_resource type="Curve2D" id="Curve2D_47lxn"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0.0245361, 0.446106, -0.0245361, -0.446106, 0, -50, -60.7556, 192.828, 60.7556, -192.828, 253, -247)
+}
+point_count = 2
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1573988730]
+custom_minimum_size = Vector2(400, 450)
+offset_right = 14.0
+offset_bottom = 14.0
+
+[node name="RunnableCodeExample" parent="." unique_id=18372269 instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="ResetButton" parent="RunnableCodeExample/Frame/ButtonsContainer" parent_id_path=PackedInt32Array(18372269, 1323725507) index="0" unique_id=1494799076]
+visible = false
+
+[node name="RunButton" parent="RunnableCodeExample/Frame/ButtonsContainer" parent_id_path=PackedInt32Array(18372269, 1323725507) index="1" unique_id=1248061364]
+text = "Show Me"
+
+[node name="Graph" parent="RunnableCodeExample" unique_id=1234894201 instance=ExtResource("2")]
+curve = SubResource("Curve2D_47lxn")
+text_x = "Level"
+text_y = "Maximum Health"
+
+[editable path="RunnableCodeExample"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://duvrcvvhwjk3y"]
+
+[ext_resource type="FontVariation" path="res://ui/theme/fonts/font_code.tres" id="1_e0fo4"]
+[ext_resource type="Script" uid="uid://ch5qpoqookmfv" path="res://course/common/GDScriptCodeExample.gd" id="1_us326"]
+[ext_resource type="CodeHighlighter" path="res://ui/theme/gdscript_syntax_highlighter.tres" id="2_4yqyi"]
+
+[node name="GDScriptCodeExample" type="CodeEdit" unique_id=2012333996]
+custom_minimum_size = Vector2(300, 140)
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -1620.0
+offset_bottom = 140.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_e0fo4")
+text = "var numbers = [1, 2, 6, 7]
+var vectors_and_numbers = [Vector2(0, 0), Vector2(4, 3), 5, -1.0]"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+scroll_smooth = true
+scroll_fit_content_height = true
+caret_blink = true
+syntax_highlighter = ExtResource("2_4yqyi")
+draw_tabs = true
+draw_spaces = true
+gutters_draw_line_numbers = true
+script = ExtResource("1_us326")

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://crm7bvlft2vvw"]
+
+[ext_resource type="PackedScene" path="res://course/lesson-23-append-to-arrays/visuals/Crate.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dund20u5r8wjc" path="res://course/lesson-23-append-to-arrays/popping-crates/PoppingCrates.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dc8srtagvqfdv" path="res://course/common/inventory/gems.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://braxkbru78d61" path="res://course/common/inventory/shield.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://53p3lhsufh82" path="res://course/common/inventory/healing_heart.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://c6frj5ufe0uri" path="res://course/common/inventory/sword.png" id="6"]
+
+[node name="PoppingCrates" type="CenterContainer" unique_id=1191321229]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("2")
+
+[node name="Column" type="VBoxContainer" parent="." unique_id=1656966352]
+custom_minimum_size = Vector2(120, 400)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Crate" parent="Column" unique_id=161572860 instance=ExtResource("1")]
+layout_mode = 2
+texture = ExtResource("6")
+
+[node name="Crate2" parent="Column" unique_id=1138759331 instance=ExtResource("1")]
+layout_mode = 2
+texture = ExtResource("3")
+
+[node name="Crate3" parent="Column" unique_id=1462012178 instance=ExtResource("1")]
+layout_mode = 2
+texture = ExtResource("4")
+
+[node name="Crate4" parent="Column" unique_id=1852777459 instance=ExtResource("1")]
+layout_mode = 2
+texture = ExtResource("5")

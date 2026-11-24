@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bbtk4qiu26i1a"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cenbu4icsubte" path="res://course/common/turtle/DrawingTurtle.tscn" id="2"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Node2D
+
+@onready var drawing_turtle = $Pivot/DrawingTurtle as DrawingTurtle
+@onready var pivot = $Pivot as Node2D
+
+func run():
+	pivot.position = Vector2(-50, -100)
+	drawing_turtle.reset()
+	drawing_turtle.move_forward(100)
+	drawing_turtle.jump(-100, 50)
+	drawing_turtle.move_forward(100)
+	drawing_turtle.jump(-100, 50)
+	drawing_turtle.move_forward(100)
+	drawing_turtle.play_draw_animation()
+
+
+func reset():
+	drawing_turtle.reset()
+"
+
+[node name="ExampleJumpingTurtle" type="PanelContainer" unique_id=97505482]
+offset_right = 14.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1831895875 instance=ExtResource("1")]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+run_button_label = "draw_three_lines()"
+gdscript_code = "func draw_three_lines():
+	move_forward(100)
+	jump(-100, 50)
+	move_forward(100)
+	jump(-100, 50)
+	move_forward(100)
+"
+
+[node name="JumpingTurtle" type="Node2D" parent="RunnableCodeExample" unique_id=1285628139]
+script = SubResource("1")
+
+[node name="Pivot" type="Node2D" parent="RunnableCodeExample/JumpingTurtle" unique_id=627592574]
+
+[node name="DrawingTurtle" parent="RunnableCodeExample/JumpingTurtle/Pivot" unique_id=352053747 instance=ExtResource("2")]

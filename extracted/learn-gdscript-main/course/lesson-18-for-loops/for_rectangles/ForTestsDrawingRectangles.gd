@@ -1,0 +1,97 @@
+# Test that the user draws 3 squares of 100x100 at 200 pixel intervals on the X axis starting at position (100, 100)
+extends DrawingTurtlePracticeTester
+
+var expected_rect := [
+	Vector2(0, 0),
+	Vector2(100, 0),
+	Vector2(100, 100),
+	Vector2(0, 100),
+	Vector2(0, 0),
+]
+
+var _polygons := []
+var _points := []
+
+
+# We sort vertices for accurate comparison
+func _init() -> void:
+	expected_rect.sort()
+
+
+func _get_turtle() -> DrawingTurtle:
+	return _scene_root_viewport.get_child(0)
+
+
+func _prepare() -> void:
+	var turtle: DrawingTurtle = _scene_root_viewport.get_child(0)
+	_polygons = turtle.get_polygons()
+	for p in _polygons:
+		var square_points := Array(p.points)
+		square_points.sort()
+		_points.append(square_points)
+
+
+func _clean_up() -> void:
+	_points.clear()
+	_polygons.clear()
+
+
+func _define(checks: Array[Check]) -> void:
+	checks.append(Check.new(tr("Use a For Loop to Draw Rectangles"), tr(""), test_use_for_loop))
+	checks.append(Check.new(tr("Draw Three Squares"), tr(""), test_draw_three_squares))
+	checks.append(
+		Check.new(tr("Squares Are All 100 By 100"), tr(""), test_squares_are_all_100_by_100)
+	)
+	checks.append(
+		Check.new(tr("Shapes Are 100 Pixels Apart"), tr(""), test_shapes_are_100_pixels_apart)
+	)
+
+
+func test_use_for_loop() -> String:
+	var run_function := _analyzer.get_function_named("run")
+	if run_function:
+		for statement in run_function.get_body().get_statements():
+			if statement.get_type() != GDNode.FOR:
+				continue
+			for loop_statement in (statement as GDForNode).get_loop().get_statements():
+				if (
+					loop_statement.get_type() == GDNode.CALL
+					and (loop_statement as GDCallNode).get_function_name() == "draw_rectangle"
+				):
+					return ""
+	return tr("Your for loop needs to contain the code to draw the rectangles.")
+
+
+func test_draw_three_squares() -> String:
+	if not shape_count_is(3):
+		return tr("You drew %s squares but you need to draw 3.") % get_shape_count()
+	return ""
+
+
+func test_squares_are_all_100_by_100() -> String:
+	var index := 1
+	for p in _points:
+		var jumped_after_drawing_rects = (
+			index == 4 and _points.size() == 4 and _points.back().size() == 1
+		)
+		if jumped_after_drawing_rects:
+			break
+
+		if p != expected_rect:
+			return tr("Shape3D number %s is not a square of size 100 by 100.") % index
+		index += 1
+	return ""
+
+
+func test_shapes_are_100_pixels_apart() -> String:
+	if shape_count_fewer_than(3):
+		return tr("There are fewer than 3 shapes, we can't test if shapes are 100 pixels apart.")
+
+	var first_square = _polygons[0]
+	var second_square = _polygons[1]
+	var third_square = _polygons[2]
+	var first_to_second = abs(second_square.position.x - first_square.position.x)
+	var second_to_third = abs(third_square.position.x - second_square.position.x)
+	if not is_equal_approx(first_to_second, 200.0) or not is_equal_approx(second_to_third, 200.0):
+		return tr("Shapes are not separated by 100 pixels on the X axis.")
+	return ""

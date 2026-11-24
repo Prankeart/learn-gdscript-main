@@ -1,0 +1,52 @@
+extends Node2D
+
+const Robot = preload("uid://j80e0wbbulcy")
+
+@export var cell_size := 64
+@export var line_width := 4
+
+@onready var _label: Label = $Label
+@onready var _robot: Robot = $Robot
+
+
+func _ready() -> void:
+	_robot.cell_size = cell_size
+	_robot.cell = cell
+	queue_redraw()
+
+
+func _run() -> void:
+	move_to_bottom()
+	_robot.cell = cell
+	_update_label()
+	await get_tree().create_timer(0.5).timeout
+	Events.practice_run_completed.emit()
+
+
+# EXPORT move_to_end
+var board_size = Vector2(5, 5)
+var cell = Vector2(2, 0)
+
+func move_to_bottom():
+	for number in range(board_size.y - 1):
+		cell += Vector2(0, 1)
+# /EXPORT move_to_end
+
+
+func reset() -> void:
+	cell = Vector2(2, 0)
+	_robot.cell = cell
+	_update_label()
+
+
+func _draw() -> void:
+	for x in range(board_size.x):
+		for y in range(board_size.y):
+			draw_rect(Rect2(Vector2(x * cell_size, y * cell_size), Vector2.ONE * cell_size), Color.WHITE, false, line_width)
+
+
+func _update_label() -> void:
+	if not _label:
+		await self.ready
+
+	_label.text = "cell = Vector2%s" % [_robot.cell]

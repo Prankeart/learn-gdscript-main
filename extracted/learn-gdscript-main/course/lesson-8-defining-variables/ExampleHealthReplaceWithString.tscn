@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://crcorko4k2mio"]
+
+[ext_resource type="FontVariation" path="res://ui/theme/fonts/font_code.tres" id="1_xpgwp"]
+[ext_resource type="Script" uid="uid://ch5qpoqookmfv" path="res://course/common/GDScriptCodeExample.gd" id="2"]
+[ext_resource type="CodeHighlighter" path="res://ui/theme/gdscript_syntax_highlighter.tres" id="2_ew2ck"]
+
+[node name="GDScriptCodeExample" type="CodeEdit" unique_id=372428026]
+custom_minimum_size = Vector2(300, 140)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1531.0
+offset_bottom = -940.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_xpgwp")
+text = "var health = 100
+health = \"This is some text\""
+context_menu_enabled = false
+shortcut_keys_enabled = false
+scroll_smooth = true
+scroll_fit_content_height = true
+caret_blink = true
+syntax_highlighter = ExtResource("2_ew2ck")
+draw_tabs = true
+draw_spaces = true
+gutters_draw_line_numbers = true
+script = ExtResource("2")

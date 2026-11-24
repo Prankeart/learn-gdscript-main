@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bskt3heeshxda"]
+
+[ext_resource type="PackedScene" uid="uid://cn5borxmtwxd2" path="res://ui/components/popups/ErrorOverlayPopup.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bbgrunrjifab6" path="res://course/lesson-2-your-first-error/ErrorTranslatorExample.gd" id="2"]
+
+[node name="ErrorOverlayPopup" unique_id=1789853217 instance=ExtResource("1")]
+custom_minimum_size = Vector2(540, 0)
+script = ExtResource("2")
+
+[node name="ErrorLabel" parent="MarginContainer/Column" parent_id_path=PackedInt32Array(2038824587) index="0" unique_id=1311160456]
+text = "The function \"move\" already exists in this class (at line 22)."

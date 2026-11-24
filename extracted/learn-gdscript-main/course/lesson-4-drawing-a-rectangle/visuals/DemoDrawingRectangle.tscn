@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c44kpt3bq8vmv"]
+
+[ext_resource type="PackedScene" uid="uid://cenbu4icsubte" path="res://course/common/turtle/DrawingTurtle.tscn" id="1"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Node2D
+
+var turn := 90
+var size := Vector2(200, 120)
+
+@onready var _turtle: DrawingTurtle = $DrawingTurtle
+
+
+func run() -> void:
+	_turtle.reset()
+	_turtle.position = Vector2.ZERO
+	_turtle.move_forward(size.x)
+	_turtle.turn_right(turn)
+	_turtle.move_forward(size.y)
+	_turtle.turn_right(turn)
+	_turtle.move_forward(size.x)
+	_turtle.turn_right(turn)
+	_turtle.move_forward(size.y)
+	_turtle.play_draw_animation()
+
+	var rect := _turtle.get_rect()
+	_turtle.position = -rect.size / 2.0
+"
+
+[node name="DemoDrawingRectangle" type="Node2D" unique_id=1263097440]
+script = SubResource("1")
+
+[node name="DrawingTurtle" parent="." unique_id=1941481719 instance=ExtResource("1")]

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b4ssols74jdp4"]
+
+[ext_resource type="PackedScene" uid="uid://dnivj2puspmd7" path="res://course/common/Robot.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="2"]
+[ext_resource type="Script" uid="uid://duo53brwyhgp5" path="res://course/lesson-17-while-loops/visuals/Robot.gd" id="3"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "@tool
+extends RunnableCodeExample
+
+func _ready():
+	create_slider_for(\"board_width\", 1.0, 9.0, 1.0)
+	create_slider_for(\"board_height\", 1.0, 4.0, 1.0)
+
+func _set_instance_value(value: float, property_name: String, value_label: Label) -> void:
+	super._set_instance_value(value, property_name, value_label)
+	_gdscript_text_edit.text = gdscript_code.replace(property_name, \"%s [=%s]\"%[property_name, value])
+"
+
+[sub_resource type="GDScript" id="2"]
+script/source = "extends \"Board.gd\"
+
+
+func _update_label() -> void:
+	if not _label:
+		await self.ready
+
+	_label.text = \"board_size = Vector2%s\" % [grid_size]
+"
+
+[node name="ExampleGrid" type="PanelContainer" unique_id=1865103866]
+offset_right = 658.0
+offset_bottom = 384.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1320432847 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 370)
+layout_mode = 2
+script = SubResource("1")
+
+[node name="GridVisualNoRobot" type="Node2D" parent="RunnableCodeExample" unique_id=326538335]
+position = Vector2(100, 100)
+script = SubResource("2")
+
+[node name="Robot" parent="RunnableCodeExample/GridVisualNoRobot" unique_id=1261122494 instance=ExtResource("1")]
+visible = false
+scale = Vector2(0.75, 0.75)
+script = ExtResource("3")
+
+[node name="Label" type="Label" parent="RunnableCodeExample/GridVisualNoRobot" unique_id=862767899]
+offset_left = 287.0
+offset_top = -54.0
+offset_right = 440.0
+offset_bottom = -40.0
+text = "grid_size = Vector2(3, 3)"
+
+[node name="Timer" type="Timer" parent="RunnableCodeExample/GridVisualNoRobot" unique_id=2066999429]

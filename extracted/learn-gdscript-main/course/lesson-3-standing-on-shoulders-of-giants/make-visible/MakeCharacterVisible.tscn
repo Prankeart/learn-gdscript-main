@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b7bq2iykrg48x"]
+
+[ext_resource type="PackedScene" uid="uid://dnivj2puspmd7" path="res://course/common/Robot.tscn" id="1"]
+[ext_resource type="Script" uid="uid://by87fsagclbh3" path="res://course/lesson-3-standing-on-shoulders-of-giants/make-visible/MakeCharacterVisible.gd" id="4"]
+
+[node name="MakeCharacterVisible" unique_id=725868670 instance=ExtResource("1")]
+visible = false
+script = ExtResource("4")
+
+[node name="AnimationPlayer" parent="." index="0" unique_id=1751687262]
+autoplay = &"saying_hi"
+
+[node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=803081983]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c3kx4ovpoif3k"]
+
+[ext_resource type="Texture2D" uid="uid://b4n28mvmpccia" path="res://course/common/turtle/turtle.png" id="1"]
+
+[node name="Turtle" type="Sprite2D" unique_id=773649645]
+position = Vector2(20, 283)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1")

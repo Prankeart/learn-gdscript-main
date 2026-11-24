@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://5565jgtxayff"]
+
+[ext_resource type="Script" uid="uid://dcpcup5nppub7" path="res://ui/components/UnscaledLabel.gd" id="2_dwu3a"]
+[ext_resource type="Script" uid="uid://r14urqhc40oi" path="res://course/common/inventory/DictInventory.gd" id="3"]
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.0901961, 0.0941176, 0.188235, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4, 0.384314, 0.564706, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxLine" id="2"]
+color = Color(0.572549, 0.560784, 0.721569, 1)
+grow_begin = -100.0
+grow_end = -100.0
+thickness = 4
+
+[node name="DictInventory" type="PanelContainer" unique_id=503506075 node_paths=PackedStringArray("_grid")]
+offset_top = 44.0
+offset_right = 840.0
+offset_bottom = 1080.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("1")
+script = ExtResource("3")
+_grid = NodePath("Margin/Column/Grid")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1988023211]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Column" type="VBoxContainer" parent="Margin" unique_id=1309399759]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Margin/Column" unique_id=130503663]
+layout_mode = 2
+theme_type_variation = &"LabelBigTitle"
+theme_override_font_sizes/font_size = 28
+text = "Inventory"
+horizontal_alignment = 1
+script = ExtResource("2_dwu3a")
+forced_size = 28
+metadata/_custom_type_script = "uid://dcpcup5nppub7"
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Column" unique_id=1392971167]
+layout_mode = 2
+theme_override_styles/separator = SubResource("2")
+
+[node name="Grid" type="GridContainer" parent="Margin/Column" unique_id=1089221046]
+layout_mode = 2
+columns = 2

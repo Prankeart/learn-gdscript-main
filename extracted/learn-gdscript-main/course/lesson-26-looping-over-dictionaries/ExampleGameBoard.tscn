@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://7g8tysev1ws8"]
+
+[ext_resource type="PackedScene" path="res://course/lesson-26-looping-over-dictionaries/GameBoard.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="2"]
+
+[node name="Panel" type="PanelContainer" unique_id=886357242]
+offset_right = 1047.0
+offset_bottom = 298.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=71846550 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+scene = ExtResource("1")
+run_button_label = "run()"

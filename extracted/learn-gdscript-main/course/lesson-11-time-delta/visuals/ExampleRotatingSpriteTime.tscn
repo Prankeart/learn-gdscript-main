@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bijq211mp4240"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://c5wqgytppac4b" path="res://course/lesson-11-time-delta/visuals/DemoRotatingTime.tscn" id="2"]
+
+[node name="ExampleRotatingSpriteTime" type="PanelContainer" unique_id=331763510]
+offset_right = 1047.0
+offset_bottom = 298.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=637217334 instance=ExtResource("1")]
+layout_mode = 2
+scene = ExtResource("2")
+run_button_label = "set_process(true)"
+gdscript_code = "func _process(delta):
+	rotate(1 * delta)"

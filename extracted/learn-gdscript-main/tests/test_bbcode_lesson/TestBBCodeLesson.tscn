@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://nqcfo66u4dt"]
+
+[ext_resource type="PackedScene" path="res://ui/UILesson.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dwrmgrx6a6meh" path="res://tests/test_bbcode_lesson/TestBBCodeLessonLoader.gd" id="2"]
+
+[node name="TestBBCodeLesson" type="Node" unique_id=2140864621]
+script = ExtResource("2")
+
+[node name="UILesson" parent="." unique_id=1278977015 instance=ExtResource("1")]

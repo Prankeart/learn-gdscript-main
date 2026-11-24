@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://e7axuel6v8gg"]
+
+[ext_resource type="PackedScene" uid="uid://dnivj2puspmd7" path="res://course/common/Robot.tscn" id="1"]
+[ext_resource type="Script" uid="uid://brokelv6jp2j0" path="res://course/lesson-21-strings/string_error/StringError.gd" id="2"]
+
+[node name="StringError" unique_id=1144351778 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Camera2D" type="Camera2D" parent="." index="4" unique_id=383139623]
+
+[node name="Label" type="Label" parent="." index="5" unique_id=1516205708]
+clip_contents = true
+offset_left = -250.0
+offset_top = -127.0
+offset_right = 250.0
+offset_bottom = -99.0
+size_flags_vertical = 0
+theme_type_variation = &"LabelBoldText"
+text = "INVALID NAME"
+horizontal_alignment = 1
+clip_text = true

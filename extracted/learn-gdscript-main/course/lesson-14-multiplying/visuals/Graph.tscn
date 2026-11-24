@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ct75r36mr211y"]
+
+[ext_resource type="Script" uid="uid://dbumu6e3jwue8" path="res://course/lesson-14-multiplying/visuals/Graph.gd" id="1"]
+
+[sub_resource type="Curve2D" id="1"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(-243.974, 43.4138, 243.974, -43.4138, 0, 0, 0, 0, 0, 0, 250, -250)
+}
+point_count = 2
+
+[node name="Graph" type="Path2D" unique_id=1372557815 node_paths=PackedStringArray("_label_x", "_label_y")]
+curve = SubResource("1")
+script = ExtResource("1")
+_label_x = NodePath("LabelX")
+_label_y = NodePath("LabelY")
+
+[node name="LabelX" type="Label" parent="." unique_id=1993361408]
+self_modulate = Color(0.960784, 0.980392, 0.980392, 1)
+offset_top = 5.0
+offset_right = 250.0
+offset_bottom = 33.0
+text = "X"
+horizontal_alignment = 1
+
+[node name="LabelY" type="Label" parent="." unique_id=1541787055]
+offset_left = -35.0
+offset_right = 215.0
+offset_bottom = 28.0
+rotation = -1.5707964
+text = "Y"
+horizontal_alignment = 1

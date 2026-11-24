@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bfvoxx1nmlbt"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bps55s2pqvx7h" path="res://course/lesson-23-append-to-arrays/visuals/CrateStack.tscn" id="2"]
+
+[node name="PrintForLoop" type="PanelContainer" unique_id=803774538]
+offset_right = 14.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=506181912 instance=ExtResource("1")]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+scene = ExtResource("2")
+run_button_label = "use_top_crate()"
+gdscript_code = "var crates = [\"fire gem\", \"fire gem\", \"fire gem\"]
+
+func use_top_crate():
+	var crate = crates.pop_back()
+	use(crate)"

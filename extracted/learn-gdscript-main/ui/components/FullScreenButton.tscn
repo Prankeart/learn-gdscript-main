@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b2d1ct2pyf12k"]
+
+[ext_resource type="Texture2D" uid="uid://b6d2x4cwvdthm" path="res://ui/assets/icons/fullscreen_on.png" id="1"]
+[ext_resource type="Script" uid="uid://bp6pf57yvbjm8" path="res://ui/components/FullScreenButton.gd" id="2"]
+
+[node name="FullScreenButton" type="Button" unique_id=1975310508]
+custom_minimum_size = Vector2(24, 24)
+offset_right = 36.0
+offset_bottom = 30.0
+size_flags_vertical = 4
+tooltip_text = "Toggle the app full-screen.
+Shortcut: F11"
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+icon = ExtResource("1")
+flat = true
+script = ExtResource("2")

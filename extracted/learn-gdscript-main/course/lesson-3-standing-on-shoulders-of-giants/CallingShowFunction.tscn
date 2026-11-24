@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cora8cnhxniln"]
+
+[node name="CallingShowFunction" type="CodeEdit" unique_id=212361506]
+custom_minimum_size = Vector2(600, 160)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 160.0
+size_flags_horizontal = 3
+text = "func run():
+	show() # Makes an entity visible
+	hide() # Makes an entity invisible"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+caret_blink = true
+draw_tabs = true
+draw_spaces = true

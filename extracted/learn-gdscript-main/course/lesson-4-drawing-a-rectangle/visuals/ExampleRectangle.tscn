@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://u75yjkwvkbx0"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cenbu4icsubte" path="res://course/common/turtle/DrawingTurtle.tscn" id="3"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Node2D
+
+var turn := 90
+var size := Vector2(200, 120)
+
+@onready var _turtle: DrawingTurtle = $DrawingTurtle
+
+func _ready() -> void:
+	reset()
+
+func reset():
+	_turtle.reset()
+	_turtle.position = -size / 2
+
+func run() -> void:
+	reset()
+	_turtle.move_forward(size.x)
+	_turtle.turn_right(turn)
+	_turtle.move_forward(size.y)
+	_turtle.turn_right(turn)
+	_turtle.move_forward(size.x)
+	_turtle.turn_right(turn)
+	_turtle.move_forward(size.y)
+	_turtle.turn_right(turn)
+	_turtle.play_draw_animation()
+
+"
+
+[node name="ExampleRectangle" type="PanelContainer" unique_id=2051535775]
+offset_right = 14.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1795051290 instance=ExtResource("1")]
+custom_minimum_size = Vector2(700, 380)
+layout_mode = 2
+gdscript_code = "func run():
+	move_forward(200)
+	turn_right(90)
+	move_forward(120)
+	turn_right(90)
+	move_forward(200)
+	turn_right(90)
+	move_forward(120)
+	turn_right(90)"
+
+[node name="DemoDrawingRectangle" type="Node2D" parent="RunnableCodeExample" unique_id=1662000313]
+script = SubResource("1")
+
+[node name="DrawingTurtle" parent="RunnableCodeExample/DemoDrawingRectangle" unique_id=1360561404 instance=ExtResource("3")]

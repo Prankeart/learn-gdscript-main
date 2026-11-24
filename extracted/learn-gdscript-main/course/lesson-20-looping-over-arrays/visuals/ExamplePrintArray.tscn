@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://beyfdopdtkm77"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://ui/components/OutputConsole.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExampleDebugger.tscn" id="3"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends OutputConsole
+
+
+@onready var number = RunnableCodeExampleDebugger.UNINITIALIZED_VARIABLE_VALUE
+
+
+func run_coroutine(coroutine_controller: CoroutineController):
+	emit_signal(\"line_highlight_requested\", 0)
+	await coroutine_controller.step_requested
+	for i in range(3):
+		number = i
+		emit_signal(\"line_highlight_requested\", 1)
+		emit_signal(\"animate_arrow_requested\", [16 + (3*number),1], [5,6])
+		await coroutine_controller.step_requested
+		print_output([number])
+		emit_signal(\"line_highlight_requested\", 2)
+		await coroutine_controller.step_requested
+	coroutine_controller.finished.emit()
+
+
+func reset() -> void:
+	clear_messages()
+	number = RunnableCodeExampleDebugger.UNINITIALIZED_VARIABLE_VALUE
+"
+
+[node name="PrintForLoop" type="VBoxContainer" unique_id=1476802747]
+offset_right = 14.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1422108149 instance=ExtResource("1")]
+layout_mode = 2
+gdscript_code = "func run():
+	for number in [0, 1, 2]:
+		print(number)"
+
+[node name="OutputConsole" parent="RunnableCodeExample" unique_id=1465326814 instance=ExtResource("2")]
+layout_mode = 2
+size_flags_horizontal = 3
+script = SubResource("1")
+
+[node name="RunnableCodeExampleDebugger" parent="." unique_id=1301566218 instance=ExtResource("3")]
+layout_mode = 2
+monitored_variables = ["number"]

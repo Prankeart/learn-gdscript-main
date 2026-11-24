@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bmpdbveb54seh"]
+
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_normal.tres" id="1"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/focus_accent.tres" id="3"]
+[ext_resource type="Script" uid="uid://0vocrheblu2u" path="res://ui/components/BigGreenButton.gd" id="5"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_accent.tres" id="6"]
+
+[node name="BigGreenButton" type="Button" unique_id=1886883219]
+custom_minimum_size = Vector2(0, 80)
+offset_top = 896.0
+offset_right = 356.0
+offset_bottom = 976.0
+mouse_default_cursor_shape = 2
+theme_type_variation = &"ButtonBigGreen"
+theme_override_colors/font_pressed_color = Color(0.239216, 1, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(0.239216, 1, 0.431373, 1)
+theme_override_styles/normal = ExtResource("1")
+theme_override_styles/pressed = ExtResource("6")
+theme_override_styles/hover = ExtResource("6")
+theme_override_styles/focus = ExtResource("3")
+text = "Button"
+script = ExtResource("5")

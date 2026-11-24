@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bwtihelmbum2d"]
+
+[ext_resource type="PackedScene" path="res://ui/components/OutputConsole.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="2"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends OutputConsole
+
+var inventory = {
+	\"healing heart\": 3,
+	\"gems\": 5,
+	\"sword\": 1,
+}
+
+func run():
+	clear_messages()
+	for item_name in inventory:
+		var item_count = inventory[item_name]
+		print_output([item_name + \": \" + str(item_count)])
+
+func reset():
+	clear_messages()
+"
+
+[node name="Panel" type="PanelContainer" unique_id=1391935245]
+offset_right = 1047.0
+offset_bottom = 298.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=850223663 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+run_button_label = "run()"
+
+[node name="OutputConsole" parent="RunnableCodeExample" unique_id=1112728867 instance=ExtResource("1")]
+layout_mode = 2
+script = SubResource("1")

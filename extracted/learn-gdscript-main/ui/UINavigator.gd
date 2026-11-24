@@ -1,0 +1,437 @@
+class_name UINavigator
+extends PanelContainer
+
+signal return_to_welcome_screen_requested
+
+const CourseOutliner := preload("./screens/course_outliner/CourseOutliner.gd")
+const BreadCrumbs := preload("./components/BreadCrumbs.gd")
+const LessonDonePopup := preload("./components/popups/LessonDonePopup.gd")
+
+const SCREEN_TRANSITION_DURATION := 0.75
+const OUTLINER_TRANSITION_DURATION := 0.5
+
+var course_index: CourseIndex
+
+# If `true`, play transition animations.
+var use_transitions := true
+# If `true`, the initial load is forced to go to the outliner (provided default URL).
+var load_into_outliner := false
+
+var _screens_stack := []
+
+var _lesson_index := 0
+var _lesson_count: int = 0
+var _scene_tween: Tween
+
+var _has_pending_navigation := false
+var _pending_navigation_url := ""
+
+@onready var _home_button: Button = %HomeButton
+@onready var _outliner_button: Button = %OutlinerButton
+@onready var _back_button: Button = %BackButton
+@onready var _breadcrumbs: BreadCrumbs = %BreadCrumbs
+@onready var _settings_button: Button = %SettingsButton
+@onready var _report_button: Button = %ReportButton
+@onready var _screen_container: Container = %ScreenContainer
+@onready var _course_outliner: CourseOutliner = %CourseOutliner
+@onready var _lesson_done_popup: LessonDonePopup = %LessonDonePopup
+@onready var _margin_container: MarginContainer = %MarginContainer
+
+
+func _ready() -> void:
+	_lesson_count = course_index.get_lessons_count()
+	_course_outliner.course_index = course_index
+
+	NavigationManager.navigation_requested.connect(_navigate_to)
+	NavigationManager.back_navigation_requested.connect(_navigate_back)
+	NavigationManager.outliner_navigation_requested.connect(_navigate_to_outliner)
+
+	Events.practice_next_requested.connect(_on_practice_next_requested)
+	Events.practice_previous_requested.connect(_on_practice_previous_requested)
+	Events.practice_requested.connect(_on_practice_requested)
+
+	_lesson_done_popup.accepted.connect(_on_lesson_completed)
+
+	_outliner_button.pressed.connect(NavigationManager.navigate_to_outliner)
+	_back_button.pressed.connect(NavigationManager.navigate_back)
+	_home_button.pressed.connect(NavigationManager.navigate_to_welcome_screen)
+
+	_settings_button.pressed.connect(Events.settings_requested.emit)
+	_report_button.pressed.connect(Events.report_form_requested.emit)
+
+	if NavigationManager.current_url == "":
+		if load_into_outliner:
+			NavigationManager.navigate_to_outliner()
+		else:
+			if _lesson_index < 0 or _lesson_index >= course_index.get_lessons_count():
+				_lesson_index = 0
+			NavigationManager.navigate_to_lesson(
+				course_index.get_lesson_slug(_lesson_index),
+			)
+	else:
+		_navigate_to()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	# Workaround for a bug where pressing Left triggers ui_back in a popup even
+	# though the event is set to Ctrl+Alt+Left.
+	# warning-ignore:unsafe_property_access
+	if event.is_action_released("ui_back") and (event as InputEventWithModifiers).alt_pressed:
+		NavigationManager.navigate_back()
+
+
+func set_start_from_lesson(lesson_id: String) -> void:
+	if not course_index:
+		return
+
+	var matched_index := 0
+	for i in course_index.get_lessons_count():
+		var lesson := course_index.get_lesson_path(i)
+		if lesson == lesson_id:
+			_lesson_index = matched_index
+			break
+
+		matched_index += 1
+
+
+## Returns identifying information for the currently visible lesson or practice.
+func get_current_screen_issue_report_context() -> ReportContext:
+	var context := ReportContext.new()
+	if _screens_stack.is_empty():
+		return context
+	var screen := _screens_stack.back() as UINavigatablePage
+	if not is_instance_valid(screen):
+		return context
+	var resource := screen.get_screen_resource()
+	if resource and resource.tag == BBCodeParserData.Tag.PRACTICE:
+		var lesson := NavigationManager.get_navigation_resource(resource.bbcode_path) as BBCodeParser.ParseNode
+		var lesson_info := course_index.get_lesson_info(lesson.bbcode_path)
+		var practice_info := course_index.get_practice_info(
+			lesson.bbcode_path,
+			BBCodeUtils.get_practice_id(resource),
+		)
+		context.lesson_id = "L%d" % lesson_info.number
+		context.lesson_title = lesson_info.title
+		context.practice_id = "P%d" % (practice_info.index + 1)
+		context.practice_title = practice_info.title
+		context.file_path = resource.bbcode_path
+	elif resource:
+		var lesson_info := course_index.get_lesson_info(resource.bbcode_path)
+		context.lesson_id = "L%d" % lesson_info.number
+		context.lesson_title = lesson_info.title
+		context.file_path = resource.bbcode_path
+	if screen is UIPractice:
+		context.user_code = screen.get_user_code()
+	return context
+
+
+func set_margin_left(value: int) -> void:
+	_margin_container.add_theme_constant_override("margin_left", value)
+
+
+# Pops the last screen from the stack.
+func _navigate_back() -> void:
+	# Allowing to go back during a transition can cause the screen to get
+	# deleted. Keep the latest destination and process it after the transition.
+	if _scene_tween and _scene_tween.is_running():
+		_has_pending_navigation = true
+		_pending_navigation_url = NavigationManager.current_url
+		return
+
+	# A screen can be freed while another transition or a language change is
+	# rebuilding the current page. Do not keep invalid instances in history.
+	_screens_stack = _screens_stack.filter(func(screen: Node) -> bool: return is_instance_valid(screen))
+
+	# Nothing to go back to, open the outliner.
+	if _screens_stack.size() < 2:
+		_navigate_to_outliner()
+		return
+
+	var current_screen: UINavigatablePage = _screens_stack.pop_back()
+	var next_screen: UINavigatablePage = _screens_stack.back()
+	_update_back_button(_screens_stack.size() < 2)
+
+	var target := next_screen.get_screen_resource()
+	_breadcrumbs.update_breadcrumbs(course_index, target)
+
+	next_screen.set_is_current_screen(true)
+
+	await _transition_to(next_screen, current_screen, false)
+	if is_instance_valid(current_screen):
+		current_screen.queue_free()
+	_process_pending_navigation()
+
+
+# Opens the course outliner and flushes the screen stack.
+func _navigate_to_outliner() -> void:
+	if _scene_tween and _scene_tween.is_running():
+		_has_pending_navigation = true
+		_pending_navigation_url = ""
+		return
+
+	show()
+	_course_outliner.modulate.a = 0.0
+	_course_outliner.show()
+
+	_outliner_button.hide()
+	_back_button.hide()
+	_update_back_button(true)
+	_home_button.show()
+	_clear_history_stack()
+
+	if _scene_tween:
+		_scene_tween.kill()
+	_animate_outliner(true)
+	await _scene_tween.finished
+
+	_screen_container.hide()
+	_process_pending_navigation()
+
+
+# Navigates forward to the next screen and adds it to the stack.
+func _navigate_to() -> void:
+	# We're in the middle of a scene transition, so we queue the navigation to
+	# happen after it finishes.
+	if _scene_tween and _scene_tween.is_running():
+		_has_pending_navigation = true
+		_pending_navigation_url = NavigationManager.current_url
+		return
+
+	var target := NavigationManager.get_navigation_resource(NavigationManager.current_url)
+	if target == null:
+		printerr("UINavigator: Could not navigate to '%s' because its lesson failed to load." % NavigationManager.current_url)
+		return
+	var screen: UINavigatablePage
+	if target is BBCodeParser.ParseNode and target.tag == BBCodeParserData.Tag.PRACTICE:
+		var lesson := NavigationManager.get_navigation_resource(target.bbcode_path) as BBCodeParser.ParseNode
+		if lesson == null:
+			printerr("UINavigator: Could not load the lesson containing practice '%s'." % target.bbcode_path)
+			return
+		# Lesson numbers start as 1, we subtract to get the corresponding array index.
+		var lesson_number := course_index.get_lesson_number(lesson.bbcode_path)
+		_lesson_index = lesson_number - 1
+
+		var ui_practice_screen: UIPractice = preload("UIPractice.tscn").instantiate()
+		screen = ui_practice_screen
+		ui_practice_screen.setup(target, lesson, course_index, lesson_number)
+	elif target is BBCodeParser.ParseNode and target.tag == BBCodeParserData.Tag.LESSON:
+		var lesson_number := course_index.get_lesson_number(target.bbcode_path)
+		_lesson_index = lesson_number - 1
+
+		var ui_lesson_instance: UILesson = preload("UILesson.tscn").instantiate()
+		screen = ui_lesson_instance
+		ui_lesson_instance.setup(target, course_index, lesson_number)
+	else:
+		printerr("UINavigator: Trying to navigate to unsupported resource: %s" % target)
+		return
+
+	_outliner_button.show()
+	_home_button.hide()
+	_screen_container.show()
+	_breadcrumbs.update_breadcrumbs(course_index, target)
+
+	var has_previous_screen = not _screens_stack.is_empty()
+	_screens_stack.push_back(screen)
+	screen.set_is_current_screen(true)
+	_back_button.show()
+	_update_back_button(_screens_stack.size() < 2)
+
+	_screen_container.add_child(screen)
+	if has_previous_screen:
+		var previous_screen: UINavigatablePage = _screens_stack[-2]
+		previous_screen.set_is_current_screen(false)
+		await _transition_to(screen, previous_screen)
+
+	if _course_outliner.visible:
+		if _scene_tween:
+			_scene_tween.kill()
+		_animate_outliner(false)
+		await _scene_tween.finished
+
+	_course_outliner.hide()
+
+	if target.tag == BBCodeParserData.Tag.PRACTICE:
+		Events.practice_started.emit(target)
+	elif target.tag == BBCodeParserData.Tag.LESSON:
+		Events.lesson_started.emit(target)
+
+	_process_pending_navigation()
+
+
+## Processes any navigation requests that were queued while a screen transition
+## animation was in progress. Precisely, we jump straight to the last stored
+## destination in case the user was clicking quickly through the back and
+## forward buttons in the browser.
+func _process_pending_navigation() -> void:
+	if not _has_pending_navigation:
+		return
+
+	var pending_url := _pending_navigation_url
+	_has_pending_navigation = false
+	_pending_navigation_url = ""
+
+	if pending_url.is_empty():
+		if _screens_stack.is_empty() and _course_outliner.visible:
+			return
+		_navigate_to_outliner()
+		return
+
+	var target := NavigationManager.get_navigation_resource(pending_url)
+	if target == null:
+		return
+
+	_screens_stack = _screens_stack.filter(func(screen: Node) -> bool: return is_instance_valid(screen))
+	if not _screens_stack.is_empty():
+		var current_screen := _screens_stack.back() as UINavigatablePage
+		if current_screen.get_screen_resource() == target:
+			return
+		if _screens_stack.size() >= 2:
+			var previous_screen := _screens_stack[-2] as UINavigatablePage
+			if previous_screen.get_screen_resource() == target:
+				_navigate_back()
+				return
+
+	_navigate_to()
+
+
+func _on_practice_next_requested(practice: BBCodeParser.ParseNode) -> void:
+	var lesson_data := NavigationManager.get_navigation_resource(course_index.get_lesson_path(_lesson_index)) as BBCodeParser.ParseNode
+	var lesson_info := course_index.get_lesson_info(lesson_data.bbcode_path)
+	var practice_info := course_index.get_practice_info(
+		lesson_data.bbcode_path,
+		BBCodeUtils.get_practice_id(practice),
+	)
+	var practice_count := lesson_info.practices.size()
+	var index := practice_info.index
+	# This is the last practice in the set, try to move to the next lesson.
+	if index == practice_count - 1:
+		# Checking that it's the last practice is not enough.
+		# Check if all practices are completed before moving to the next lesson.
+		var user_profile = UserProfiles.get_profile()
+		var lesson_progress = user_profile.get_or_create_lesson(course_index.get_course_id(), lesson_data.bbcode_path)
+		var total_practices := practice_count
+		var completed_practices := lesson_progress.get_completed_practices_count(lesson_data)
+
+		# Show a confirmation popup and optionally tell the user that the lesson is incomplete.
+		_lesson_done_popup.set_incomplete(completed_practices < total_practices)
+		_lesson_done_popup.popup_centered()
+	else:
+		# Otherwise, go to the next practice in the set.
+		NavigationManager.navigate_to_practice(
+			course_index.get_lesson_slug(_lesson_index),
+			lesson_info.practices[index + 1].id,
+		)
+
+
+func _on_practice_previous_requested(practice: BBCodeParser.ParseNode) -> void:
+	var lesson_data := NavigationManager.get_navigation_resource(course_index.get_lesson_path(_lesson_index)) as BBCodeParser.ParseNode
+	var lesson_info := course_index.get_lesson_info(lesson_data.bbcode_path)
+	var practice_info := course_index.get_practice_info(
+		lesson_data.bbcode_path,
+		BBCodeUtils.get_practice_id(practice),
+	)
+	var index := practice_info.index
+	# This is the first practice in the set, there is no valid path, should be blocked by UI.
+	if index == 0:
+		return
+	# Otherwise, go to the previous practice in the set.
+	NavigationManager.navigate_to_practice(
+		course_index.get_lesson_slug(_lesson_index),
+		lesson_info.practices[index - 1].id,
+	)
+
+
+func _on_practice_requested(practice: BBCodeParser.ParseNode) -> void:
+	NavigationManager.navigate_to_practice(
+		course_index.get_lesson_slug(_lesson_index),
+		BBCodeUtils.get_practice_id(practice),
+	)
+
+
+func _on_lesson_completed() -> void:
+	var lesson := NavigationManager.get_navigation_resource(course_index.get_lesson_path(_lesson_index)) as BBCodeParser.ParseNode
+	Events.lesson_completed.emit(lesson)
+
+	_lesson_index += 1
+	if _lesson_index >= _lesson_count:
+		_on_course_completed()
+		return
+
+	_clear_history_stack()
+	NavigationManager.navigate_to_lesson(
+		course_index.get_lesson_slug(_lesson_index),
+	)
+
+
+func _on_course_completed() -> void:
+	Events.course_completed.emit(course_index)
+	hide()
+
+
+# Transitions a screen in.
+func _transition_to(screen: Control, from_screen: Control = null, direction_in := true) -> void:
+	if not use_transitions:
+		if from_screen:
+			from_screen.hide()
+			_screen_container.remove_child(from_screen)
+
+		if screen.get_parent() == null:
+			_screen_container.add_child(screen)
+		screen.show()
+
+		await get_tree().process_frame
+		return
+
+	if screen.get_parent() == null:
+		_screen_container.add_child(screen)
+	screen.show()
+
+	if from_screen:
+		from_screen.show()
+
+	var viewport_width := _screen_container.size.x
+	var direction := 1.0 if direction_in else -1.0
+	screen.position.x = viewport_width * direction
+
+	_animate_screen(screen, 0.0)
+	if from_screen:
+		_animate_screen(from_screen, -viewport_width * direction)
+
+	await _scene_tween.finished
+
+	if from_screen:
+		from_screen.hide()
+		_screen_container.remove_child(from_screen)
+
+
+func _animate_screen(screen: Control, to_position: float) -> void:
+	if not _scene_tween or not _scene_tween.is_valid():
+		_scene_tween = create_tween().set_parallel()
+	_scene_tween.tween_property(screen, "position:x", to_position, SCREEN_TRANSITION_DURATION).from(screen.position.x).set_trans(Tween.TRANS_CUBIC)
+
+
+func _animate_outliner(fade_in: bool) -> void:
+	if not _scene_tween or not _scene_tween.is_valid():
+		_scene_tween = create_tween().set_parallel()
+	_scene_tween.tween_property(_course_outliner, "modulate:a", 1.0 if fade_in else 0.0, OUTLINER_TRANSITION_DURATION).from(0.0 if fade_in else 1.0)
+
+
+func _clear_history_stack() -> void:
+	# Remove all screen nodes from the screen container.
+	for child_node in _screen_container.get_children():
+		_screen_container.remove_child(child_node)
+		child_node.queue_free()
+	_screens_stack.clear()
+
+	_breadcrumbs.update_breadcrumbs(course_index, null)
+
+
+func _update_back_button(is_disabled: bool) -> void:
+	_back_button.disabled = is_disabled
+	var tooltip := tr("Go back in your navigation history")
+	if is_disabled:
+		_back_button.mouse_default_cursor_shape = CURSOR_ARROW
+		tooltip += " " + tr("(no previous history)")
+	else:
+		_back_button.mouse_default_cursor_shape = CURSOR_POINTING_HAND
+	_back_button.tooltip_text = tooltip

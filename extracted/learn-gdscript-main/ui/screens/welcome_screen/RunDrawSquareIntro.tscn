@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cs7a0kna18mbq"]
+
+[ext_resource type="PackedScene" uid="uid://cloqb8kbudf4b" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://du3140jooy8eh" path="res://course/lesson-5-your-first-function/ExampleTurtleSquare.tscn" id="2"]
+
+[node name="ExampleMoveAndRotate" type="PanelContainer" unique_id=1859448814]
+offset_right = 14.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1774232715 instance=ExtResource("1")]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+scene = ExtResource("2")
+gdscript_code = "func draw_square():
+	move_forward(200)
+	turn_right(90)
+	move_forward(200)
+	turn_right(90)
+	move_forward(200)
+	turn_right(90)
+	move_forward(200)
+	turn_right(90)"

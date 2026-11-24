@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://df6jgt400t0p"]
+
+[ext_resource type="Script" uid="uid://bwxs3jthqymev" path="res://course/lesson-26-looping-over-dictionaries/GameBoard.gd" id="1"]
+
+[node name="GameBoard" type="Node2D" unique_id=1098542790]
+script = ExtResource("1")

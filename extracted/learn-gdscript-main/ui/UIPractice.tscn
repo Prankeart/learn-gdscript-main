@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://d1wli2hhmbpa5"]
+
+[ext_resource type="PackedScene" path="res://ui/components/CodeEditor.tscn" id="1"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_course_page.tres" id="2"]
+[ext_resource type="PackedScene" path="res://ui/screens/practice/PracticeInfoPanel.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://ui/components/GameView.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://ui/components/OutputConsole.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://ui/components/popups/PracticeListPopup.tscn" id="6"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/gdquestboy_frame.tres" id="7"]
+[ext_resource type="Script" uid="uid://krmqdqhmup2m" path="res://ui/UIPractice.gd" id="8"]
+[ext_resource type="PackedScene" path="res://ui/components/GDQuestLogo.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://ui/components/popups/PracticeDonePopup.tscn" id="10"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_sliceeditor.tres" id="11"]
+[ext_resource type="Script" uid="uid://sfilcjuvjf0w" path="res://ui/components/SliceEditor.gd" id="13_p3qxn"]
+[ext_resource type="CodeHighlighter" path="res://ui/theme/gdscript_syntax_highlighter.tres" id="13_x4rpt"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_sliceeditor_title.tres" id="14"]
+[ext_resource type="PackedScene" path="res://ui/components/popups/PracticeLeaveUnfinishedPopup.tscn" id="16"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_pressed.tres" id="17"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_hover.tres" id="18"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_normal.tres" id="19"]
+
+[node name="UIPractice" type="PanelContainer" unique_id=729081353]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = ExtResource("2")
+script = ExtResource("8")
+lesson_test_practice = "res://course/lesson-23-append-to-arrays/lesson.bbcode"
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=893784539]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="LayoutContainer" type="HBoxContainer" parent="Margin" unique_id=196783783]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="InfoPanelAnchors" type="Control" parent="Margin/LayoutContainer" unique_id=1419464107]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PracticeInfoPanel" parent="Margin/LayoutContainer/InfoPanelAnchors" unique_id=185118280 instance=ExtResource("3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(632, 0)
+layout_mode = 0
+anchors_preset = 0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_stretch_ratio = 2.0
+
+[node name="CodeEditor" parent="Margin/LayoutContainer" unique_id=1358399349 instance=ExtResource("1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="OutputAnchors" type="Control" parent="Margin/LayoutContainer" unique_id=2027420723]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Output" type="VBoxContainer" parent="Margin/LayoutContainer/OutputAnchors" unique_id=1711594311]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GameAnchors" type="Control" parent="Margin/LayoutContainer/OutputAnchors/Output" unique_id=1832469525]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="GameContainer" type="PanelContainer" parent="Margin/LayoutContainer/OutputAnchors/Output/GameAnchors" unique_id=980057957]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = ExtResource("7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/LayoutContainer/OutputAnchors/Output/GameAnchors/GameContainer" unique_id=1315366503]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 60
+
+[node name="GameView" parent="Margin/LayoutContainer/OutputAnchors/Output/GameAnchors/GameContainer/MarginContainer" unique_id=938078201 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Margin/LayoutContainer/OutputAnchors/Output/GameAnchors/GameContainer" unique_id=1302330179]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="GDQuestLogo" parent="Margin/LayoutContainer/OutputAnchors/Output/GameAnchors/GameContainer/Control" unique_id=1323049530 instance=ExtResource("9")]
+modulate = Color(0.572549, 0.560784, 0.721569, 1)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -27.0
+offset_right = 91.0
+offset_bottom = 29.0
+stretch_mode = 5
+
+[node name="Console" parent="Margin/LayoutContainer/OutputAnchors/Output" unique_id=1293509112 instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SolutionContainer" type="PanelContainer" parent="Margin/LayoutContainer/OutputAnchors" unique_id=1555732183]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(632, 0)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 632.0
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("11")
+
+[node name="Layout" type="VBoxContainer" parent="Margin/LayoutContainer/OutputAnchors/SolutionContainer" unique_id=1472495234]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Margin/LayoutContainer/OutputAnchors/SolutionContainer/Layout" unique_id=47742744]
+layout_mode = 2
+theme_type_variation = &"LabelSmallTitle"
+theme_override_styles/normal = ExtResource("14")
+text = "Suggested Solution"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Margin/LayoutContainer/OutputAnchors/SolutionContainer/Layout" unique_id=2102518020]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="SolutionEditor" type="CodeEdit" parent="Margin/LayoutContainer/OutputAnchors/SolutionContainer/Layout/MarginContainer2" unique_id=339453007]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/read_only = ExtResource("11")
+scroll_smooth = true
+caret_blink = true
+syntax_highlighter = ExtResource("13_x4rpt")
+draw_tabs = true
+draw_spaces = true
+gutters_draw_line_numbers = true
+script = ExtResource("13_p3qxn")
+metadata/_custom_type_script = "uid://sfilcjuvjf0w"
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/LayoutContainer/OutputAnchors/SolutionContainer/Layout" unique_id=1534775589]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/LayoutContainer/OutputAnchors/SolutionContainer/Layout/MarginContainer" unique_id=350442028]
+layout_mode = 2
+alignment = 2
+
+[node name="UseSolutionButton" type="Button" parent="Margin/LayoutContainer/OutputAnchors/SolutionContainer/Layout/MarginContainer/Buttons" unique_id=1146193704]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Use the suggested solution.
+
+Warning: Using the suggested solution will leave this practice unfinished.
+You can come back and try to solve it yourself later."
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = ExtResource("19")
+theme_override_styles/pressed = ExtResource("17")
+theme_override_styles/hover = ExtResource("18")
+text = "Use Solution"
+
+[node name="PracticeListPopup" parent="." unique_id=754442179 instance=ExtResource("6")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="PracticeDonePopup" parent="." unique_id=452314396 instance=ExtResource("10")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="PracticeLeaveUnfinishedPopup" parent="." unique_id=1625914016 instance=ExtResource("16")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+title = "Leave unfinished practice?"
+text_content = "You will lose your progress on this practice!"

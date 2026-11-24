@@ -1,0 +1,285 @@
+[gd_scene format=3 uid="uid://b262aihonoi1j"]
+
+[ext_resource type="Texture2D" uid="uid://dmlfrbv6h64bn" path="res://ui/screens/end_screen/assets/sky_evening.png" id="3"]
+[ext_resource type="Script" uid="uid://bwqonh3c7lsu3" path="res://ui/screens/end_screen/SponsorlessEndScreen.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://3h73b1mchlt" path="res://ui/components/QuitButton.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://b2d1ct2pyf12k" path="res://ui/components/FullScreenButton.tscn" id="7"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_breadcrumbs.tres" id="8"]
+[ext_resource type="Script" uid="uid://bqtsv6kpc77fd" path="res://ui/components/RichTextLabelRTL.gd" id="8_31trm"]
+[ext_resource type="Script" uid="uid://dmptnpr0crwmq" path="res://ui/components/SmoothScrollContainer.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://els4t00fq2ri" path="res://ui/screens/end_screen/assets/illustration.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://b2h3smb6gipdy" path="res://ui/assets/icons/navigation_outliner.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://ctp4gm4ns6paw" path="res://ui/screens/end_screen/assets/sky_dark.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://dxan5spd0hikk" path="res://ui/screens/end_screen/assets/sky_day_blurred.png" id="13"]
+
+[sub_resource type="GDScript" id="10"]
+script/source = "extends Button
+
+func _ready() -> void:
+	pressed.connect(get_tree().change_scene_to_file.bind(\"res://ui/UICore.tscn\"))
+"
+
+[sub_resource type="GDScript" id="2"]
+script/source = "@tool
+extends HBoxContainer
+
+@onready var tree := get_tree()
+
+
+func _ready() -> void:
+	resized.connect(update_size)
+
+
+func update_size() -> void:
+	await tree.process_frame
+	for control: Control in get_children():
+		var new_position: Vector2 = control.position
+		var texture_rect: TextureRect = control.get_child(0)
+		texture_rect.position.x = - new_position.x
+		texture_rect.size = size
+"
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0, 0.105882, 0.243137, 0.760784)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="6"]
+bg_color = Color(0.14902, 0.776471, 0.968627, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="7"]
+bg_color = Color(0.396078, 0.858824, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="8"]
+bg_color = Color(0.0666667, 0.564706, 0.807843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="9"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.290196, 0.294118, 0.388235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="Theme" id="5"]
+VScrollBar/styles/grabber = SubResource("6")
+VScrollBar/styles/grabber_highlight = SubResource("7")
+VScrollBar/styles/grabber_pressed = SubResource("8")
+VScrollBar/styles/scroll = SubResource("9")
+
+[node name="SponsorlessEndScreen" type="Control" unique_id=1326948828]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2495, 16)
+script = ExtResource("4")
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=1746897061]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="TopBar" type="PanelContainer" parent="Layout" unique_id=2130019217]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Layout/TopBar" unique_id=534145625]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 0
+
+[node name="ToolBarLayout" type="HBoxContainer" parent="Layout/TopBar/MarginContainer" unique_id=450720144]
+layout_mode = 2
+
+[node name="OutlinerButton" type="Button" parent="Layout/TopBar/MarginContainer/ToolBarLayout" unique_id=1890750419]
+layout_mode = 2
+tooltip_text = "Open the course index"
+mouse_default_cursor_shape = 2
+icon = ExtResource("11")
+flat = true
+script = SubResource("10")
+
+[node name="Control" type="Control" parent="Layout/TopBar/MarginContainer/ToolBarLayout" unique_id=1647374249]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullScreenButton" parent="Layout/TopBar/MarginContainer/ToolBarLayout" unique_id=423755220 instance=ExtResource("7")]
+layout_mode = 2
+
+[node name="QuitButton" parent="Layout/TopBar/MarginContainer/ToolBarLayout" unique_id=53106843 instance=ExtResource("5")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Layout" unique_id=441813052]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sky" type="HBoxContainer" parent="Layout/PanelContainer" unique_id=1310540402]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = SubResource("2")
+
+[node name="Control" type="Control" parent="Layout/PanelContainer/Sky" unique_id=914653240]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="TextureRect" type="TextureRect" parent="Layout/PanelContainer/Sky/Control" unique_id=84874309]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 993.0
+texture = ExtResource("13")
+expand_mode = 1
+
+[node name="Panel" type="PanelContainer" parent="Layout/PanelContainer/Sky/Control" unique_id=2094063253]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="Margin" type="MarginContainer" parent="Layout/PanelContainer/Sky/Control/Panel" unique_id=1433396239]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_right = 120
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Layout/PanelContainer/Sky/Control/Panel/Margin" unique_id=1062713070]
+layout_mode = 2
+theme = SubResource("5")
+script = ExtResource("9")
+
+[node name="Column" type="VBoxContainer" parent="Layout/PanelContainer/Sky/Control/Panel/Margin/ScrollContainer" unique_id=1688952681]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Layout/PanelContainer/Sky/Control/Panel/Margin/ScrollContainer/Column" unique_id=602054559]
+layout_mode = 2
+theme_type_variation = &"LabelTitle"
+text = "Congratulations!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layout/PanelContainer/Sky/Control/Panel/Margin/ScrollContainer/Column" unique_id=781735278]
+layout_mode = 2
+bbcode_enabled = true
+text = "You completed Learn GDScript From Zero. You now have the basics you need to make games with the Godot game engine.
+
+You can keep learning with the free series Getting Started with Godot."
+fit_content = true
+script = ExtResource("8_31trm")
+metadata/_custom_type_script = "uid://bqtsv6kpc77fd"
+
+[node name="Label4" type="Label" parent="Layout/PanelContainer/Sky/Control/Panel/Margin/ScrollContainer/Column" unique_id=2040361780]
+layout_mode = 2
+theme_type_variation = &"LabelTitle"
+text = "This is an Open-Source project!"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layout/PanelContainer/Sky/Control/Panel/Margin/ScrollContainer/Column" unique_id=592027266]
+layout_mode = 2
+bbcode_enabled = true
+text = "Like Godot, this app and course is free and open-source.
+
+You can find the app's source code and contribute translations here: Learn GDScript From Zero (Github repository)."
+fit_content = true
+script = ExtResource("8_31trm")
+metadata/_custom_type_script = "uid://bqtsv6kpc77fd"
+
+[node name="Control2" type="Control" parent="Layout/PanelContainer/Sky" unique_id=1249369151]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Layout/PanelContainer/Sky/Control2" unique_id=2031191017]
+modulate = Color(0.772549, 0.847059, 0.882353, 1)
+layout_mode = 0
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 993.0
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 1
+
+[node name="Illustration" type="TextureRect" parent="Layout/PanelContainer/Sky/Control2" unique_id=755769207]
+modulate = Color(0.964706, 0.964706, 0.964706, 1)
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -521.0
+offset_right = -13.0
+offset_bottom = 47.0
+mouse_filter = 2
+texture = ExtResource("10")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Control3" type="Control" parent="Layout/PanelContainer/Sky" unique_id=1445422038]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Layout/PanelContainer/Sky/Control3" unique_id=141570259]
+layout_mode = 0
+offset_left = -1600.0
+offset_right = 320.0
+offset_bottom = 993.0
+mouse_filter = 2
+texture = ExtResource("12")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout" unique_id=147918363]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Layout/HBoxContainer" unique_id=2069266706]
+custom_minimum_size = Vector2(0, 47)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+color = Color(0, 0.517647, 0.737255, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Layout/HBoxContainer" unique_id=1697151335]
+custom_minimum_size = Vector2(0, 47)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+color = Color(0.470588, 0.843137, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Layout/HBoxContainer" unique_id=1852583009]
+custom_minimum_size = Vector2(0, 47)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.517647, 0.737255, 1)

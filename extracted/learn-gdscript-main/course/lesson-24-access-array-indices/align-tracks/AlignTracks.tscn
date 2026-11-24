@@ -1,0 +1,152 @@
+[gd_scene format=4 uid="uid://cm5vnwww8kgi1"]
+
+[ext_resource type="Script" uid="uid://bnetds2wmrrvu" path="res://course/lesson-24-access-array-indices/align-tracks/AlignTracks.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://egfs80afokmk" path="res://course/lesson-24-access-array-indices/align-tracks/tracks.png" id="3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpdwl"]
+texture = ExtResource("3")
+margins = Vector2i(64, 0)
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-32, -32)
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tu6kv"]
+texture = ExtResource("3")
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q5ey"]
+texture = ExtResource("3")
+margins = Vector2i(0, 64)
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ttl6"]
+texture = ExtResource("3")
+margins = Vector2i(64, 64)
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r3llf"]
+texture = ExtResource("3")
+margins = Vector2i(128, 0)
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSet" id="1"]
+tile_size = Vector2i(64, 64)
+sources/5 = SubResource("TileSetAtlasSource_qpdwl")
+sources/6 = SubResource("TileSetAtlasSource_tu6kv")
+sources/7 = SubResource("TileSetAtlasSource_5q5ey")
+sources/8 = SubResource("TileSetAtlasSource_7ttl6")
+sources/9 = SubResource("TileSetAtlasSource_r3llf")
+
+[node name="AlignTracks" type="Node2D" unique_id=1912654425]
+script = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="." unique_id=637387557]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAAABQAAAAAABAABAAAABQAAAAAABAACAAAABQAAAAAABAADAAAABQAAAAAABAAEAAAABQAAAAAABAAFAAAABQAAAAAABAAGAAAABQAAAAAABAAHAAAABgAAAAAAAQAHAAEABQAAAAAAAQAHAAIABgAAAAAAAwAGAAIABQAAAAAABAAFAAIABQAAAAAABAAEAAIABQAAAAAABAADAAIABQAAAAAABAACAAIABQAAAAAABAABAAIABQAAAAAABAAAAAIABgAAAAAAAAAAAAMABQAAAAAAAQAAAAQABgAAAAAAAgABAAQABQAAAAAABAACAAQABQAAAAAABAADAAQABQAAAAAABAAEAAQABQAAAAAABAAFAAQABQAAAAAABAAGAAQABQAAAAAABAAHAAQABgAAAAAAAQAHAAUABgAAAAAAAwAGAAUABQAAAAAABAAFAAUABQAAAAAABAAEAAUABQAAAAAABAADAAUABQAAAAAABAACAAUABQAAAAAABAABAAUABQAAAAAABAAAAAUABgAAAAAAAAAAAAYABgAAAAAAAgABAAYABQAAAAAABAACAAYABQAAAAAABAADAAYABQAAAAAABAAEAAYACQAAAAAAAAAFAAYACQAAAAAAAAAGAAYABQAAAAAABAAHAAYACQAAAAAAAAA=")
+tile_set = SubResource("1")
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1563816691]

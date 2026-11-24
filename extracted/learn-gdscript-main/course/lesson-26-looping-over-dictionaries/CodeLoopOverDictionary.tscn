@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bixjexvnvlm06"]
+
+[ext_resource type="FontVariation" path="res://ui/theme/fonts/font_code.tres" id="1_46f1v"]
+[ext_resource type="Script" uid="uid://ch5qpoqookmfv" path="res://course/common/GDScriptCodeExample.gd" id="1_5686j"]
+[ext_resource type="CodeHighlighter" path="res://ui/theme/gdscript_syntax_highlighter.tres" id="2_cdjoa"]
+
+[node name="CodeExample" type="CodeEdit" unique_id=335898422]
+custom_minimum_size = Vector2(300, 150)
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -1620.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_46f1v")
+text = "func run():
+	for item_name in inventory:
+		print(item_name)"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+scroll_smooth = true
+scroll_fit_content_height = true
+caret_blink = true
+syntax_highlighter = ExtResource("2_cdjoa")
+draw_tabs = true
+draw_spaces = true
+gutters_draw_line_numbers = true
+script = ExtResource("1_5686j")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dvp48enkhi42l"]
+
+[ext_resource type="PackedScene" uid="uid://dnivj2puspmd7" path="res://course/common/Robot.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="2"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Node2D
+
+func run():
+	scale = Vector2.ONE * 1.5
+
+func reset():
+	scale = Vector2.ONE
+"
+
+[node name="PanelContainer" type="PanelContainer" unique_id=282676438]
+offset_right = 1047.0
+offset_bottom = 298.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1996742809 instance=ExtResource("2")]
+layout_mode = 2
+gdscript_code = "func run():
+	scale.x = 1.5
+	scale.y = 1.5"
+
+[node name="SetSpriteScale" parent="RunnableCodeExample" unique_id=715289240 instance=ExtResource("1")]
+script = SubResource("1")

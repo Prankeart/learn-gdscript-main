@@ -1,0 +1,58 @@
+# Godot-specific ignores.
+
+.godot/
+.import/
+export.cfg
+
+.mono/
+data_*/
+
+# Translated lessons - these are built on export.
+# Any local ones is just for local testing.
+lesson.*.bbcode
+lesson.meta
+
+# Translation POT files
+# These are checked into the weblate repo, not here
+*.pot
+
+
+# Allow-list of project addons.
+addons/*
+!addons/color_picker_presets
+!addons/learn_pot_extractor
+
+# Local overrides.
+override.cfg
+
+
+# Build artifacts and project exports.
+build/**/
+html_export/index.html
+course/**/*.lgd
+
+# Build system files.
+__pycache__/
+.cache/
+.venv
+.dev_local/
+
+
+# Dev tools.
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+
+# Extra ignores.
+
+# Custom templates.
+templates/*
+???custom-templates.zip
+
+# Downloaded build files.
+7z.so
+butler
+godot_server.x86_64
+libc7zip.so

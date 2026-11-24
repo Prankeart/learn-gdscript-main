@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dxqm84o1bmoho"]
+
+[ext_resource type="PackedScene" uid="uid://5565jgtxayff" path="res://course/common/inventory/DictInventory.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="2"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends DictInventory
+
+var initial_healing_heart_amount := 3
+
+
+func _ready() -> void:
+	inventory = {
+		\"healing heart\": initial_healing_heart_amount,
+		\"gems\": 5,
+		\"sword\": 1,
+	}
+	update_display()
+
+
+func run():
+	add_item(\"healing heart\")
+	update_display()
+
+
+func reset():
+	inventory[\"healing heart\"] = initial_healing_heart_amount
+	update_display()
+"
+
+[node name="Panel" type="PanelContainer" unique_id=682449764]
+offset_right = 1047.0
+offset_bottom = 298.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=106103867 instance=ExtResource("2")]
+custom_minimum_size = Vector2(0, 380)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 5
+run_button_label = "run()"
+
+[node name="DictInventory" parent="RunnableCodeExample" unique_id=525154064 instance=ExtResource("1")]
+layout_mode = 2
+size_flags_horizontal = 5
+script = SubResource("1")

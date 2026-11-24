@@ -1,0 +1,126 @@
+extends PanelContainer
+
+signal show_code_requested(file_name, line, character)
+signal explain_error_requested(error_code, error_message)
+signal external_explain_requested
+
+var message_severity := -1:
+	set = set_message_severity
+var message_text := "":
+	set = set_message_text
+var message_code := -1
+
+var external_error := false:
+	set = set_external_error
+var origin_file := "":
+	set = set_origin_file
+var origin_line := -1:
+	set = set_origin_line
+var origin_char := -1:
+	set = set_origin_char
+
+@onready var _severity_label: Label = %MessageSeverity
+@onready var _message_label: Label = %MessageValue
+@onready var _location_row: Control = %LocationRow
+@onready var _location_label: Label = %CodeLocation
+@onready var _external_label: RichTextLabel = %ExternalError
+@onready var _message_explain_button: Button = %ExplainButton
+
+
+func _ready() -> void:
+	_update_visuals()
+
+	_message_explain_button.pressed.connect(_on_explain_pressed)
+	_location_row.gui_input.connect(_location_row_gui_input)
+	_external_label.meta_clicked.connect(
+		func _on_external_error_meta_clicked(_meta: Variant) -> void:
+			external_explain_requested.emit(),
+	)
+
+	var _scene_tween := create_tween()
+	_scene_tween.tween_property(self, "self_modulate:a", 0.25, 1.5).from(1.0)
+
+
+func _update_visuals() -> void:
+	if not is_inside_tree():
+		return
+
+	_message_label.text = message_text
+	if external_error:
+		_location_row.hide()
+		_external_label.show()
+	else:
+		_external_label.hide()
+		_location_label.text = "line %d" % [origin_line + 1]
+		_location_row.show()
+
+	match message_severity:
+		MessageBus.MESSAGE_TYPE.ASSERT:
+			_severity_label.text = "ASSERT"
+			_message_label.add_theme_color_override("font_color", Color(1, 0.094118, 0.321569))
+			_severity_label.add_theme_color_override("font_color", Color(1, 0.094118, 0.321569))
+		MessageBus.MESSAGE_TYPE.ERROR:
+			_severity_label.text = "ERROR"
+			_message_label.add_theme_color_override("font_color", Color(1, 0.094118, 0.321569))
+			_severity_label.add_theme_color_override("font_color", Color(1, 0.094118, 0.321569))
+		MessageBus.MESSAGE_TYPE.WARNING:
+			_severity_label.text = "WARNING"
+			_message_label.add_theme_color_override("font_color", Color(1, 0.960784, 0.25098))
+			_severity_label.add_theme_color_override("font_color", Color(1, 0.960784, 0.25098))
+		_:
+			_severity_label.text = "INFO"
+			_message_label.add_theme_color_override(
+				"font_color",
+				Color(0.572549, 0.560784, 0.721569),
+			)
+			_severity_label.add_theme_color_override(
+				"font_color",
+				Color(0.572549, 0.560784, 0.721569),
+			)
+
+			_external_label.hide()
+			_message_explain_button.hide()
+
+	if message_code == -1:
+		_external_label.hide()
+		_message_explain_button.hide()
+
+
+func _location_row_gui_input(event: InputEvent) -> void:
+	var mb := event as InputEventMouseButton
+	if mb and mb.button_index == MOUSE_BUTTON_LEFT and not mb.pressed:
+		show_code_requested.emit(origin_file, origin_line, origin_char)
+
+
+func set_message_severity(value: int) -> void:
+	message_severity = value
+	_update_visuals()
+
+
+func set_message_text(value: String) -> void:
+	message_text = value
+	_update_visuals()
+
+
+func set_external_error(value: bool) -> void:
+	external_error = value
+	_update_visuals()
+
+
+func set_origin_file(value: String) -> void:
+	origin_file = value
+	_update_visuals()
+
+
+func set_origin_line(value: int) -> void:
+	origin_line = value
+	_update_visuals()
+
+
+func set_origin_char(value: int) -> void:
+	origin_char = value
+	_update_visuals()
+
+
+func _on_explain_pressed() -> void:
+	explain_error_requested.emit(message_code, message_text)

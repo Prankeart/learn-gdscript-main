@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cqoofiql2m16t"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="Script" uid="uid://c1iqndf17rg8x" path="res://course/lesson-6-multiple-function-parameters/visuals/DrawAnySquare.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c1lsq765yyg82" path="res://course/lesson-6-multiple-function-parameters/visuals/DemoDrawingSquares.tscn" id="3"]
+
+[node name="ExampleDrawAnySquare" type="PanelContainer" unique_id=45114383]
+custom_minimum_size = Vector2(0, 400)
+offset_right = 614.0
+offset_bottom = 114.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1512027388 instance=ExtResource("1")]
+layout_mode = 2
+script = ExtResource("2")
+scene = ExtResource("3")
+run_button_label = "draw_square(0.0)"
+gdscript_code = "func draw_square(size):
+	move_forward(size)
+	turn_right(90)
+	move_forward(size)
+	turn_right(90)
+	move_forward(size)
+	turn_right(90)
+	move_forward(size)
+	turn_right(90)"

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cmtugltqij4x6"]
+
+[ext_resource type="FontVariation" path="res://ui/theme/fonts/font_code.tres" id="1_a0ni1"]
+[ext_resource type="Script" uid="uid://ch5qpoqookmfv" path="res://course/common/GDScriptCodeExample.gd" id="1_k3boc"]
+[ext_resource type="CodeHighlighter" path="res://ui/theme/gdscript_syntax_highlighter.tres" id="2_3d3lp"]
+
+[node name="GDScriptCodeExample" type="CodeEdit" unique_id=849878868]
+custom_minimum_size = Vector2(300, 340)
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -1620.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_a0ni1")
+text = "var waiting_orders = []
+var completed_orders = []
+
+func add_order(meal_name):
+	waiting_orders.append(meal_name)
+
+func complete_current_order():
+	var first_order = waiting_orders.pop_front()
+	completed_orders.append(first_order)"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+scroll_smooth = true
+scroll_fit_content_height = true
+caret_blink = true
+syntax_highlighter = ExtResource("2_3d3lp")
+draw_tabs = true
+draw_spaces = true
+gutters_draw_line_numbers = true
+script = ExtResource("1_k3boc")

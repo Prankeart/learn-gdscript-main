@@ -1,0 +1,210 @@
+extends Node
+
+signal translation_changed()
+
+const I18N_ROOT := "res://i18n"
+const PO_EXTENSION := "po"
+const SHARED := preload("res://addons/learn_pot_extractor/Shared.gd")
+# OS.get_locale() is available, if we want to guess the language based on the OS setting.
+const DEFAULT_LOCALE := "en"
+
+const LOCALE_TO_LABEL := {
+	"fr": "Français",
+	"es": "Español",
+	"ja": "日本語",
+	"it": "Italiano",
+	"pt": "Português (Portugal)",
+	"pt_BR": "Português (Brasil)",
+	"zh_Hans": "中文",
+	"ru": "русский",
+	"de": "Deutsch",
+	"tr": "Türkçe",
+	"nl": "Nederlands",
+	"uk": "Українська",
+	"zh_Hant": "繁體中文",
+	"cs": "Čeština",
+	"da": "Dansk",
+	"ar": "عربي",
+}
+
+const RTL_LOCALES := [
+	"ar",
+	"he",
+	"fa",
+	"ur",
+	"ps",
+	"ckb",
+	"dv",
+	"syr",
+	"nqo",
+	"yi"
+]
+
+const COMPLETENESS_THRESHOLD := SHARED.TRANSLATION_COMPLETENESS_THRESHOLD
+
+var overall_tr_progress := { "en": 1.0 }
+var lesson_tr_data := {}
+
+var current_language := DEFAULT_LOCALE:
+	set = set_language
+
+var _loaded_translations := []
+
+
+func _ready() -> void:
+	var current_profile := UserProfiles.get_profile()
+	set_language(current_profile.language)
+
+	_update_language_completeness()
+
+
+func _update_language_completeness() -> void:
+	for lesson in DirAccess.get_directories_at("res://course"):
+		var meta_file := "res://course/%s/lesson.meta" % lesson
+		if FileAccess.file_exists(meta_file):
+			var meta_text := FileAccess.open(meta_file, FileAccess.READ).get_as_text()
+			var lesson_data: Dictionary = JSON.parse_string(meta_text)
+			lesson_tr_data["res://course/%s/lesson.bbcode" % [lesson]] = lesson_data
+
+	var total := 0
+	for lesson in lesson_tr_data:
+		@warning_ignore("unsafe_method_access")
+		total += lesson_tr_data[lesson].values()[0]["total"]
+
+	var counts := {}
+	for lesson in lesson_tr_data:
+		for lang in lesson_tr_data[lesson]:
+			var current: int = counts.get_or_add(lang, 0)
+			counts[lang] = current + lesson_tr_data[lesson][lang]["count"]
+
+	for lang in counts:
+		overall_tr_progress[lang] = counts[lang] / total
+
+
+func get_available_languages() -> Array:
+	var languages := []
+
+	for locale_code: String in overall_tr_progress:
+		var completeness: float = overall_tr_progress[locale_code]
+
+		if completeness < COMPLETENESS_THRESHOLD:
+			continue
+
+		var language_name: String = LOCALE_TO_LABEL.get(locale_code, "")
+		if language_name == "":
+			language_name = TranslationServer.get_locale_name(locale_code)
+
+		languages.append(
+			{
+				"code": locale_code,
+				"name": language_name,
+			},
+		)
+
+	return languages
+
+
+func get_translation_completeness(lesson_path: String) -> float:
+	if not lesson_path in lesson_tr_data:
+		return 0.0
+	var lang_data: Dictionary = (lesson_tr_data[lesson_path] as Dictionary).get(current_language, {})
+	return lang_data.get("count", 0.0) / lang_data.get("total", 1.0)
+
+
+## Returns a dictionary containing 3 keys: completeness,
+## fully_translated_lessons, and total_lessons. They're counts of the
+## translation progress for the given language.
+func get_translation_summary(language_code := "") -> Dictionary:
+	if language_code.is_empty():
+		language_code = current_language
+	var completeness: float = overall_tr_progress.get(language_code, 1.0 if language_code == DEFAULT_LOCALE else 0.0)
+	var fully_translated_lessons := 0
+	var total_lessons := lesson_tr_data.size()
+
+	for lesson_path in lesson_tr_data:
+		var lesson_data: Dictionary = lesson_tr_data[lesson_path]
+		var translation_data: Dictionary = lesson_data.get(language_code, {})
+		if translation_data.get("percent", 0.0) >= 1.0:
+			fully_translated_lessons += 1
+
+	return {
+		"completeness": completeness,
+		"fully_translated_lessons": fully_translated_lessons,
+		"total_lessons": total_lessons,
+	}
+
+
+func current_translation_is_rtl() -> bool:
+	return current_language in RTL_LOCALES
+
+
+func set_language(language_code: String) -> void:
+	if current_language == language_code:
+		return
+
+	current_language = language_code
+	var current_profile := UserProfiles.get_profile()
+
+	# Remove existing translations from the translation server.
+	if _loaded_translations.size() > 0:
+		for position: Translation in _loaded_translations:
+			TranslationServer.remove_translation(position)
+
+		_loaded_translations = []
+
+	# If the language is set to the default locale, we don't need to do anything else.
+	if current_language == DEFAULT_LOCALE:
+		TranslationServer.set_locale(current_language)
+		current_profile.language = current_language
+		current_profile.save()
+		translation_changed.emit()
+		return
+
+	# Load order shouldn't be important, so we'll just load everything from the folder.
+	var locale_dir_path := I18N_ROOT.path_join(current_language)
+
+	if not DirAccess.dir_exists_absolute(locale_dir_path):
+		printerr("Failed to change language to '%s': Language folder does not exist." % [current_language])
+		_reset_language()
+		return
+
+	var fs := DirAccess.open(locale_dir_path)
+	if not fs:
+		printerr("Failed to open language folder for '%s': Error code %d" % [current_language, DirAccess.get_open_error()])
+		_reset_language()
+		return
+
+	for file in fs.get_files():
+		if not file.get_extension() == PO_EXTENSION:
+			continue
+
+		var full_path := locale_dir_path.path_join(file)
+		if not ResourceLoader.exists(full_path):
+			printerr("Language file at '%s' is not recognized as a valid resource." % [full_path])
+			continue
+
+		var position := ResourceLoader.load(full_path, "Translation") as Translation
+		if not position:
+			printerr("Language resource at '%s' has failed to load." % [full_path])
+			continue
+
+		_loaded_translations.append(position)
+
+	# Add loaded translations to the translation server.
+	for position: Translation in _loaded_translations:
+		TranslationServer.add_translation(position)
+
+	# Set the language to update the app.
+	TranslationServer.set_locale(current_language)
+	current_profile.language = current_language
+	current_profile.save()
+	translation_changed.emit()
+
+
+func _reset_language() -> void:
+	current_language = DEFAULT_LOCALE
+	TranslationServer.set_locale(current_language)
+
+	var current_profile := UserProfiles.get_profile()
+	current_profile.language = current_language
+	current_profile.save()

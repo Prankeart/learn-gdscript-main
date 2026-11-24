@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dqfrteq5dm5e1"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=1099896765]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="GDScriptCodeExample" type="CodeEdit" parent="." unique_id=398942480]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "call(\"show\")"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+caret_blink = true
+draw_tabs = true
+draw_spaces = true
+
+[node name="GDScriptCodeExample2" type="CodeEdit" parent="." unique_id=1559195064]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "show()"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+caret_blink = true
+draw_tabs = true
+draw_spaces = true

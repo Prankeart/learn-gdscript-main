@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dtiwa4654r51s"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://ui/components/OutputConsole.tscn" id="2"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends OutputConsole
+
+func run():
+	clear_messages()
+	print_output([Vector2.ONE * 10])
+"
+
+[node name="Example" type="PanelContainer" unique_id=1071290998]
+offset_right = 771.0
+offset_bottom = 414.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1061163203 instance=ExtResource("1")]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+gdscript_code = "func run():
+	print(Vector2(1, 1) * 10)"
+
+[node name="OutputConsole" parent="RunnableCodeExample" unique_id=953672878 instance=ExtResource("2")]
+layout_mode = 2
+script = SubResource("1")

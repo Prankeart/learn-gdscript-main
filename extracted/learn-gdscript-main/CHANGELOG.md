@@ -1,0 +1,1110 @@
+# Changelog
+
+This document lists changes between releases.
+
+## Learn GDScript From Zero 2.5.1 (2026-11-24)
+
+### Improvements and changes
+
+- Use VSync on desktop
+
+### Bug fixes
+
+- Fix dragging and dropping selection in code examples moving the code
+- Fix regression in translation detection causing some translated lines to remain in English
+
+## Learn GDScript From Zero 2.5.0 (2026-10-29)
+
+### Improvements and changes
+
+- Remove uses of separation lines, add a couple of subtitles to better structure lessons (#1431)
+- Turn a couple of remaining instances of inline code that wasn't being highlighted into proper code listings.
+- L14.P2: reworked exercise tests to support more valid solutions and also offer better feedback on what might be missing
+
+### Bug fixes
+
+- Fix getting 2 copies of text in practice screen when changing the language setting while on the practice screen
+- Add the correct indentation to new code blocks when entering them (#1451)
+- Fix Opt+number not working in practice code editor on macOS (#1428)
+
+## Learn GDScript From Zero 2.4.0 (2026-10-28)
+
+### Added
+
+- Added error explanation for "void assignment", e.g. when we're trying to use the return value of a function call that doesn't return a value.
+- L19: Add reminder in a note that for loop cursor variable names are arbitrary
+
+### Improvements and changes
+
+- Make scroll bar color less contrasted
+- Center all pop-up windows more consistently regardless of the selected language
+- L23.P2: rename checks to avoid confusion
+- L23.P1: Make the inventory values visible in the code and match the inventory displayed on the right
+- L6.P3: Add a note to remind which functions the turtle knows and how to use them
+- Add back support for scrolling up and down with arrow keys (#1438)
+- Rework code syntax highlighting to follow the default theme in Godot + use the same highlighting style in lessons and practices (#1357, #1411)
+
+### Bug fixes
+
+- Fix little dot sometimes drawing on code listings with an animated debug arrow
+- Fix type hints like `String` and `Vector2` not being highlighted in practice code (#1434)
+- Fix properties like `item_count` or `gravity` being highlighted as if they were built-in types in code listings (#1449, #1429)
+- Fix code blocks in quizzes having no syntax highlighting (#1422)
+- L19.P2: Fix documentation not displaying
+- Fix unfinished practice pop up and confirmation pop up shooting out of the view (#1417)
+- L11.P1: Make the solution check more lenient. Fix return keyword preventing the code is time dependent check from passing (#1418)
+- L23: Fix code of inventory runnable example getting duplicated when changing the language
+- L25.P2: Fix literal closing code tag showing in practice hint
+- L12: Fixed regression where an error message would show placeholder text (#1445)
+- L26 and L27: fixed two code examples missing syntax highlighting (#1444)
+
+## Learn GDScript From Zero 2.3.0 (2026-09-30)
+
+### Added
+
+- Add error explanation for value being called as a function or not being a function (#1392, #1393)
+- Add error explanation for unsafe property access.
+
+### Improvements and changes
+
+- L1: Remove the "Is this for Godot 4?" note
+- L5.P2: Add check that the learner reuses the draw_square() function (#869)
+- L9.P1: Clarify the practice goals (#815)
+- L17.P1: clarify the practice goal and hints, add variables for context on the practice state, and improve the test feedback (#1395)
+- L16.P1, L17.P1, L17.P2: Prevent passing with an empty loop (#1019)
+- L17.P1: Clarify moving to the end of the board, improve practice feedback (#985)
+- L18: Change some presented array values to distinguish them from accessed indices (#892)
+- L23: Correct hashing algorithm explanation (#925)
+
+### Bug fixes
+
+- Fix send report button not working (#1390)
+- Fix health bar not updating correctly in L9 (#1391)
+- Fix visibility of labels in certain practices (they would scale with the text size setting) (#1386)
+- L20.P2: Fix animation playback not respecting the user-given array (#1399)
+- Fix not being able to run a practice after restoring code (#1397)
+- Fix lesson completed pop up having buttons sometimes go out of the screen after completing the last practice when running the app in another language (#1396)
+- L14.P2: Fix practice tests rejecting correct solutions that didn't reassign amount (#1388)
+- Fix some code examples having a small vertical scroll bar.
+- L1: Fix links to games not opening in the browser
+
+
+## Learn GDScript From Zero 2.2.0 (2026-08-31)
+
+### Improvements and changes
+
+- Added error explanations for standalone functions and standalone expressions.
+- Added a detection and suggestion for typos in learner code. Now, if you miss a letter or get a name a bit wrong in a practice, the app will warn you and suggest the most likely correct name.
+
+### Bug fixes
+
+- L23.P1: make reset button reset the used inventory items
+- L25.P1 and L25.P2: Updated practice tests to allow more valid solutions to pass.
+- L26.P1: Fix an edge case where the label would be left with stale state across multiple runs
+
+## Learn GDScript From Zero 2.1.0 (2026-08-16)
+
+### Improvements and changes
+
+- Improved recursive call detection to help prevent infinite loops in GDScript. It will now catch many more cases of recursive calls that could cause the app to freeze.
+- Added infinite loop detection to for loops.
+- Added explanation for error message "Function x not found in base y."
+- Added explanation for error message "Invalid operands 'x' and 'y' for assignment operator."
+- Added Tamil and Khmer fonts for Tamil and Central Khmer translations, so the app now supports both languages.
+- Simplified error display in practice screen.
+- L14.P1, L15.P1, L21.P1, L22.P1: add explicit mention of how or many times the function will be called.
+- L15.P1: Edit misleading check (#883)
+
+### Bug fixes
+
+
+- On GDSchool, fix the fullscreen button not working when the page was already fullscreen.
+- Fix Spanish lessons stopping at 22.
+- Fixed walking over brace undoing text written inside freshly inserted code.
+- L3: Fixed two glossary terms not showing anything on click.
+- L6.P3: Fixed loops with incorrect output allowing passing the practice.
+- L14.P2: Fixed level >= 3 failing passing the practice despite being valid code.
+- L18.P1: Fixed invalid code in array passing the practice.
+
+## Learn GDScript From Zero 2.0.0 (2026-08-07)
+
+This new version of the app is a rewrite of Learn GDScript in Godot 4 that refines the overall user experience. The bulk of the work for this release happened behind the scenes and will be largely transparent to users, but it was necessary as it enables certain bug fixes we couldn't have made otherwise and it'll make it easier to improve the app moving forward.
+
+### Added
+
+- Show translation progress on lesson cards in the course outline
+- Add right-to-left text direction support for languages like Arabic (note: Arabic community translation completion rate is very low at this time so we've not included it in the language options yet)
+- Redesigned the issue report popup to make it more user-friendly and not require a GitHub account
+- Added translation support to parts of the app that were missing it, like practice check labels and hints
+- Improved protection for infinite loops. The app will now prevent various cases of `while` and `for` loops from freezing the app when they append to the collection they iterate over (#960)
+
+### Improvements and changes
+
+- Change lesson and practice display in breadcrumbs, lesson selection screen, practice titles, and practice selection buttons to be consistent and match the rest of [GDSchool](https://school.gdquest.com/courses/learn_2d_gamedev_godot_4/learn_gdscript/learn_gdscript_app)
+- Improve the user experience around languages other than English by indicating overall translation completion rate and completion status for each lesson
+- Improve placement of practice screen buttons, notably in languages other than English. They will now better wrap to avoid pushing content in the left or right panes
+- UI: Give GDQuest credits label more space and align right so it doesn't wrap in other languages
+- Allow reliably running scroll shortcuts on the lesson screen
+- Improve smooth scrolling, make it framerate-independent
+- L18: Range() list examples rendering in lesson 18 (#1240)
+- Renamed settings in the settings menu and gave each a tooltip for more clarity
+- Rework error code messages to match Godot 4 output and rewrote error parsing system to match Godot 4's error messages
+- Add information about community translations and language overall completion rate to language settings
+- Edit the report form, add direct link to translations repository
+- Change lesson and practice display numbers to be consistent with GDSchool and GDPractice across the app, e.g. L4.P2
+- Course outline: Align labels baseline in the lesson list on the left, disable horizontal scrollbar
+- Replace "unwrap" with correct term "unroll" in lesson content
+- Output console: Wrap explanation message when errors are inaccessible to script verifier
+- Centralize GDQuest Boy label on practice completion; fixes #1277
+- Corrected text referencing a function named "moved" instead of "move_local_xy", and updated function parameters to match
+- Translations: Remove locales for languages that are too incomplete. They'll be re-added when the translation progress is higher.
+- Remove the old mention of Tesla, focus on games, add mentions of Buckshot Roulette and Slay the Spire 2 as more recent Godot games
+- Render at the real screen resolution in the browser (#1183)
+- You can now use Command-C and Command-V to copy and paste within the application on macOS (#711)
+- L6.P1 to L6.P4: Add checks to detect when nothing was drawn, giving more precise feedback when the student left the code empty
+- L9: clarify the question in quiz asking about the result of subtracting amount
+- L11.P1 and L11.P2: Improve feedback messages, make practice tests a bit more lenient
+- L13.P1, P2, and P3: Improve practice descriptions, make execution explicit, add explicit health property definition
+- L14.P2: Made the last hint more specific, added another hint for more progressive disclosure
+- L16.P1: Rewrite and improve the practice description and hints
+- L17: clarify that the for loop and while loop work the same way only when cell.x starts at 0
+- L17: make the unrolled array use different values to not risk confusing the values with indices
+- L20.P2: Improve presentation, show the combo variable definition in starter code
+- L22.P1: clarify the exercise, show starting data
+- L24.P1: Correct first hint which pointed to incorrect syntax for this specific practice
+- L27.P2: Improve practice tests and feedback messages, check for integer values to prevent silent type coercion
+- Re-completed french translation. All other languages remain partially translated.
+
+### Fixed
+
+- Fix underlined words sometimes being more than needed or failing in translated languages. Changed the glossary system to use hand-placed tags with a dedicated, translatable label
+- Fix code starting with an underscore not being colored correctly in lesson text
+- Fix board labels display having decimal vector numbers that were too large for the GDQuest boy
+- Fix main menu continue button not getting updated when language changes
+- Fix glossary popup not resizing because it's hidden
+- Fix grammar in sentence "It tells you can't"
+- Fix main menu never appearing if we skipped welcome screen
+- Fix non-autocompleted typo in base quiz script
+- Fix offset on arrow animation debugger
+- Fix parameter named length instead of size
+- Fix some animations using incorrect number types
+- Fix some lesson buttons appearing in front of the loading screen when pressing continue from the main menu
+- Fix double fade animations when continuing after completing a practice or when completing the last practice of a lesson
+- Fix browser forward causing the application to navigate back
+- Fix browser history losing sync with the app when pressing forward in the browser quickly multiple times in a row (For example, going back twice from a practice to the course outliner and then pressing forward twice quickly would stop the app at the lesson and desynchronize the browser history with the app)
+- Fix visual jitter and double walk when walking over existing brackets when typing a matching character
+- L5.P2: Fix overlapping squares passing the practice
+- L10.P1: Fix negative rotations passing the practice successfully
+- L14.P1: Require multiplication to complete the practice
+- L15.P2: Fix robot not updating in viewport with student code (#1242)
+- L17.P1: Correctly reset the robot to its starting cell when pressing the reset button
+- L10, L11: Fix robot not being moved by move_local_x (#1229)
+- Fixed the typo of 'length' with 'size' as the correct argument, closes #1224 (#1226)
+- Use debug templates in export_presets & defer run to prevent crashes of verification function (#1222)
+- Fix matching brace close not working correctly on macOS desktop (#712)
+- Fix practice scene not loading on Chrome browser on macOS (#583)
+- Fix placement issues in particular for long glossary entries that could end up cropped (#932)
+- L7.P2: Fix turtle position not resetting after running code (#866)
+- L20.P1: Fix practice validation logic (#1212)
+- Fix crash in L23 when running certain code caused the program to close (#826)
+- L18.P1: Fix crash when rotating the board causes the app to crash (#910)
+- L19.P1: Fix code allowing running without move_to() argument and spaces in function call preventing code from getting validated (#916, #734)
+- L22.P1: Rework meals display, fix animations and transition issues
+- L22.P1: Prevent infinite loop from freezing the browser when constantly refilling the array (#960)
+- L22.P2: Fix crates display sometimes overflowing the gdquest boy or being too clumped up (#802)
+- L22.P2: Add support for getting the correct display output if using pop_front() (#957)
+- L23: Fix examples getting cropped when making the text size minimal (#816)
+
+### Docs
+
+- Add coding and testing guidelines for the project
+- For developers and contributors:
+  - Document where to get the custom build of Godot Learn GDScript runs on
+  - Add stub documentation giving a brief overview of GDScript AST analysis
+
+### Technical (developer-focused)
+
+- Removed former resource-based lesson data system
+  - Introduced our own BBCode parser and BBCode for authoring lesson content
+  - Removed former lesson editor and associated tools
+  - Implemented new CLI navigation tools based on GDSchool-type labels (L5.P2 etc.)
+- Refactored practice handling, removed need to go manually rebuild practices to update them
+- Rewrote the CI and implemented new integration test and translation/parsing test
+- Built a new translation pipeline to avoid breaking translations when tweaking the English version of the app and facilitate translations
+- Added support for GDScript AST analysis in practices
+- Cleaned up and reorganized some project files
+- Refactored practices not to use reflection for translation support
+- Reimplemented app in Godot 4.6, adjusted many uses of APIs like Tween, OS.time to use Time equivalents, etc.
+
+## Learn GDScript From Zero 1.8.0
+
+*Released on January 18, 2026*
+
+We've been working hard to improve the app's stability and make the lessons clearer for everyone! Because this version addresses many issues and notably updates the content, it affects many translations that will need to be updated. Translations are a community effort, so if you'd like to help, please check out the [translation repository](https://github.com/GDQuest/learn-gdscript-translations/).
+
+In this update we've added extra processing to the translations to split them up into smaller chunks, meaning that content updates invalidate fewer translations, which reduces the workload of updating translations.
+
+### Improvements to lessons and practices
+
+- We rewrote L6 (function parameters) to make it easier to understand. The lesson now better explains how the app will run and test your code in practice exercises.
+- Fixed several edge cases or code patterns with the turtle that wouldn't pass practices when it ideally should (in lessons 5, 20, 22, 24, and 25). This affected in particular code patterns that were valid but not taught in the lessons, for example, notably for people who already had a little prior programming experience.
+- Added error message explanations when you use unknown characters in your code, or when you mix tabs and spaces for indentation.
+- Made error explanations clearer and more helpful throughout the app. Notably, we added better documentation about how arguments work, and added a code example to illustrate the concept.
+- L21 now accepts when you use your own variable names in for loops instead of only the exact names we suggested.
+- Fixed L24.P1, it now correctly checks dictionary values and won't get stuck if you add extra items.
+- L11 now has more accurate information and clearer explanations about how things work.
+- L16.P1 now has a clearer description of what the board size variable does.
+- Improved L17's introduction to avoid confusion.
+- L21 was reworked completely, it has simpler practice, clearer explanations, and a new grid demo visual to help you understand how functions return results.
+- L22 also got a rework to be easier to follow. We removed the type inference marker from practices where it hadn't been explained yet.
+- Reworked L25 to be more consistent throughout and corrected several small issues.
+
+### Practice and code validation improvements
+
+- The app now better protects you from creating infinite loops that could freeze everything. In some cases, the former while loop protection would fail to detect certain common infinite loops beginners might write. We notably fixed an issue where the app would incorrectly report infinite loops in L16 and L22 with certain code patterns.
+- Added support for detecting more errors like trying to assign values to expressions or constants, to provide an explanation.
+- The code checker now accepts optional semicolons at the end of lines (it's valid GDScript syntax and some students like to use them).
+- L12 now properly requires you to use `angular_speed * delta` in the rotate function.
+- L11 practices won't pass anymore if you rotate more than expected.
+- L26.P1 now checks the exact text instead of just part of it, which makes validation more accurate.
+- Fixed the drawing turtle to handle positions better and avoid visual bugs.
+- You can now use spaces before type hints (like before the `:` character) in the last lesson's practices.
+
+### Interface updates
+
+- Code examples in lessons now create horizontal scrollbars instead of wrapping lines, which makes them more reliable. This notably fixes an issue that in some cases the text wrapping would fail and leave some small pieces of code hidden and inaccessible.
+- Fixed the revealer bar in lessons that sometimes wouldn't take the full width of the UI layout. They now reliably cover the full width from the start.
+- L10's code blocks now take up the full width and scale properly with different font sizes.
+- The welcome menu adjusts its size better when translations are longer.
+- Fixed a typo in the interactive variable values display.
+
+### Translation and language support
+
+- Split translations into smaller chunks to make them easier to update and reduce the number of translations to review and redo when content changes.
+- Updated translation files throughout the app.
+
+### Technical changes for developers
+
+- Updated to Godot 3.6.2
+- Optimized Godot builds to exclude several features unused by the app like XR support, etc. this reduces the app download size.
+- Rewrote the CI (continuous integration) system to use a simpler Python script and build platforms in parallel
+- Added short documentation on how to build the app (see howtobuild.md)
+- Removed the slice exporter manual build step for interactive practices and replaced it with a runtime preprocessor
+- Implemented our own simple integration test module for lessons and practices and removed GUT as a dependency
+- Cleaned up now obsolete files throughout the project
+
+## Learn GDScript From Zero 1.7.0
+
+*Released on December 12, 2024*
+
+This version focuses on making the app more accessible and adding support for more languages. We've also made the interface cleaner and fixed many small issues.
+
+### Improvements to lessons and practices
+
+- L24 about accessing array indices now has clearer text to help you understand the task and how the inventory works.
+- L6 now has clearer explanations about functions with multiple parameters.
+- L23 Practice 2 now includes documentation for the align function that was missing before.
+- Corrected several typos throughout the lessons.
+- Links to the official Godot documentation on the end screen are now properly clickable.
+- Changed a hint in L23 Practice 2 that mistakenly suggested using a function you haven't learned yet.
+
+### New features and interface improvements
+
+- Added a dyslexia-friendly font option. You can now turn on the Dyslexia Font option in the settings menu.
+- Added support for Japanese and Chinese (simplified).
+- Language names in the language selection menu are now shown in their own language, making it easier to find your language.
+- Added a credits link to lesson and practice screens so you can see who made the app.
+- The welcome screen has been refined and looks better.
+- The interface is now properly aligned, we fixed a 2-pixel offset that was making things look slightly off.
+- Replaced the "GDQuest Boy" label on practice screens with a cleaner GDQuest logo.
+- Removed the version and commit information label from the bottom of web builds for a cleaner look.
+- Added a scroll container to the settings menu so everything fits properly.
+- Added keyboard shortcuts for the close and apply buttons in settings.
+
+### Translation improvements
+
+- Updated many translations across the app.
+
+### Bug fixes
+
+- Fixed a rare issue where the app would crash because regular expressions weren't initialized properly.
+- Fixed the minimize/fullscreen button not working reliably on some web browsers when running from the github pages mirror.
+- L13 practice now passes correctly even when you use decimal numbers.
+- Added reset functions to L26 practices 1 and 2 so they work properly when you run them multiple times in a row without leaving the page.
+- Fixed L20.P2 so that extra whitespace doesn't cause errors.
+- Fixed an issue where having multiple while loops could cause errors about the counter variable already existing.
+- Fixed a problem where printing the result of a function call would cause an error.
+- Removed an inaccurate feedback message in L11.P2 about using two arguments in move_local_x().
+- Increased the maximum font size option so you can make text even bigger if needed.
+
+### Technical changes for developers
+
+- Optimized which files are included when exporting the app, reducing file size.
+- Updated project settings and cleaned up several unused resources.
+- Removed the auto-generated version script.
+- Updated GitHub Actions for building the app.
+- Removed the UUID system that was no longer needed.
+
+## Learn GDScript From Zero 1.6.0
+
+*Released on December 9, 2023*
+
+This version brings improvements to the end-of-course experience and fixes some issues with the code editor.
+
+### Changes
+
+- Completely redesigned the screen you see when you finish the course. It now looks better and makes it easier to see what to learn next.
+- Course thumbnails on end screens are now properly clickable.
+- Fixed a problem where typing a `[` (opening square bracket) would disappear when the app formatted your code.
+- Improved mouse interaction on the end screen.
+- Updated translation files.
+- Simplified mouse filter settings on end screen elements.
+- Minor UI adjustments and code cleanup.
+
+## Learn GDScript From Zero 1.5.2
+
+### Bug fixes
+
+- Fix some symbols getting lost in code examples (=, <, >, etc.)
+
+## Learn GDScript From Zero 1.5.1
+
+### Improvements
+
+- Add color highlighting for strings in bbcode
+
+### Bug fixes
+
+- Fix highlighting of numbers in bbcode
+- Add missing commas in code example in lesson 23
+
+## Learn GDScript From Zero 1.5.0
+
+### Content changes
+
+- Review every lesson and practice to make it work as well as possible for Godot 4. The course is still also compatible with Godot 3.
+- Remove lesson 15, modulo.
+- Add Italian translations.
+- Add and update FR, ES, PT, PT_BR, and TR translations. FR and ES translations should be up to date, other languages need updates.
+- Move the dot out of the quotes in lesson 3 (#793).
+- Edit first lesson to be compatible with Godot 4.
+- Remove type hint from code in lesson 1 practice.
+- Clarify that turtle code is specific to app.
+- Lesson 7 explanation fix (#865).
+- Add updated translations for 6 languages.
+
+### Bug fixes
+
+- Update quiz that broke after text fix in l3.
+- Ignore word type in glossary in lesson 25.
+- Remove type inference from practice in l25.
+- Add check that student isn't passing entire combo array in l20.
+- Rewrite l14 practice 2 tests to be more accurate.
+- Rewrite code highlight algorithm for nicer highlighting of symbols and numbers.
+- Reset robot to correct position in practice l17 practice.
+- Apply translations to report problem popup.
+
+## Learn GDScript From Zero 1.4.0
+
+*Released on May 16 2023*
+
+### New features
+
+- Add script to extract, sync, check, and integrate new translations (#814)
+
+### Content changes
+
+- Replace parameter with argument in lesson 4 practices
+- Add correct return types to documentation of str and int functions
+- Correct typo in lesson 7
+- Correct typo in lesson 9, improve wording
+- Update Spanish translations for lessons 1 to 7
+- Change parameter into argument in lesson 6
+- Improve phrasing and correct typo in external error popup
+- Correct tense in time delta lesson
+- Improve lesson 15 note title (#740)
+- Check for the use of two arguments in function call in lesson 11
+- Improve explanations in lessons 2, 3, 7, 8, 10, 11, and 14
+- Correct grammar in lesson 19
+
+### Improvements
+
+- Turn off vsync for faster response times
+
+### Bug fixes
+
+- Use low processor mode instead of target FPS to uncap framerate
+- Lesson 21 - remove Step button from combo example (#801)
+- Lesson 18 - fix unwrapped loop resetting (#800)
+- Lesson 15 - fix traffic light resetting (#797)
+- Allow writing decimal number in lesson 11 practice
+- Update bar health when changing max health
+- Check for play_animation() call in lesson 21
+- Correct hint text for lesson 16 (#732)
+
+## Learn GDScript From Zero 1.3.2
+
+*Released on October 17, 2022*
+
+### Improvements
+
+- Make glossary entries work in other languages (#687)
+- Add option to lower the main text's brightness (#689)
+
+### Content changes
+
+- Improve note block titles (#682)
+- Fix typo in lesson 14
+- Clarify requirements in lesson 21 combo practice
+
+### Improvements
+
+- Load translation into glossary and practice hints (#686)
+- Add tiling background to demos
+
+### Bug fixes
+
+- Fix function call being partly eaten in lesson 24
+- Restore Traffic Light example in Lesson 15 (#696)
+- Ensure examples with no debugger nodes don't reset on every call to run()
+- Make code examples work with debugger in lesson 21
+- Remove visual jitter in orders animation in Lesson 23
+
+## Learn GDScript From Zero 1.3.1
+
+*Released on September 26, 2022*
+
+### Bug fixes
+
+- Fix numbers not being highlighted and being eaten in some cases
+
+## Learn GDScript From Zero 1.3.0
+
+*Released on September 25, 2022*
+
+### New features
+
+- Add syntax highlighting for code in lesson and practice text
+- Add sponsorless end screen for Godot docs (#632)
+- Add visualization of how values get assigned to cursor variable in for loops (#634)
+- Add common macOS Cmd shortcuts in code editor in browser
+
+### Content changes
+
+- Improve loop explanations and examples in lessons 17 and 18 (#641)
+- Rewrite lesson 9's first practice hint to make it clearer
+- Add error explanation for can't assign to expression
+- Explain pass keyword in lesson 13
+- Improve Lesson 22 cell screen-position explanation (#655)
+- Add specific error message for IN_EXPECTED_AFTER_IDENTIFIER error (#665)
+- Clarify explanation of documented functions in lesson 22 (#664)
+- Make numbers explicitly decimal in lesson 28 to make types clearer
+- Add error explanation for EOL at string parse error
+- Add explanation for "can't get index ... on base" error
+
+### Improvements
+
+- Move inline value display in code example to button
+- Add practice index to lesson practices list and breadcrumb
+- Make loop code example taller to avoid scroll bar
+- Ensure that the content of runnable code examples is behind buttons
+- Highlight symbols in lessons
+
+### Bug fixes
+
+- Make practice checks auto-wrap to not overflow window
+- Use debug build to prevent crash on nonexistent functions and variables
+- Prevent navigating during transitions
+- Add missing reset to lesson 11 practices
+- Don't highlight word "type" in lesson 13 (#656)
+- Correct syntax highlighting on nested function calls
+
+## Learn GDScript From Zero 1.2.2
+
+*Released on August 5, 2022*
+
+### Content changes
+
+- Add Spanish version of the course
+- Add explicit mention you need to use draw_rectangle() in lesson 7
+- Fix typo in lesson 8
+- Fix typo in error message in lessons 10 and 11
+- Fix return type of array.pop_* functions
+- Remove explanation of underscore prefix for some functions
+- Fix typo in lesson 18
+- Fix typo in lesson 16
+- Use heal function in lesson 14 instead of take_damage
+- Remove unnecessary conditioin in lesson 14 practice 2
+- Correct typo in lesson 26
+
+### Bug fixes
+
+- Walk over closing bracket characters
+- Typos in lesson 1
+- Typo in lesson 18 (#577)
+- Typo in lesson 19 (#578)
+- Ensure canvas resolution scales with the parent containers to avoid blurry fonts (#585)
+- Replace rectangle with square in lesson 5 (#571)
+- Prevent crashes with division by zero, add error for this
+- Prevent infinite recursion after function blocks
+- Remove input detection on items in lesson 24
+- Check the whole path in lesson 20
+- Ignore first point in lesson 19 P1 if it's Vector2.ZERO
+- Prevent side panel from overflowing window with the largest font size
+
+## Learn GDScript From Zero 1.2.1
+
+*Released on June 11, 2022*
+
+### Improvements
+
+- Auto complete dictionary braces
+
+### Bug fixes
+
+- Move cursor inside parens when writing parens without a selection
+- Fix indent error in practice in lesson 24
+
+## Learn GDScript From Zero 1.2.0
+
+*Released on June 11, 2022*
+
+### New features
+
+- Add auto-closing brackets to code editor
+
+### Content changes
+
+- Fix cell coordinates in lesson 26
+- Fix example converting string into number in lesson 27
+- Correct example looping over values of an array in lesson 24
+- Remove glossary underline from word type in lesson 6
+- Clarify one answer in quiz in lesson 5
+- Precise where to add the length parameter in lesson 6 practice
+- Replace quiz in lesson 4 by a more appropriate one
+- Remove leading underscore to delta in lesson 10
+- Add extra test to drawing squares practice in lesson 6
+- Add note to practice in lesson 11 not to use local variables
+
+### Improvements
+
+- Update warning popup text for small screen (#549)
+- Allow to further reduce the text size for large displays
+
+### Bug fixes
+
+- Remove double border on example in lesson 1
+- Ensure lesson examples always draw behind issue popup
+- Fix error when calling print() without arguments
+- Fix crashes when coding infinite while loops
+- Fix practice in lesson 20 not passing if not solved at first trial
+- Prevent error when not drawing any polygons in Back to the drawing board practice
+- Prevent the mobile warning popup from going off-screen
+- Check edited slice code instead of source text in practice tests
+- Make animation play based on calls to play_animation() in lesson 21 practice
+
+## Learn GDScript From Zero 1.1.0
+
+_Released on June 3, 2022_
+
+### New features
+
+- Add offline script verifying support using custom build of Godot (#469)
+- Add reset functionality to all relevant examples (#487)
+
+### Content changes
+
+- Remove extra line in lesson 22 practice solution
+- Explain when you want to store return values in lesson 22
+- Remove remaining uses of "pass" and update practice hints
+
+### Bug fixes
+
+- Handle optional parameters on `move_local_x()` in lesson 11 (#480)
+- Correct typo in lesson 1
+- Make practice pass if using float instead of int in lesson 11
+- Updated moving turtle test for lesson 19 to include the starting point (#524)
+- Delta check in the moving in a circle lesson (#526)
+- Don't pass in lesson 11 practice if speed is 0.2 instead of 2
+
+## Learn GDScript From Zero 1.0.0
+
+_Released on April 1, 2022_
+
+### Content changes
+
+- Improve phrasing and formatting in lessons 16 to 28 (#463)
+- Clarify practice description in lesson 7
+- Add code mark to code in glossary entries
+- Correct typo in lesson 8
+- Make the solution in lesson 23 practice not use `Array.size()`
+- Add variable definitions to lesson 14 practices
+- Make it so using a loop in lesson 6 practice works
+- Change "type" into "enter" in lesson 6 to avoid wrong glossary highlight
+
+### Improvements
+
+- Title screen redesign
+- End screen redesign
+- Redesign modulo examples to be more intuitive (#437)
+- Give cursor more natural start position in practices
+- Add new train track sprites in lesson 24
+- Reset visibility and transform when pressing reset button in practices
+
+### Bug fixes
+
+- Change correct answer in quiz in lesson 25
+- Reset glossary popup size when clicking a word with a short explanation
+- Match number with boxes in even-odd example
+- Correct error message in lesson 28
+- Remove button to load incomplete Russian translation
+- Correctly name array brackets
+- Add missing period in error explanations (#450)
+- Add missing documentation in practices in lessons 4 and 5
+- Make turtle draw three parallel lines in lesson 5 example
+
+## Learn GDScript From Zero release 0.4.0
+
+_Released on March 7, 2022_
+
+This update adds **12 new lessons**, completing the planned content for the 1.0 release on the app. 
+
+Once more, we spent a lot of time refining the app to provide you with a better experience. You can find the details below.
+
+The key feature in this update is **localization support**. We're now working on Spanish and French translation, and the community's contributing more languages in the [app translation repository](https://github.com/GDQuest/learn-gdscript-translations).
+
+We also added desktop exports as performance and text rendering can be much better outside the browser. You can find desktop builds on [the app's itch.io](https://gdquest.itch.io/learn-godot-gdscript) page.
+
+### New features
+
+- Add server connection indicator in practice screen
+- Animate turtle turning
+- Add localization support to the app
+- Add interactive glossary
+
+### Content changes
+
+- Add lesson 17: Introduction to while loops
+- Add lesson 18: Introduction to for loops
+- Add lesson 19: Creating arrays
+- Add lesson 20: Looping over arrays
+- Add lesson 21: Strings
+- Add lesson 22: functions that return values
+- Add lesson 23: array append and pop
+- Add lesson 24: array access by index
+- Add lesson 25: creating dictionaries
+- Add lesson 26: Looping over dictionaries
+- Add lesson 27: value types
+- Add lesson 28: type hints
+- Edit first 15 lessons to make phrasing a bit more explicit
+- Use explicit functions in lessons 1 to 3, explain in lesson 3
+- Make function calls explicit in lessons 3 and 4, rework practices
+- Make function calls explicit in lessons 5 to 7
+- Make function calls explicit in lessons 8 to 11, update practices
+- Reset practice visuals with reset button
+- Stress the importance of multiplying by delta in lesson 11
+- Clarify the server disconnected error and steps to address it
+- Add duplicate variable definition error in lesson 8
+- Remind that you use = to change a variable's value in lesson 7
+- Remove an example that was too technical in lesson 6
+- Add 7 new error explanations
+- Add examples of what vectors are and what they can do in lesson 16
+- Introduce else keyword in lesson 13
+- Tidy up visual example in lesson 23
+- Add health variable definition in lesson 9 practices
+- Clarify pop() example in lesson 23
+- Make lesson 6 square practice more precise, improve tests
+- Shorten text in lessons 1 and 2, add 2 new glossary entries
+- Load and translate a real error example in lesson 2
+- Add application UI translations in French
+
+### Improvements
+
+- Reduce app CPU usage (up to 90% less usage)
+- Add option to disable labels in DrawingTurtle
+- Give outline buttons a white outline when in focus
+- Add keyboard focus when opening various popups
+- Allow for small demos that can receive mouse input
+- Remove and dim text outlines in buttons and progress bars
+- Give outliner button a fixed width
+- Add new turtle design by Kay Lousberg
+- Integrate new GDQuest boy design by Kay Lousberg
+- Change indicator when running code without connection to server
+- Make all big green and red buttons use outline styles
+- Allow changing the button name in RunnableCodeExample
+- Make function calls explicit in lessons 12 to 16
+- Animate the turtle jumping
+- Added exports and itch support
+- Add CI setup scripts
+- Testing workflow
+- Make the code cursor jump to the last character by default
+- Add setting to change the app's framerate
+- Add board_size and cell code references
+- Swap the order of buttons in quizzes and settings
+- Add translation support with live updating to lessons and practices
+- Add translation support to the rest of the application
+- Support recompiling html template while watching
+- Make outlined button theme consistent and less confusing
+- Make separator lines thicker by default
+- Redo and unify button styles
+- Make inventory items more distinct
+- Start in fullscreen mode on desktop
+- Add illustrations to lesson 1, improve phrasing
+
+### Bug fixes
+
+- Fix typo in lesson 16 practice error message
+- Prevent lesson 11 practices from passing when multiplying after call
+- Use websockets
+- Use websockets for heartbeat connection
+- Restore "is_connected_to_server"
+- Address full-screen toggle issues by handling it browser-side
+- Attempt to correct fullscreen woes
+- Resize canvas through JS
+- Workflow does not depend on another
+- Wrong Godot build
+- Typo in Godot version number
+- Prevent smooth scrolling from overshooting when framerate goes down
+- Correct handling of camera and position when drawing with the turtle
+- Fix error when adding a scene as a child of RunnableCodeExample
+- Correct typo in lesson 15 practice 2
+- Force Unix-friendly line endings in translations
+- Add missing icons for the option button
+- Correctly save user settings when changing language
+- Restored proper variables for logging
+- Support generating logs in desktop app
+- Added a container to aid button placement
+- Typo in run file
+- Do not call methods before js interface exists
+- Open links when clicking them in lessons
+- Restore normal scrolling speed on desktop platforms
+- Ensure the robot doesn't clip when wrapping in lesson 3
+- Typo "directoin" in lesson 16
+- Typos in lesson 17
+- Pick correct node to check in validation script
+- Correct variable name in leson 17 practice
+- Properly reject incorrect solutions
+- Remove trailing whitespace in two examples in lesson 18
+- Constrain robot to game board in lessons 17 and 18
+- Properly remove checks when switching language
+- Second exercis expecting four rectangles
+- Remove Report Issue button on end screen
+- Match while loop content to run code
+- Restore working modulo example
+- Make build script more portable
+- Make practice description render bbcode
+- Output scroll container should clip content
+- Pop gems starting from the top one
+- Prefer fuzzy font on scale rather than pixelated
+- Match inventory order with visual textures
+- TextEdit text not changing properly
+- Prevent commented code lines from making L10 practices pass
+- Prevent invisible fullscreen button from grabbing focus
+
+## Learn GDScript From Zero release 0.3.0
+
+_Released on February 8, 2022_
+
+### New features
+
+- Smooth scrolling (#201)
+- Warn user before losing progress on an unfinished practice (#277)
+
+### Content changes
+
+- Add lesson 16 about creating 2D vectors
+- Clarify lesson 12, practice 1
+- Add turtle jump() explanation in lesson 5
+- Add explanation about modulos with a larger divisor than dividend in lesson 15
+- Add radian conversion formula to lesson 3, complete radian explanation
+- Add space symbols in function syntax example in lesson 6, improve explanation
+- Clarify the robot should turn clockwise in lesson 11 practice 2
+- Don't limit health at 100 in lesson 9 healing example
+- Change traffic light color names to match US standard
+- Update dice practice description in lesson 15 to match solution
+- In lesson 3, talk about function arguments instead of parameters
+- Explain the syntaxes for adding and subtracting in lesson 9
+- Add explanation about camelCase name convention
+- Add extra info box about the Y axis pointing down in lesson 3
+- Improve MISPLACED_IDENTIFIER error with function definition case
+
+### Improvements
+
+- Add a post-lesson popup and inform the user if there are incomplete practices
+- Add more transition animations for post-practice/post-lesson dialogs
+- Add particles to the post-lesson dialog
+- Add a solution panel to let students compare their approach with the suggested one
+- Add temporary turtle sprite for the turtle practices
+- Increase the content column width when increasing font size
+- Make code examples increase height when the font size increases
+- Allow controlling scroll bars with the keyboard without clicking first
+- Confirm quiz type change in course builder (#214)
+- Allow navigating back to outliner from end screen
+- Animate quiz resizing (#247)
+- Add extra error messages to lesson 5 practice 2 (#262)
+- Add a function to report type errors in variable assignment
+- Dynamically update tooltip and cursor on back button
+- Have a single Robot scene for visuals and practices (#276)
+
+### Code changes
+
+- Make lesson files self-contained
+
+### Bug fixes
+
+- Ensure squares have the expected coordinates in lesson 6 practice
+- Account for more valid solutions in lesson 15 practice 1
+- Add max health value to error message in lesson 15 practice 3
+- Ensure the turtle sprite resets position in runnable examples
+- Correctly handle slidable panels on resize/fullscreen
+- Allow modulos larger than number in lesson 15
+- Typo in lesson 15, practice 1 hint
+- Check corner coordinates in lesson 6 practice 2
+- Allow using a loop in lesson 5 practice 2
+- Correct two typos in lessons 13 and 15
+- Fix error when trying to scroll with arrow keys
+- Force text wrapping to update when changing font size
+- Always correctly position post-practice popup
+- Restore ability to click on links in welcome screen
+- Respect restored lesson position in smooth scroll container
+- Fix typo in lesson 9 practice hint
+- Enter pause mode when showing suggested solution
+- Correct typo in lesson 11 (#231)
+- Incorrect button label in lesson 9
+- Remove empty line in lesson 8
+- Make health value reset to starting value in lesson 13
+- Remove confusing navigation options from the practice screen
+- Correct typo "want to want to" (#238)
+- Add missing space between a number and modulo sign (#240)
+- Prevent visual scroll bars in lessons 14 and 15
+- Traffic light colors, match example and text (#241)
+- Throttle scroll events (#218)
+- Lesson 9 and 13 health bars now show proper values on ready (#248)
+- Make practice screen ignore global pause
+- Correct typo in lesson 11: "dependant" -> "dependent"
+- Correct typo  in lesson 14: "multiple" -> "multiply" (#267)
+- Correct typo  in lesson 15: "evening" -> "even" (#269)
+- Make code examples read-only
+- Force the full screen toggle button to update on click in browser
+- Prevent pressing left from triggering a back event in well done popup
+- Don't increase indent level when removing pass after a function definition
+- Make practices pass in lesson 11 when pressing Ctrl+Enter
+- Prevent code examples in lesson 13 from getting a scrollbar
+- Fix lesson 16 practice 2 tests
+- Correct typo in lesson 16 practice 2 tests
+- Use versioned lsp url
+- Restore ability to scroll with the keyboard
+- Ensure long practice titles don't push the UI outside the page
+
+## Learn GDScript From Zero release 0.2.1
+
+_Released on January 27, 2022_
+
+### Improvements
+
+- Let students to stay in the lesson and experiment upon completion
+- Show an indicator when practice was completed before and solution was used
+- Make cursor pointing hand on all buttons
+- Adjust the slice plugin toolbar for better visual clarity
+
+### Content changes
+
+- Update error log text and link in issue report form
+- Added missing apostrophe in lesson 6
+- Explain jump function in lesson 5 practice
+
+### Bug fixes
+
+- Fix "shortcut" appearing multiple times in practice button tooltips
+- Fix bbcode formatting appearing as plain text in multiple choice quizzes
+- Ensure health takes different values in lesson 13 practices
+- Make the slice plugin UI conflict with editor UI less
+- Unify hover behavior for buttons with icons
+- Hide code in jump visual in lesson 13
+
+## Learn GDScript From Zero 0.2.0
+
+_Released on January 26, 2022_
+
+This release brings 7 new lessons and many improvements and fixes to the app. For this release, we focused on improving stability, responsiveness, and your experience with the core app.
+
+We delayed adding new features to instead refine what we already had.
+
+### New features
+
+- Add 7 new lessons
+- Remember and restore position in the lesson
+- Add optional header and separator for lesson content blocks
+- Add navigation between practices of the same lesson
+- Add server and client logging
+
+### Improvements
+
+- Add clearer radio button icons to match checkboxes
+- Make the turtle start with an offset position in lesson 4
+- Create UUID for  user
+- Better script display in inspector
+- Make scrollbars easier to click on, align lesson bar with the window
+- Provide a way for users to download client log
+- Handle GDQuest errors like GDScript's
+- Allow JS to communicate errors to Godot
+- Slightly increase the space between content blocks
+- Rewrite the revealer component; Style it better across the app also remove unused spoiler content block type
+- Pull lsp url from project settings
+- Run checks after the test scene has finished animating
+- Mark practice as completed immediately upon checks passing 
+- Give visual status to validating and running code
+- Allow staging CI to pick a different LSP
+- Ignore local overrides
+- Error out if LSP url is not set
+- Add a tcp socket client, specify socket URL from project configuration
+- Suppress error if run button manually hidden
+- Animate practice checks
+- Add finished signal to turtle
+- Standardize practice title capitalization
+- Make many content improvements to lessons 1 to 9 and 12 to 14
+- Make breadcrumbs navigatable and infinite
+- Indicate when a quiz may have multiple answers
+- Add a button to toggle the app full-screen
+- Make some popups stand out more
+- Reveal the entire lesson when running from the editor plugin
+- Hide GDScript code in runnable examples without code
+- Add shortcuts to buttons in the app and in practice view
+
+### Changes
+
+- Add a logging library
+- Add UUID library
+- Use resource names for node names to make content blocks easily identifiable
+- Switch renderer to GLES2 to increase device compatibility
+- Use action hash for CI
+
+### Bug fixes
+
+- Lesson 1: correct content (#127)
+- Remove run action being emitted twice in CodeEditor
+- Make Ctrl+Enter run code from code editor
+- Remove empty hint in lesson 2
+- Fix typos in quizzes in lesson 6
+- Fix revealer folding animation not working in nested revealers (#119)
+- Add missing space in lesson 8
+- Fix typo on end screen
+- Add move_local_x to list of methods
+- Use ints as keys for blacklist codes
+- Correct the list of GDScript keywords and tokens
+- Add the remaining GDScript keywords to syntax highlighter
+- Make the web export scale correctly in every browser (especially Firefox)
+- Remove debug drawing from the lesson
+- Use msecs for network measurements
+- Allow scripts to run if server is unresponsive
+- Fully reset the course progress when requested
+- Make the insert block trigger slightly snappier in the course builder
+- Re-run ready after changing script
+- Prevent crashes when user writes recursive functions
+- Enable buttons after reset or back navigation in practice window
+- Restore signals to the revealer and make use of them in the error popup
+- Fix scene using stale references
+- Improve contrast for text and icons on green background
+- Remove hardcoded width for the practice panel elements
+- Github values have to be prefixed with `input`
+- Github variables are under `inputs` namespace
+- Set environement as a global constant
+- Cast variables causing type errors
+- Remove comments from override.cfg
+- Set slider value to value in scene
+- Allow creating squares and rectangles with negative coordinates in practices
+- Prevent nested scrollbars in the practice UI
+- Make the reset button reset everything, not just code
+- Prevent DFM and fullscreen shortcuts conflicting
+- Make instructions match solution in lesson 11 practice
+
+## Learn GDScript From Zero 0.1.1
+
+_Released on January 3, 2022_
+
+This release fixes some important bugs blocking the completion of some assignments. It also brings some UI improvements.
+
+### New features
+
+- Add custom html shell (#70).
+- Show warning for mobile screens.
+- Show app version on the page.
+
+### Improvements
+
+- Add shake animation to quizzes (#79).
+- Set resizePolicy to 0.
+- Add opengraph web tags.
+- Add library support for copy and paste.
+- Increase contrast in button styles.
+
+### Bug fixes
+
+- Fix lesson 7's practice tests (#82)
+- Change web page title
+- Make html template adaptive and limited to 1920x1080
+- Add static files to build script
+- Fix breadcrumbs lesson navigation index (#87)
+- Correct the tooltip of the home button
+- Fix formatting in lesson 6
+
+## Learn GDScript From Zero 0.1.0
+
+_Released on January 2, 2022_
+
+This is the first beta release of the app.
+
+### New features
+
+Main features:
+
+- Slices to edit a portion of a script.
+- Allow sending GDScript code to an LSP server, compile online, and report errors.
+- Scripts to test assignments locally.
+- Practice interface with a code editor.
+- Game viewport that reloads based on the students' changes, handles errors.
+- Output console that can print messages and errors.
+- Editor plugin to author lessons and practices.
+- 8 lessons and 10 practices.
+
+More features:
+
+- Add support for relative file paths for visual elements.
+- Add error database for GDScript errors and warnings.
+- Add ability to quickly test lesson or practice from plugin.
+- Add support for spoiler content blocks and inverting visuals.
+- Add single and multiple choice quizz widgets.
+- Add quizz widget with int, float, and string input field.
+- Add support for quizzes in course builder plugin.
+- Add widget to display a runnable scene with a code example.
+- Code "turtle" to draw geometric shapes.
+- Add welcome screen and loading screen.
+- Add a report-an-issue popup, improve the look of tooltips.
+- Add settings popup.
+- Create a class to make 2D nodes wrap position within a Control.
+- Make font size configurable throughout the app.
+- Add ability to draw multiple polygons with turtle.
+- Give each polygon a position in DrawingTurtle.
+- Add documentation reference array.
+- Add dynamic sliders to RunnableCodeExample.
+- Add a way to display methods references.
+- Design editor to list code ref items in practice tab.
+- New console output log, improved indication for errors outside of student-editable range.
+- Add error explanation to the output console.
+- Add a way to insert a new content block in between two existing ones.
+- Add ability to print plain messages to OutputConsole.
+- Add course outliner/index.
+- Add support for property descriptions in code reference panel.
+- Start tracking student progression.
+- Allow to continue the course from the last lesson you've started from the welcome screen.
+- Add ability to skip quizzes.
+- Hide the rest of the lesson until the student tried a quiz.
+- Add end screen to display when completing the last practice.
+- Add clickable GDQuest logo.
+- Add screen displayed at the end of the course.
+- Allow resetting course progress.
+- Show overlay and text when pausing the game view.
+- Display help messages from assignment unit tests.
+- Add icon to go back from outliner to welcome screen.
+- Git hash in the built HTML page.
+- Loading screen.

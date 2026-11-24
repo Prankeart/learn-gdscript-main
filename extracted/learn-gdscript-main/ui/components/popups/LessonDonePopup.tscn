@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://cvto5h8thi0yg"]
+
+[ext_resource type="Script" uid="uid://cu3u7q225brob" path="res://ui/components/popups/LessonDonePopup.gd" id="2"]
+[ext_resource type="Script" uid="uid://bqtsv6kpc77fd" path="res://ui/components/RichTextLabelRTL.gd" id="3_5aago"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_hover.tres" id="5"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_pressed.tres" id="6"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_normal.tres" id="7"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_normal.tres" id="8"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/focus_accent.tres" id="9"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_accent.tres" id="13"]
+
+[sub_resource type="Shader" id="24"]
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+uniform float thickness = 1.0;
+
+void vertex() {
+    VERTEX.y *= (1.0 - INSTANCE_CUSTOM.y) * 2.0;
+	VERTEX.x *= thickness;
+}"
+
+[sub_resource type="ShaderMaterial" id="23"]
+shader = SubResource("24")
+shader_parameter/thickness = 2.0
+
+[sub_resource type="Gradient" id="20"]
+offsets = PackedFloat32Array(0, 0.516355, 1)
+colors = PackedColorArray(0, 1, 0.286275, 0, 0.239216, 1, 0.431373, 1, 0, 1, 0.286275, 0)
+
+[sub_resource type="GradientTexture2D" id="21"]
+gradient = SubResource("20")
+width = 2
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Curve" id="Curve_qcsph"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.06878307, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="26"]
+shader = SubResource("24")
+shader_parameter/thickness = 3.0
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0mvg"]
+gradient = SubResource("20")
+width = 13
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Curve" id="25"]
+_data = [Vector2(0, 0), 0.0, 15.1674, 0, 0, Vector2(0.0419426, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="LessonDonePopup" type="ColorRect" unique_id=357865209]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.0352941, 0.0392157, 0.129412, 0.627451)
+script = ExtResource("2")
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=254267817]
+unique_name_in_owner = true
+material = SubResource("23")
+position = Vector2(960, 540)
+texture = SubResource("21")
+lifetime = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(960, 540)
+gravity = Vector2(0, 0)
+angle_min = 45.0
+angle_max = 45.0
+scale_amount_min = 4.5
+scale_amount_max = 5.5
+scale_amount_curve = SubResource("Curve_qcsph")
+
+[node name="ThickParticles" type="CPUParticles2D" parent="." unique_id=1095404079]
+unique_name_in_owner = true
+material = SubResource("26")
+position = Vector2(960, 540)
+amount = 4
+texture = SubResource("GradientTexture2D_d0mvg")
+lifetime = 5.0
+emission_shape = 3
+emission_rect_extents = Vector2(240, 135)
+gravity = Vector2(0, 0)
+angle_min = 45.0
+angle_max = 45.0
+scale_amount_min = 4.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("25")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1110205396]
+unique_name_in_owner = true
+visible = false
+mouse_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1110205397]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("7")
+
+[node name="Layout" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=128990908]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/PanelContainer/Layout" unique_id=229491197]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="Column" type="VBoxContainer" parent="CenterContainer/PanelContainer/Layout" unique_id=1670260574]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/Layout/Column" unique_id=44857392]
+custom_minimum_size = Vector2(400, 8)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/Layout/Column" unique_id=1703664629]
+layout_mode = 2
+theme_type_variation = &"LabelWellDone"
+text = "Lesson complete!"
+horizontal_alignment = 1
+
+[node name="IncompleteSummary" type="Label" parent="CenterContainer/PanelContainer/Layout/Column" unique_id=1299452102]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"LabelWellDoneNormal"
+text = "But there are still some practices
+that you've skipped."
+horizontal_alignment = 1
+
+[node name="Summary" type="RichTextLabel" parent="CenterContainer/PanelContainer/Layout/Column" unique_id=928140916]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"RTSWellDone"
+bbcode_enabled = true
+text = "[b]Stay[/b] and revisit the study material,
+or [b]continue[/b] the course."
+fit_content = true
+horizontal_alignment = 1
+script = ExtResource("3_5aago")
+metadata/_custom_type_script = "uid://bqtsv6kpc77fd"
+
+[node name="Spacer2" type="Control" parent="CenterContainer/PanelContainer/Layout/Column" unique_id=1200367796]
+custom_minimum_size = Vector2(400, 8)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="CenterContainer/PanelContainer/Layout/Column" unique_id=1077774959]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="StayButton" type="Button" parent="CenterContainer/PanelContainer/Layout/Column/Buttons" unique_id=1308811815]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = ExtResource("8")
+theme_override_styles/pressed = ExtResource("6")
+theme_override_styles/hover = ExtResource("5")
+text = "Stay"
+
+[node name="MoveOnButton" type="Button" parent="CenterContainer/PanelContainer/Layout/Column/Buttons" unique_id=887296185]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.239216, 1, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(0.239216, 1, 0.431373, 1)
+theme_override_styles/normal = ExtResource("8")
+theme_override_styles/pressed = ExtResource("13")
+theme_override_styles/hover = ExtResource("13")
+theme_override_styles/focus = ExtResource("9")
+text = "Continue"

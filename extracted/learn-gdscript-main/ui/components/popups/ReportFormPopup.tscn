@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://bhquojpfmi5wk"]
+
+[ext_resource type="Script" uid="uid://bltsl5n1mk6ed" path="res://ui/components/popups/ReportFormPopup.gd" id="1"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/focus_accent.tres" id="3"]
+[ext_resource type="Script" uid="uid://bqtsv6kpc77fd" path="res://ui/components/RichTextLabelRTL.gd" id="3_0eu3i"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_normal.tres" id="4"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_darker_popup_report_form.tres" id="4_ylxow"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_normal.tres" id="5"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/button_outline_large_accent.tres" id="6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylxow"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.03529412, 0.039215688, 0.1254902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owx7u"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.03529412, 0.039215688, 0.1254902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hs3uv"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.03529412, 0.039215688, 0.1254902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ReportFormPopup" type="CanvasLayer" unique_id=579107914]
+layer = 10
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=520470273]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.0352941, 0.0392157, 0.129412, 0.627451)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1038015826]
+unique_name_in_owner = true
+visible = false
+mouse_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=19679680]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(760, 620)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5")
+
+[node name="Column" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1160059086]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/PanelContainer/Column" unique_id=1417585157]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/PanelContainer/Column" unique_id=1658439978]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Column" type="VBoxContainer" parent="CenterContainer/PanelContainer/Column/Margin" unique_id=1048965231]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=921754573]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelTitle"
+text = "Report an issue"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=635862448]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Help" type="RichTextLabel" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=1548773843]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("3_0eu3i")
+metadata/_custom_type_script = "uid://bqtsv6kpc77fd"
+
+[node name="CategoryOption" type="OptionButton" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=235425517]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"OptionButtonReportForm"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ylxow")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_owx7u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hs3uv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ylxow")
+selected = 0
+item_count = 4
+popup/item_0/text = "Something does not work"
+popup/item_0/id = 0
+popup/item_1/text = "Something is unclear or incorrect"
+popup/item_1/id = 1
+popup/item_2/text = "Suggest an improvement"
+popup/item_2/id = 2
+popup/item_3/text = "Translation issue"
+popup/item_3/id = 3
+
+[node name="Description" type="TextEdit" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=1220213830]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Write a short description."
+theme_override_styles/normal = ExtResource("4_ylxow")
+placeholder_text = "Describe what went wrong, what you were doing, and what you expected to happen."
+wrap_mode = 1
+
+[node name="TranslationGuidance" type="RichTextLabel" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=256419405]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("3_0eu3i")
+metadata/_custom_type_script = "uid://bqtsv6kpc77fd"
+
+[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=949785186]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 2
+
+[node name="SendButton" type="Button" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=983365590]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Open the contact page on our website with this report prefilled."
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.239216, 1, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(0.239216, 1, 0.431373, 1)
+theme_override_styles/normal = ExtResource("4")
+theme_override_styles/pressed = ExtResource("6")
+theme_override_styles/hover = ExtResource("6")
+theme_override_styles/focus = ExtResource("3")
+text = "Send report"
+
+[node name="CloseButton" type="Button" parent="CenterContainer/PanelContainer/Column/Margin/Column" unique_id=1077630451]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Close the report form without sending anything."
+mouse_default_cursor_shape = 2
+text = "Cancel"

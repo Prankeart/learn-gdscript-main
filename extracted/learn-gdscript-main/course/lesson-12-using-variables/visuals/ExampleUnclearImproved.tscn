@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ds3v6x6qeaa2e"]
+
+[ext_resource type="PackedScene" uid="uid://cbxo4pmcdfrbf" path="res://course/common/GDScriptCodeExample.tscn" id="1"]
+
+[node name="Control" type="PanelContainer" unique_id=2137742672]
+custom_minimum_size = Vector2(0, 100)
+offset_right = 614.0
+offset_bottom = 114.0
+size_flags_horizontal = 3
+
+[node name="GDScriptCodeExample" parent="." unique_id=360201950 instance=ExtResource("1")]
+custom_minimum_size = Vector2(700, 230)
+layout_mode = 2
+text = "var angular_speed = 4 # This variable is defined outside of the function
+
+func _process(delta):
+	rotate(angular_speed * delta)"

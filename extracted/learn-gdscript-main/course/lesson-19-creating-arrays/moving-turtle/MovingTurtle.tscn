@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://lhim8fihgvny"]
+
+[ext_resource type="Texture2D" uid="uid://b4n28mvmpccia" path="res://course/common/turtle/turtle.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dbc7usnmjjtbd" path="res://course/lesson-19-creating-arrays/visuals/rocks_gems.png" id="2"]
+[ext_resource type="FontVariation" path="res://ui/theme/fonts/font_text.tres" id="2_fhj04"]
+[ext_resource type="PackedScene" uid="uid://dnivj2puspmd7" path="res://course/common/Robot.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://dqcfecquh3gvg" path="res://course/lesson-19-creating-arrays/visuals/rocks_shield.png" id="4"]
+[ext_resource type="Script" uid="uid://sob588xil5yc" path="res://course/lesson-19-creating-arrays/moving-turtle/MovingTurtle.gd" id="5"]
+
+[sub_resource type="GDScript" id="2"]
+script/source = "extends Sprite2D
+
+signal goal_reached
+
+func move(path: Array):
+	for point in path:
+		var tween := create_tween()
+		tween.tween_property(self, \"position\", point, 0.2).from(position)
+		await tween.finished
+		await get_tree().create_timer(0.2).timeout
+	emit_signal(\"goal_reached\")
+"
+
+[node name="MovingTurtle" type="Node2D" unique_id=100452924]
+script = ExtResource("5")
+draw_cell_coordinates = true
+label_font = ExtResource("2_fhj04")
+
+[node name="Turtle" type="Sprite2D" parent="." unique_id=695639315]
+position = Vector2(20, 283)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1")
+script = SubResource("2")
+
+[node name="RocksGems" type="Sprite2D" parent="." unique_id=1485393103]
+position = Vector2(17, 100)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2")
+offset = Vector2(0, -17.1429)
+
+[node name="RocksGems2" type="Sprite2D" parent="." unique_id=1505245189]
+position = Vector2(17, 100)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2")
+offset = Vector2(0, -17.1429)
+
+[node name="RocksShield" type="Sprite2D" parent="." unique_id=494613484]
+position = Vector2(18, 197)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4")
+offset = Vector2(1.42853, -18.5714)
+
+[node name="RocksShield2" type="Sprite2D" parent="." unique_id=1370464552]
+position = Vector2(18, 197)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4")
+offset = Vector2(1.42853, -18.5714)
+
+[node name="Robot" parent="." unique_id=1520208897 instance=ExtResource("3")]
+scale = Vector2(0.8, 0.8)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=891554956]

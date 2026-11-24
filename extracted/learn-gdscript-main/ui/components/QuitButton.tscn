@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://3h73b1mchlt"]
+
+[ext_resource type="Texture2D" uid="uid://c0n0eiwemyuft" path="res://ui/assets/icons/quit.svg" id="1"]
+[ext_resource type="Script" uid="uid://cpp16oxahm1k" path="res://ui/components/QuitButton.gd" id="2"]
+
+[node name="QuitButton" type="Button" unique_id=211303371]
+offset_right = 36.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+tooltip_text = "Quit the app.
+Shortcut: Alt+F4"
+mouse_default_cursor_shape = 2
+icon = ExtResource("1")
+flat = true
+script = ExtResource("2")

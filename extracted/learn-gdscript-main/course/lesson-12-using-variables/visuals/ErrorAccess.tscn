@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dxcnkjxe46pgy"]
+
+[ext_resource type="PackedScene" uid="uid://cn5borxmtwxd2" path="res://ui/components/popups/ErrorOverlayPopup.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bwbcn28ltvffp" path="res://course/lesson-12-using-variables/visuals/ErrorAccess.gd" id="2"]
+
+[node name="ErrorOverlayPopup" unique_id=1900609806 instance=ExtResource("1")]
+custom_minimum_size = Vector2(540, 0)
+script = ExtResource("2")

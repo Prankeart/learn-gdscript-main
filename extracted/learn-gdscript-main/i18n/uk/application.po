@@ -1,0 +1,2592 @@
+# Ukrainian translations for Learn GDScript From.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the Learn GDScript From
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Learn GDScript From Zero\n"
+"Report-Msgid-Bugs-To: https://github.com/GDQuest/learn-gdscript\n"
+"POT-Creation-Date: 2026-01-21 11:55+0100\n"
+"PO-Revision-Date: 2026-11-03 14:51+0000\n"
+"Last-Translator: Dima Sukharchuk <miavushok@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/learn-gdscript-from-zero/application/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Generated-By: Babel 2.10.3\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
+
+#: course/common/CustomHealthBar.tscn
+msgid "health = 100"
+msgstr "health = 100"
+
+#: course/common/inventory/DictInventory.tscn
+#: course/lesson-26-looping-over-dictionaries/display-inventory/DisplayInventory.tscn
+msgid "Inventory"
+msgstr "Інвентар"
+
+#: course/common/inventory/DictItem.tscn
+msgid "healing heart"
+msgstr "цілюще серце"
+
+#: course/common/inventory/DictItem.tscn
+#: course/lesson-23-append-to-arrays/visuals/Crate.tscn
+#: course/lesson-24-access-array-indices/visuals/inventory/Item.tscn
+#: course/lesson-26-looping-over-dictionaries/display-inventory/DisplayInventory.tscn
+msgid "0"
+msgstr "0"
+
+#: course/lesson-11-time-delta/visuals/DemoRotatingSpriteFrame.tscn
+#: course/lesson-11-time-delta/visuals/DemoRotatingTime.tscn
+#: course/lesson-11-time-delta/visuals/ExampleRotatingSpriteFrame.tscn
+msgid "rotation: 0"
+msgstr "rotation: 0"
+
+#: course/lesson-11-time-delta/visuals/DemoRotatingSpriteFrame.tscn
+#: course/lesson-11-time-delta/visuals/DemoRotatingTime.tscn
+#: course/lesson-11-time-delta/visuals/ExampleRotatingSpriteFrame.tscn
+msgid "frame speed: 0"
+msgstr "frame speed: 0"
+
+#: course/lesson-11-time-delta/visuals/RobotRace.tscn
+msgid "With delta"
+msgstr "З дельтою"
+
+#: course/lesson-11-time-delta/visuals/RobotRace.tscn
+msgid "Constant distance"
+msgstr "Постійна відстань"
+
+#: course/lesson-12-using-variables/visuals/VariableDefinition.tscn
+#: course/lesson-28-specifying-types/SyntaxTypeHints.tscn
+msgid "var"
+msgstr "var"
+
+#: course/lesson-12-using-variables/visuals/VariableDefinition.tscn
+#: course/lesson-28-specifying-types/SyntaxTypeHints.tscn
+msgid "variable_name"
+msgstr "variable_name"
+
+#: course/lesson-12-using-variables/visuals/VariableDefinition.tscn
+#: course/lesson-28-specifying-types/SyntaxTypeHints.tscn
+msgid "="
+msgstr "="
+
+#: course/lesson-12-using-variables/visuals/VariableDefinition.tscn
+#: course/lesson-28-specifying-types/SyntaxTypeHints.tscn
+msgid "value"
+msgstr "значення"
+
+#: course/lesson-13-conditions/visuals/ExampleHeal.tscn
+msgid "heal(50)"
+msgstr "heal(50)"
+
+#: course/lesson-13-conditions/visuals/ExampleHeal.tscn
+#: course/lesson-9-adding-and-subtracting/visuals/ExampleHeal.tscn
+msgid ""
+"func heal(amount):\n"
+"\thealth += amount"
+msgstr ""
+"func heal(amount):\n"
+"\thealth += amount"
+
+#: course/lesson-13-conditions/visuals/ExampleJump.tscn
+msgid "Jump"
+msgstr "Стрибок"
+
+#: course/lesson-14-multiplying/visuals/Graph.tscn
+#: course/lesson-16-2d-vectors/visuals/VectorVisual.tscn
+msgid "X"
+msgstr "X"
+
+#: course/lesson-14-multiplying/visuals/Graph.tscn
+#: course/lesson-16-2d-vectors/visuals/VectorVisual.tscn
+msgid "Y"
+msgstr "Y"
+
+#: course/lesson-14-multiplying/visuals/GraphExp.tscn
+#: course/lesson-14-multiplying/visuals/GraphLinear.tscn
+msgid "Show Me"
+msgstr "Покажи мені"
+
+#: course/lesson-14-multiplying/visuals/LevelUpVisual.tscn
+msgid "Level Up!"
+msgstr "Новий Рівень!"
+
+#: course/lesson-16-2d-vectors/visuals/ExampleIncreaseCharacterScale.tscn
+#: course/lesson-16-2d-vectors/visuals/ExampleIncreaseCharacterScaleVector.tscn
+msgid "level_up()"
+msgstr "level_up()"
+
+#: course/lesson-16-2d-vectors/visuals/ExampleIncreaseCharacterScale.tscn
+msgid ""
+"func level_up():\n"
+"\tscale.x += 0.2\n"
+"\tscale.y += 0.2\n"
+"\t# ..."
+msgstr ""
+"func level_up():\n"
+"\tscale.x += 0.2\n"
+"\tscale.y += 0.2\n"
+"\t# ..."
+
+#: course/lesson-16-2d-vectors/visuals/ExampleIncreaseCharacterScaleVector.tscn
+msgid ""
+"func level_up():\n"
+"\tscale += Vector2(0.2, 0.2)\n"
+"\t# ..."
+msgstr ""
+"func level_up():\n"
+"\tscale += Vector2(0.2, 0.2)\n"
+"\t# ..."
+
+#: course/lesson-16-2d-vectors/visuals/ExampleMoveSpriteVector.tscn
+msgid "move()"
+msgstr "move()"
+
+#: course/lesson-16-2d-vectors/visuals/ExampleMoveSpriteVector.tscn
+msgid ""
+"func move():\n"
+"\tposition += Vector2(20, 20)"
+msgstr ""
+"func move():\n"
+"\tposition += Vector2(20, 20)"
+
+#: course/lesson-16-2d-vectors/visuals/VectorVisual.tscn
+msgid "Vector2(100, 100)"
+msgstr "Vector2(100, 100)"
+
+#: course/lesson-17-while-loops/visuals/ExampleBoard.tscn
+msgid "grid_size = Vector2(3, 3)"
+msgstr "grid_size = Vector2(3, 3)"
+
+#: course/lesson-17-while-loops/visuals/ExampleBoardWhile.tscn
+#: course/lesson-17-while-loops/visuals/ExampleRobotMoveRight.tscn
+#: course/lesson-17-while-loops/while_move/PracticeBoardWhile.tscn
+#: course/lesson-18-for-loops/for_move/PracticeBoardFor.tscn
+#: course/lesson-18-for-loops/visuals/BoardVisualFor.tscn
+#: course/lesson-18-for-loops/visuals/ExampleBoardFor.tscn
+msgid "cell = Vector2(0, 1)"
+msgstr "cell = Vector2(0, 1)"
+
+#: course/lesson-17-while-loops/visuals/old/ExampleTurtleMeetRobot.tscn
+#: course/lesson-17-while-loops/visuals/old/ExampleTurtleMeetRobotWhile.tscn
+msgid "draw_wall()"
+msgstr "draw_wall()"
+
+#: course/lesson-17-while-loops/visuals/old/ExampleTurtleMeetRobot.tscn
+msgid ""
+"func draw_wall():\n"
+"\tdraw_square()\n"
+"\tjump(110, 0)\n"
+"\tdraw_square()\n"
+"\tjump(110, 0)\n"
+"\tdraw_square()"
+msgstr ""
+"func draw_wall():\n"
+"\tdraw_square()\n"
+"\tjump(110, 0)\n"
+"\tdraw_square()\n"
+"\tjump(110, 0)\n"
+"\tdraw_square()"
+
+#: course/lesson-17-while-loops/visuals/old/ExampleTurtleMeetRobotWhile.tscn
+msgid ""
+"func draw_wall():\n"
+"\tvar number = 0\n"
+"\twhile number < 3:\n"
+"\t\tdraw_square()\n"
+"\t\tjump(110, 0)\n"
+"\t\tnumber += 1"
+msgstr ""
+"func draw_wall():\n"
+"\tvar number = 0\n"
+"\twhile number < 3:\n"
+"\t\tdraw_square()\n"
+"\t\tjump(110, 0)\n"
+"\t\tnumber += 1"
+
+#: course/lesson-19-creating-arrays/visuals/ArrayDefinitionSyntax.tscn
+#: course/lesson-24-access-array-indices/visuals/SyntaxAccessIndex.tscn
+#: course/lesson-25-creating-dictionaries/visuals/SyntaxAccessValue.tscn
+msgid "["
+msgstr "["
+
+#: course/lesson-19-creating-arrays/visuals/ArrayDefinitionSyntax.tscn
+msgid "value_1"
+msgstr "value_1"
+
+#: course/lesson-19-creating-arrays/visuals/ArrayDefinitionSyntax.tscn
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid ","
+msgstr ","
+
+#: course/lesson-19-creating-arrays/visuals/ArrayDefinitionSyntax.tscn
+msgid "value_2"
+msgstr "value_2"
+
+#: course/lesson-19-creating-arrays/visuals/ArrayDefinitionSyntax.tscn
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid "..."
+msgstr "..."
+
+#: course/lesson-19-creating-arrays/visuals/ArrayDefinitionSyntax.tscn
+#: course/lesson-24-access-array-indices/visuals/SyntaxAccessIndex.tscn
+#: course/lesson-25-creating-dictionaries/visuals/SyntaxAccessValue.tscn
+msgid "]"
+msgstr "]"
+
+#: course/lesson-2-your-first-error/ErrorExample.tscn
+#: course/lesson-2-your-first-error/ErrorTranslatorExample.tscn
+msgid "The function \"move\" already exists in this class (at line 22)."
+msgstr "У цьому класі вже існує функція \"move\" (у рядку 22)."
+
+#: course/lesson-21-strings/string_error/StringError.tscn
+msgid "INVALID NAME"
+msgstr "НЕПРАВИЛЬНА НАЗВА"
+
+#: course/lesson-21-strings/visuals/RobotToolTip.tscn
+msgid "This is a hint."
+msgstr "Це підказка."
+
+#: course/lesson-21-strings/visuals/RobotToolTip.tscn
+msgid "Hover over the Robot to learn more"
+msgstr "Наведіть курсор на Робота, щоб дізнатися більше"
+
+#: course/lesson-21-strings/visuals/RobotWithNumberName.tscn
+msgid "70801"
+msgstr "70801"
+
+#: course/lesson-21-strings/visuals/RobotWithRegularName.tscn
+msgid "Robot"
+msgstr "Робот"
+
+#: course/lesson-22-functions-return-values/visuals/ExampleRoundingHealth.tscn
+msgid "Health: "
+msgstr "Здоров’я: "
+
+#: course/lesson-23-append-to-arrays/clearing-meals/ClearingMeals.tscn
+#: course/lesson-23-append-to-arrays/visuals/OrderMeals.tscn
+msgid "Pending orders"
+msgstr "Відкладені замовлення"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/ClearingMeals.tscn
+#: course/lesson-23-append-to-arrays/visuals/OrderMeals.tscn
+msgid "Completed"
+msgstr "Завершено"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/Meal.tscn
+msgid "cheese sandwich"
+msgstr "бутерброд з сиром"
+
+#: course/lesson-24-access-array-indices/visuals/SyntaxAccessIndex.tscn
+msgid "array_name"
+msgstr "array_name"
+
+#: course/lesson-24-access-array-indices/visuals/SyntaxAccessIndex.tscn
+msgid "index"
+msgstr "index"
+
+#: course/lesson-25-creating-dictionaries/visuals/ErrorDuplicateKey.tscn
+msgid "Error: Duplicate key found in Dictionary literal"
+msgstr "Помилка: у літералі словника виявлено дублікат ключа"
+
+#: course/lesson-25-creating-dictionaries/visuals/SyntaxAccessValue.tscn
+msgid "dictionary"
+msgstr "словник"
+
+#: course/lesson-25-creating-dictionaries/visuals/SyntaxAccessValue.tscn
+msgid "key"
+msgstr "ключ"
+
+#: course/lesson-26-looping-over-dictionaries/display-inventory/DisplayInventory.tscn
+msgid "Healing Heart"
+msgstr "Цілюще Серце"
+
+#: course/lesson-26-looping-over-dictionaries/display-inventory/DisplayInventory.tscn
+msgid "Gems"
+msgstr "Самоцвіти"
+
+#: course/lesson-26-looping-over-dictionaries/display-inventory/DisplayInventory.tscn
+msgid "Sword"
+msgstr "Меч"
+
+#: course/lesson-27-value-types/display-energy/DisplayingEnergy.tscn
+msgid "Energy:"
+msgstr "Енергія:"
+
+#: course/lesson-27-value-types/display-energy/DisplayingEnergy.tscn
+msgid "?? / 100"
+msgstr "?? / 100"
+
+#: course/lesson-27-value-types/player-input/PlayerInput.tscn
+msgid "Select count"
+msgstr "Вибрати кількість"
+
+#: course/lesson-27-value-types/player-input/PlayerInput.tscn
+#: ui/components/popups/ConfirmPopup.tscn
+#: ui/components/popups/PracticeLeaveUnfinishedPopup.tscn
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: course/lesson-27-value-types/player-input/PlayerInput.tscn
+#: ui/components/popups/TranslationInfoPopup.tscn
+msgid "OK"
+msgstr "Гаразд"
+
+#: course/lesson-27-value-types/visuals/ErrorInvalidOperands.tscn
+msgid "Invalid operands 'String' and 'int' in operator '+'."
+msgstr "Недопустимі операнди \"String\" та 'int' в операторі '+'."
+
+#: course/lesson-28-specifying-types/ErrorInvalidOperands2.tscn
+msgid "Invalid operands for operator."
+msgstr "Недопустимі операнди для оператора."
+
+#: course/lesson-28-specifying-types/ErrorInvalidType.tscn
+msgid "Parser Error: The assigned value's type (float) doesn't match the variable's type (Vector2)."
+msgstr "Помилка аналізатора: тип присвоєного значення (float) не відповідає типу змінної (Vector2)."
+
+#: course/lesson-28-specifying-types/SyntaxTypeHints.tscn
+#: course/lesson-5-your-first-function/VisualFunctionDefinition.tscn
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid ":"
+msgstr ":"
+
+#: course/lesson-28-specifying-types/SyntaxTypeHints.tscn
+msgid "Type"
+msgstr "Тип"
+
+#: course/lesson-5-your-first-function/VisualFunctionDefinition.tscn
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid "func"
+msgstr "func"
+
+#: course/lesson-5-your-first-function/VisualFunctionDefinition.tscn
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid "name"
+msgstr "name"
+
+#: course/lesson-5-your-first-function/VisualFunctionDefinition.tscn
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid "("
+msgstr "("
+
+#: course/lesson-5-your-first-function/VisualFunctionDefinition.tscn
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid ")"
+msgstr ")"
+
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid "parameter_1"
+msgstr "parameter_1"
+
+#: course/lesson-6-multiple-function-parameters/visuals/FunctionDefinitionWithParams.tscn
+msgid "parameter_2"
+msgstr "parameter_2"
+
+#: course/lesson-9-adding-and-subtracting/visuals/ExampleDamage.tscn
+msgid "take_damage(25)"
+msgstr "take_damage(25)"
+
+#: course/lesson-9-adding-and-subtracting/visuals/ExampleDamage.tscn
+msgid ""
+"func take_damage(amount):\n"
+"\thealth -= amount"
+msgstr ""
+"func take_damage(amount):\n"
+"\thealth -= amount"
+
+#: course/lesson-9-adding-and-subtracting/visuals/ExampleHeal.tscn
+msgid "heal(25)"
+msgstr "heal(25)"
+
+#: ui/UILesson.tscn
+msgid "Title"
+msgstr "Заголовок"
+
+#: ui/UILesson.tscn
+msgid "Practices"
+msgstr "Вправи"
+
+#: ui/UINavigator.tscn
+msgid "Go back to the main menu"
+msgstr "Повернутися до головного меню"
+
+#: ui/UINavigator.tscn ui/screens/end_screen/EndScreen.tscn
+#: ui/screens/end_screen/SponsorlessEndScreen.tscn
+msgid "Open the course index"
+msgstr "Відкрити зміст курсу"
+
+#: ui/UINavigator.tscn ui/UINavigator.gd:431
+msgid "Go back in your navigation history"
+msgstr "Повернутися до попереднього вікна"
+
+#: ui/UINavigator.tscn ui/components/popups/ReportFormPopup.tscn
+msgid "Report an issue"
+msgstr "Повідомити про проблему"
+
+#: ui/UINavigator.tscn
+msgid "Configure the app"
+msgstr "Налаштувати застосунок"
+
+#: ui/UIPractice.tscn
+msgid "Suggested Solution"
+msgstr "Пропоноване рішення"
+
+#: ui/UIPractice.tscn
+msgid ""
+"Use the suggested solution.\n"
+"\n"
+"Warning: Using the suggested solution will leave this practice unfinished.\n"
+"You can come back and try to solve it yourself later."
+msgstr ""
+"Скористайтеся запропонованим рішенням.\n"
+"\n"
+"Увага: якщо скористатися запропонованим рішенням, це завдання залишиться незавершеним.\n"
+"Ви зможете повернутися до нього пізніше та спробувати вирішити його самостійно."
+
+#: ui/UIPractice.tscn
+msgid "Use Solution"
+msgstr "Використати рішення"
+
+#: ui/UIPractice.tscn
+msgid "Leave unfinished practice?"
+msgstr "Залишити незакінчену вправу?"
+
+#: ui/components/BetaIndicator.tscn
+msgid "App in"
+msgstr "Додаток у"
+
+#: ui/components/BetaIndicator.tscn
+msgid "BETA!"
+msgstr "БЕТА-ВЕРСІЯ!"
+
+#: ui/components/BetaIndicator.tscn
+msgid "found a bug?"
+msgstr "знайшли помилку?"
+
+#: ui/components/BigGreenButton.tscn
+msgid "Button"
+msgstr "Кнопка"
+
+#: ui/components/CodeEditor.tscn
+msgid "Toggle the code editor expanded."
+msgstr "Розгорнути редактор коду."
+
+#: ui/components/CodeEditor.tscn
+msgid "Run your code."
+msgstr "Виконуємо ваш код."
+
+#: ui/components/CodeEditor.tscn
+msgid "Run"
+msgstr "Виконати"
+
+#: ui/components/CodeEditor.tscn
+msgid "Toggle the game viewport paused."
+msgstr "Увімкнути/вимкнути режим паузи у вікні гри."
+
+#: ui/components/CodeEditor.tscn
+msgid "Pause"
+msgstr "Пауза"
+
+#: ui/components/CodeEditor.tscn
+msgid "Reset your code to the starting point."
+msgstr "Скиньте код до початкового стану."
+
+#: ui/components/CodeEditor.tscn ui/components/RunnableCodeExample.tscn
+msgid "Reset"
+msgstr "Скинути"
+
+#: ui/components/CodeEditor.tscn
+msgid "Show this practice's solution code."
+msgstr "Показати код рішення для цього завдання."
+
+#: ui/components/CodeEditor.tscn
+msgid "Solution"
+msgstr "Рішення"
+
+#: ui/components/CodeEditor.tscn
+msgid "Toggle the output console's visibility."
+msgstr "Увімкнути або вимкнути відображення консолі виводу."
+
+#: ui/components/CodeEditor.tscn ui/components/OutputConsole.tscn
+msgid "Output"
+msgstr "Вивід"
+
+#: ui/components/CodeEditor.tscn
+msgid "Continue the course."
+msgstr "Продовжуйте курс."
+
+#: ui/components/CodeEditor.tscn ui/components/popups/LessonDonePopup.tscn
+#: ui/components/popups/PracticeDonePopup.tscn
+msgid "Continue"
+msgstr "Продовжити"
+
+#: ui/components/DebuggerConsoleMonitoredVariable.tscn
+#: ui/components/OutputConsolePrintMessage.tscn
+msgid "Value"
+msgstr "Значення"
+
+#: ui/components/FullScreenButton.tscn
+msgid ""
+"Toggle the app full-screen.\n"
+"Shortcut: F11"
+msgstr ""
+"Перейти в повноекранний режим програми.\n"
+"Гаряча клавіша: F11"
+
+#: ui/components/GDQuestCreditsLabel.tscn
+msgid "Learn GDScript From Zero is an open source project by [color=#FFD500][url=https://www.gdquest.com/]GDQUEST.COM[/url][/color]"
+msgstr "Learn GDScript From Zero – це проєкт з відкритим кодом від [color=#FFD500][url=https://www.gdquest.com/]GDQUEST.COM[/url][/color]"
+
+#: ui/components/GameView.tscn
+msgid "Paused"
+msgstr "На паузі"
+
+#: ui/components/GlossaryPopup.tscn
+msgid "Term"
+msgstr "Елемент"
+
+#: ui/components/GlossaryPopup.tscn ui/components/popups/ErrorOverlayPopup.tscn
+msgid "Our error explanation."
+msgstr "Наше пояснення помилки."
+
+#: ui/components/OutputConsoleErrorMessage.tscn
+msgid "INFO"
+msgstr "ІНФОРМАЦІЯ"
+
+#: ui/components/OutputConsoleErrorMessage.tscn
+msgid "Click to highlight the relevant part of your code"
+msgstr "Натисніть, щоб виділити відповідну частину коду"
+
+#: ui/components/OutputConsoleErrorMessage.tscn
+msgid "at"
+msgstr "в"
+
+#: ui/components/OutputConsoleErrorMessage.tscn
+msgid "line 0, column -1"
+msgstr "line 0, column -1"
+
+#: ui/components/OutputConsoleErrorMessage.tscn
+msgid "Click to learn about external errors"
+msgstr "Натисніть, щоб дізнатися про зовнішні помилки"
+
+#: ui/components/OutputConsoleErrorMessage.tscn
+msgid "Sometimes errors are reported outside of your code. [url=external]Why does that happen?[/url]"
+msgstr "Іноді помилки виникають за межами вашого коду. [url=external]Чому так буває?[/url]"
+
+#: ui/components/OutputConsoleErrorMessage.tscn
+msgid "Explain"
+msgstr "Пояснення"
+
+#: ui/components/QuitButton.tscn
+msgid ""
+"Quit the app.\n"
+"Shortcut: Alt+F4"
+msgstr ""
+"Закрити програму.\n"
+"Комбінація клавіш: Alt+F4"
+
+#: ui/components/Revealer.tscn
+msgid "Expand"
+msgstr "Розгорнути"
+
+#: ui/components/RunnableCodeExample.tscn
+msgid "run()"
+msgstr "run()"
+
+#: ui/components/RunnableCodeExample.tscn
+msgid "step"
+msgstr "крок"
+
+#: ui/components/RunnableCodeExampleDebugger.tscn
+msgid "Debugger"
+msgstr "Зневаджувач"
+
+#: ui/components/popups/ConfirmPopup.tscn
+#: ui/components/popups/PracticeLeaveUnfinishedPopup.tscn
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#: ui/components/popups/ErrorOverlayPopup.tscn
+msgid "Why this happens"
+msgstr "Чому це відбувається"
+
+#: ui/components/popups/ErrorOverlayPopup.tscn
+msgid "How to fix this"
+msgstr "Як це виправити"
+
+#: ui/components/popups/ErrorOverlayPopup.tscn
+msgid "Our suggestion on how to fix it."
+msgstr "Наш варіант виправлення."
+
+#: ui/components/popups/ErrorOverlayPopup.tscn
+msgid ""
+"Sorry, we don't have this particular error message covered yet!\n"
+"\n"
+"Please, use the Report button in the top-right corner to tell us more about how you've got it, and we will try to improve our knowledge base for the next version of the application.\n"
+"\n"
+"Thank you!"
+msgstr ""
+"Вибачте, ми ще не написали пояснення щодо цієї помилки!\n"
+"\n"
+"Скористайтеся кнопкою Повідомити про проблему в правому верхньому куті, щоб розповісти нам більше про те, як ви на неї натрапили, і до наступної версії програми ми постараємося покращити нашу базу знань.\n"
+"\n"
+"Дякую!"
+
+#: ui/components/popups/ErrorOverlayPopup.tscn
+msgid "Hide"
+msgstr "Приховати"
+
+#: ui/components/popups/ExternalErrorPopup.tscn
+msgid "Where do external errors come from?"
+msgstr "Звідки беруться зовнішні помилки?"
+
+#: ui/components/popups/ExternalErrorPopup.tscn
+msgid ""
+"Lessons in this course are designed so you only need to edit the [b]important bits[/b]. But there is much more code outside of what you see that makes the project run.\n"
+"\n"
+"This means that sometimes changes you make can affect code you have no control over. But don't worry, you can still fix all the issues yourself with the code you [b]can[/b] edit!\n"
+"\n"
+"[i]This is like how game engines work too.[/i] There is a lot of hidden code that they execute to ensure your project runs smoothly. And yet, an error in your scripts can break them. We'll try to explain how to address each individual error that you face. Quick, click the [b]Explain[/b] button next to the error message!"
+msgstr ""
+"Уроки цього курсу побудовано так, що вам потрібно редагувати лише [b]важливі фрагменти коду[/b]. Але крім того коду, який ви бачите, є ще дуже багато коду, який змушує цей проєкт працювати.\n"
+"\n"
+"Це означає, що зміни, які робите ви, можуть вплинути на код, який вам недоступний. Але не хвилюйтеся, ви все ще можете розв'язати всі проблеми, що виникають, самостійно, за допомогою коду, який ви [b]можете[/b] редагувати!\n"
+"\n"
+"[i]Це нагадує те, як працюють ігрові рушії.[/i] Існує багато прихованого коду, який вони виконують, щоб забезпечити безперебійну роботу вашого проєкту. І все ж помилка у ваших скриптах може їх зламати. Ми намагатимемося пояснити, як усунути кожну окрему помилку, з якою ви зіткнетеся. Просто натисніть кнопку [b]Пояснення[/b] поруч із повідомленням про помилку!"
+
+#: ui/components/popups/ExternalErrorPopup.tscn
+msgid "Got it!"
+msgstr "Зрозуміло!"
+
+#: ui/components/popups/LessonDonePopup.tscn
+msgid "Lesson complete!"
+msgstr "Урок пройдено!"
+
+#: ui/components/popups/LessonDonePopup.tscn
+msgid ""
+"But there are still some practices\n"
+"that you've skipped."
+msgstr ""
+"Але є ще вправи\n"
+"які ви пропустили."
+
+#: ui/components/popups/LessonDonePopup.tscn
+msgid ""
+"[b]Stay[/b] and revisit the study material,\n"
+"or [b]continue[/b] the course."
+msgstr ""
+"[b]Залишайтеся[/b] і ще раз перегляньте навчальний матеріал,\n"
+"або [b]продовжуйте[/b] курс."
+
+#: ui/components/popups/LessonDonePopup.tscn
+#: ui/components/popups/PracticeDonePopup.tscn
+msgid "Stay"
+msgstr "Залишитися"
+
+#: ui/components/popups/PracticeDonePopup.tscn
+msgid "Well done!"
+msgstr "Молодець!"
+
+#: ui/components/popups/PracticeDonePopup.tscn
+msgid "You completed the practice."
+msgstr "Ви виконали вправу."
+
+#: ui/components/popups/PracticeDonePopup.tscn
+msgid ""
+"[b]Stay[/b] and play around,\n"
+"or [b]continue[/b] the course."
+msgstr ""
+"[b]Залишайтеся[/b] і поекспериментуйте,\n"
+"або [b]продовжуйте[/b] курс."
+
+#: ui/components/popups/PracticeListPopup.tscn
+msgid "Practice List"
+msgstr "Список вправ"
+
+#: ui/components/popups/PracticeListPopup.tscn
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Close"
+msgstr "Закрити"
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Something does not work"
+msgstr "Щось не працює"
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Something is unclear or incorrect"
+msgstr "Щось незрозуміло або неправильно"
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Suggest an improvement"
+msgstr "Запропонувати покращення"
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Translation issue"
+msgstr "Проблема з перекладом"
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Write a short description."
+msgstr "Напишіть короткий опис."
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Describe what went wrong, what you were doing, and what you expected to happen."
+msgstr "Опишіть, що пішло не так, що ви робили та чого очікували."
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Open the contact page on our website with this report prefilled."
+msgstr "Відкрийте сторінку контактів на нашому веб-сайті, де цей звіт вже заповнено."
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Send report"
+msgstr "Надіслати звіт"
+
+#: ui/components/popups/ReportFormPopup.tscn
+msgid "Close the report form without sending anything."
+msgstr "Закрити форму звіту, не надсилаючи нічого."
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Configure the App"
+msgstr "Налаштувати Застосунок"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid ""
+"Pick one of the community-contributed translations.\n"
+"Some translations are not complete yet."
+msgstr ""
+"Оберіть один із перекладів, наданих користувачами.\n"
+"Деякі переклади ще не завершені."
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Language"
+msgstr "Мова"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "About community translations"
+msgstr "Про переклади спільноти"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "0% of text translated. 0/0 lessons fully translated."
+msgstr "0% тексту перекладено. 0/0 уроків повністю перекладено."
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Make all text in the app bigger or smaller."
+msgstr "Збільшити або зменшити розмір усього тексту в додатку."
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Text Size"
+msgstr "Розмір тексту"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Sample text"
+msgstr "Приклад тексту"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Change how fast the page scrolls when you use the mouse wheel or touchpad."
+msgstr "Змініть швидкість прокрутки сторінки під час використання коліщатка миші або тачпада."
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Scroll speed"
+msgstr "Чутливість прокрутки"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid ""
+"Limit how many frames per second the app draws.\n"
+"Lower values use less resources, which helps when running in the browser, but the app may feel less smooth."
+msgstr ""
+"Обмежте кількість кадрів на секунду, які відображає додаток.\n"
+"Менші значення споживають менше ресурсів, що є корисним під час роботи в браузері, але додаток може працювати не так плавно."
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Max framerate"
+msgstr "Обмеження частоти кадрів"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "60 FPS"
+msgstr "60 FPS"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "30 FPS"
+msgstr "30 FPS"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "No Limit"
+msgstr "Без обмежень"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid ""
+"Reduce the contrast between the text and the background.\n"
+"This makes the app easier on your eyes."
+msgstr ""
+"Зменште контраст між текстом і фоном.\n"
+"Це зробить роботу з додатком більш комфортною для очей."
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Lower contrast"
+msgstr "Знизити контрастність"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Enabled"
+msgstr "Ввімкнено"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid ""
+"Switch to a font designed to be easier to read for people with dyslexia.\n"
+"This does not work with languages like Chinese and Japanese."
+msgstr ""
+"Перейдіть на шрифт, розроблений для полегшення читання людям із дислексією.\n"
+"Ця функція не працює з такими мовами, як китайська та японська."
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Dyslexia Font"
+msgstr "Шрифт для дислексії"
+
+#: ui/components/popups/SettingsPopup.tscn
+msgid "Apply"
+msgstr "Застосувати"
+
+#: ui/components/popups/TranslationInfoPopup.tscn
+msgid "Community Translations"
+msgstr "Переклади спільноти"
+
+#: ui/components/popups/TranslationInfoPopup.tscn
+msgid ""
+"The languages available in this app are translated by community volunteers. They are not officially supported, and some translations may be incomplete or missing entirely.\n"
+"\n"
+"If you see text that is still in English while using another language, this is expected. It means that part of the app has not been translated yet.\n"
+"\n"
+"If you want to help make the translations more complete, you are welcome to contribute. You can find instructions on how to do so here: [b][url=https://github.com/GDQuest/learn-gdscript-translations/#readme]How to contribute translations[/url][/b]\n"
+"\n"
+"Thank you to everyone who has contributed translations so far."
+msgstr ""
+"Мови, доступні в цьому додатку, перекладені волонтерами спільноти. Вони не підтримуються офіційно, і деякі переклади можуть бути неповними або взагалі відсутніми.\n"
+"\n"
+"Якщо під час користування додатком іншою мовою ви бачите текст, що залишається англійською, це нормально. Це означає, що частина додатка ще не перекладена.\n"
+"\n"
+"Якщо ви хочете допомогти зробити переклади повнішими, ласкаво просимо долучитися. Інструкції щодо цього ви знайдете тут: [b][url=https://github.com/GDQuest/learn-gdscript-translations/#readme]Як долучитися до перекладу[/url][/b]\n"
+"\n"
+"Дякуємо всім, хто досі долучився до перекладу."
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+msgid "Lesson Title Goes Here"
+msgstr "Тут зазначено назву уроку"
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+msgid "Lesson read"
+msgstr "Поступ читання"
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+msgid "Quizzes completed"
+msgstr "Пройдено тестів"
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+msgid "0 / 0"
+msgstr "0 / 0"
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+msgid "Practices completed"
+msgstr "Виконано вправ"
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+msgid "Amount of Translated Text"
+msgstr "Обсяг перекладеного тексту"
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+msgid "0%"
+msgstr "0%"
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+msgid "\t[b][url=https://github.com/GDQuest/learn-gdscript-translations/#readme]How to contribute translations[/url][/b]"
+msgstr "\t[b][url=https://github.com/GDQuest/learn-gdscript-translations/#readme]Як долучитися до перекладу[/url][/b]"
+
+#: ui/screens/course_outliner/CourseLessonDetails.tscn
+#: ui/screens/course_outliner/CourseLessonDetails.gd:86
+#: ui/screens/course_outliner/CourseLessonDetails.gd:118
+msgid "Start Lesson"
+msgstr "Почати урок"
+
+#: ui/screens/course_outliner/CourseLessonItem.tscn
+msgid "L12."
+msgstr "L12."
+
+#: ui/screens/course_outliner/CourseLessonItem.tscn
+msgid "Lesson Title"
+msgstr "Тема уроку"
+
+#: ui/screens/course_outliner/CourseLessonItem.tscn
+msgid "A/文 100%"
+msgstr "Перекладено 100%"
+
+#: ui/screens/course_outliner/CourseLessonList.tscn
+msgid "This course is 80% translated. Incomplete lessons will contain English text."
+msgstr "Курс перекладений на 80%. Неповні уроки міститимуть текст англійською."
+
+#: ui/screens/course_outliner/CourseOutliner.tscn
+msgid "Course Index - "
+msgstr "Зміст курсу - "
+
+#: ui/screens/course_outliner/CourseOutliner.tscn
+msgid "Course Title Goes Here"
+msgstr "Тут зазначено назву курсу"
+
+#: ui/screens/course_outliner/CourseOutliner.tscn
+msgid "Reset Progress"
+msgstr "Скинути поступ"
+
+#: ui/screens/course_outliner/CourseOutliner.tscn
+msgid "Confirm Resetting Progress"
+msgstr "Підтвердьте скидання поступу"
+
+#: ui/screens/end_screen/CourseThumbnail.tscn
+msgid "Early Access release: 2024/01/30"
+msgstr "Випуск раннього доступу: 30.01.2024"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "YOU MADE IT!"
+msgstr "ВИ ЦЕ ЗРОБИЛИ!"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Not only did you learn the foundations of coding, you're a big step closer to making your own games."
+msgstr "Ви не лише вивчили основи програмування, але й наблизилися на крок до створення власних ігор."
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Don't stop here..."
+msgstr "Не зупиняйтеся тут..."
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "The fun stuff starts now!"
+msgstr "Все найцікавіше лише починається!"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "There are 2 pathways learners traditionally take from here:"
+msgstr "Найчастіше тут учні обирають один із двох шляхів:"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Following video tutorials"
+msgstr "Дотримуватися відеоуроків"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "They're a great way to pick up specific game mechanics but they're not as effective when you're trying to learn new skills from the ground up."
+msgstr "Вони - це чудовий спосіб зрозуміти конкретні ігрові механіки, але не такі ефективні, коли намагаєшся вивчити нові навички з нуля."
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "• There's no clear learning path."
+msgstr "• Немає чіткого шляху вивчення."
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "• Retention and skill acquisition is slow and limited."
+msgstr "• Запам'ятовування та набуття навичок повільне та обмежене."
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "We make our fair share of [b][color=#ebc3ff][url=https://www.youtube.com/@Gdquest/videos]free tutorials[/url][/color][/b]. They will come in very handy once you start making games on your own. But to get started, we really recommend you learn how to think like a game developer using [b][color=#ebc3ff][url=https://school.gdquest.com/godot-4-early-access]courses[/url][/color][/b]."
+msgstr "Ми самі робимо багато [b][color=#ebc3ff][url=https://www.youtube.com/@Gdquest/videos]безплатних відеоуроків[/url][/color][/b]. Вони вам дуже згодяться, коли ви почнете робити власні ігри. Але для початку, ми дуже радимо вам навчитися думати як розробник ігор, пройшовши [b][color=#ebc3ff][url=https://school.gdquest.com/godot-4-early-access]курси[/url][/color][/b]."
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Learning with courses"
+msgstr "Навчання за курсами"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Note that most available courses online are actually premium series of video tutorials. The problem of retaining information and acquiring real skills unfortunately still applies to them."
+msgstr "Зверніть увагу, що більшість доступних онлайнових курсів насправді є просто преміум-серіями відеоуроків. Проблема запам'ятовування інформації та отримання реальних умінь, на жаль, залишається."
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid ""
+"At GDQuest, we're educators at heart. We believe in applied study and we believe it doesn't have to be boring. When teaching is done correctly, most people highly enjoy the sensation of leveling up!\n"
+"\n"
+"That's the reason we made this app. It is in fact part of our beginner course [b][color=#ebc3ff][url=https://school.gdquest.com/products/bundle_learn_gamedev_godot_4]Learn Gamedev From Zero with Godot[/url][/color][/b]."
+msgstr ""
+"В GDQuest ми любимо навчати. Ми віримо в прикладне навчання і в те, що воно не має бути нудним. Коли правильно чомусь навчаєш, більшості людей починає подобається відчуття вдосконалення!\n"
+"\n"
+"Тому ми зробили цей застосунок. До речі, цей курс є частиною нашого курсу для початківців [b][color=#ebc3ff][url=https://school.gdquest.com/products/bundle_learn_gamedev_godot_4]Learn Gamedev From Zero with Godot[/url][/color][/b]."
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "LEARN GAMEDEV WITH GODOT"
+msgstr "НАВЧИТЬСЯ СТВОРЮВАТИ ІГРИ З GODOT"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Now available"
+msgstr "Тепер доступно"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "for preorders"
+msgstr "для передзамовлень"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Godot 4 courses!!"
+msgstr "Курси з Godot 4!!"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Teaching gamedev in the classroom?"
+msgstr "Викладаєте геймдев у школі?"
+
+#: ui/screens/end_screen/EndScreen.tscn
+msgid "Get in touch"
+msgstr "Зв'язатися"
+
+#: ui/screens/end_screen/SponsorlessEndScreen.tscn
+msgid "Congratulations!"
+msgstr "Вітаємо!"
+
+#: ui/screens/end_screen/SponsorlessEndScreen.tscn
+msgid ""
+"You completed Learn GDScript From Zero. You now have the basics you need to make games with the Godot game engine.\n"
+"\n"
+"You can keep learning with the free series Getting Started with Godot."
+msgstr ""
+"Ви завершили курс Learn GDScript From Zero. Тепер ви маєте необхідні базові знання, щоб із головою поринути в розробку ігор за допомогою ігрового рушія Godot.\n"
+"\n"
+"Ви можете продовжувати навчатися за допомогою безкоштовної серії \"Перші кроки з Godot\"."
+
+#: ui/screens/end_screen/SponsorlessEndScreen.tscn
+msgid "This is an Open-Source project!"
+msgstr "Це проєкт із відкритим сирцевим кодом!"
+
+#: ui/screens/end_screen/SponsorlessEndScreen.tscn
+msgid ""
+"Like Godot, this app and course is free and open-source.\n"
+"\n"
+"You can find the app's source code and contribute translations here: Learn GDScript From Zero (Github repository)."
+msgstr ""
+"Як і Godot, цей застосунок і курс безплатні і мають відкритий вихідний код.\n"
+"\n"
+"Ви можете знайти вихідний код програми та покращити переклад тут: Learn GDScript From Zero (репозиторій на Github)."
+
+#: ui/screens/lesson/UIBaseQuiz.tscn
+msgid "Question"
+msgstr "Питання"
+
+#: ui/screens/lesson/UIBaseQuiz.tscn
+msgid ""
+"You've already answered this quiz correctly before.\n"
+"Feel free to try it again to refresh your memory!"
+msgstr ""
+"Ви вже раніше правильно відповіли на цей тест.\n"
+"Сміливо спробуйте ще раз, щоб освіжити пам’ять!"
+
+#: ui/screens/lesson/UIBaseQuiz.tscn
+msgid "You need to try to answer once before you can skip a quiz."
+msgstr "Перш ніж пропустити тест, вам потрібно спробувати відповісти хоча б один раз."
+
+#: ui/screens/lesson/UIBaseQuiz.tscn
+msgid "Skip"
+msgstr "Пропустити"
+
+#: ui/screens/lesson/UIBaseQuiz.tscn
+msgid "Submit"
+msgstr "Надіслати"
+
+#: ui/screens/lesson/UIBaseQuiz.tscn
+msgid "You're right!"
+msgstr "Все правильно!"
+
+#: ui/screens/lesson/UIBaseQuiz.tscn
+msgid "Answers here"
+msgstr "Відповіді тут"
+
+#: ui/screens/lesson/UIPracticeButton.tscn
+msgid "Practice title"
+msgstr "Назва вправи"
+
+#: ui/screens/lesson/UIPracticeButton.tscn
+msgid ""
+"You've already completed this practice before.\n"
+"You can give it another go if you want to test your skills!"
+msgstr ""
+"Ви вже виконували це завдання раніше.\n"
+"Якщо хочете перевірити свої навички, можете спробувати ще раз!"
+
+#: ui/screens/lesson/UIPracticeButton.tscn
+msgid "next"
+msgstr "далі"
+
+#: ui/screens/lesson/UIPracticeButton.tscn
+msgid "Open this practice."
+msgstr "Відкрити це завдання."
+
+#: ui/screens/lesson/UIPracticeButton.tscn
+msgid "Practice"
+msgstr "Вправа"
+
+#: ui/screens/lesson/UIPracticeButton.tscn
+msgid "You are here"
+msgstr "Ви тут"
+
+#: ui/screens/lesson/quizzes/QuizAnswerButton.tscn
+msgid "Answer label"
+msgstr "Поле відповіді"
+
+#: ui/screens/lesson/quizzes/UIQuizChoice.tscn
+msgid "[b]Question[/b]"
+msgstr "[b]Питання[/b]"
+
+#: ui/screens/practice/PracticeHint.tscn
+msgid "Show Hint"
+msgstr "Показати підказку"
+
+#: ui/screens/practice/PracticeInfoPanel.tscn
+msgid "Summary - Lesson Name"
+msgstr "Огляд - Назва уроку"
+
+#: ui/screens/practice/PracticeInfoPanel.tscn
+msgid "Goals"
+msgstr "Цілі"
+
+#: ui/screens/practice/PracticeInfoPanel.tscn
+msgid "Hints"
+msgstr "Підказки"
+
+#: ui/screens/practice/PracticeInfoPanel.tscn
+msgid "Checks"
+msgstr "Перевірки"
+
+#: ui/screens/practice/PracticeInfoPanel.tscn
+msgid "Documentation"
+msgstr "Документація"
+
+#: ui/screens/practice/PracticeInfoPanel.tscn
+msgid "Open the list of practices for this lesson."
+msgstr "Відкрийте перелік вправ до цього уроку."
+
+#: ui/screens/practice/PracticeInfoPanel.tscn
+msgid "Open Practice List"
+msgstr "Відкрити список вправ"
+
+#: ui/screens/practice/PracticeTestDisplay.tscn
+msgid "Test text"
+msgstr "Тестовий текст"
+
+#: ui/screens/welcome_screen/WelcomeScreen.tscn
+#: ui/screens/welcome_screen/WelcomeScreen.gd:54
+msgid "START"
+msgstr "ПОЧАТИ"
+
+#: ui/screens/welcome_screen/WelcomeScreen.tscn
+msgid "SELECT LESSON"
+msgstr "ВИБРАТИ УРОК"
+
+#: ui/screens/welcome_screen/WelcomeScreen.tscn
+msgid "OPTIONS"
+msgstr "ОПЦІЇ"
+
+#: ui/screens/welcome_screen/WelcomeScreen.tscn
+msgid "QUIT"
+msgstr "ВИХІД"
+
+#: ui/screens/welcome_screen/WelcomeScreen.tscn
+msgid "An open source project by GDQuest.com"
+msgstr "Проєкт з відкритим кодом від GDQuest.com"
+
+#: course/lesson-1-what-code-is-like/first_practice/TestsWhatCodeIsLike.gd:5
+msgid "Run The Code"
+msgstr "Виконати код"
+
+#: course/lesson-1-what-code-is-like/first_practice/TestsWhatCodeIsLike.gd:5
+msgid "Press the Run button to run the code"
+msgstr "Натисніть кнопку \"Виконати\", щоб запустити код"
+
+#: course/lesson-10-the-game-loop/rotating-and-moving/TestsRotatingAndMoving.gd:16
+msgid "Character Is Moving In A Circle Clockwise"
+msgstr "Персонаж рухається по колу за годинниковою стрілкою"
+
+#: course/lesson-10-the-game-loop/rotating-and-moving/TestsRotatingAndMoving.gd:21
+#: course/lesson-10-the-game-loop/rotating-sprite/TestsRotating.gd:17
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:33
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:46
+msgid "Did you use rotate() to make the sprite rotate?"
+msgstr "Ви використали функцію rotate(), щоб змусити спрайт обертатися?"
+
+#: course/lesson-10-the-game-loop/rotating-and-moving/TestsRotatingAndMoving.gd:23
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:35
+msgid "Did you use move_local_x() to make the sprite move locally?"
+msgstr "Ви використали функцію move_local_x(), щоб змусити спрайт переміститися локально?"
+
+#: course/lesson-10-the-game-loop/rotating-and-moving/TestsRotatingAndMoving.gd:26
+#: course/lesson-10-the-game-loop/rotating-sprite/TestsRotating.gd:30
+#: course/lesson-10-the-game-loop/rotating-sprite/TestsRotating.gd:33
+msgid "The robot is turning in the wrong direction!"
+msgstr "Робот повертається не в той бік!"
+
+#: course/lesson-10-the-game-loop/rotating-and-moving/TestsRotatingAndMoving.gd:28
+msgid "The character didn't move as expected."
+msgstr "Персонаж не рухався так, як очікувалося."
+
+#: course/lesson-10-the-game-loop/rotating-sprite/TestsRotating.gd:10
+msgid "Character Is Rotating Clockwise"
+msgstr "Персонаж обертається за годинниковою стрілкою"
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:20
+msgid "Moving In A Circle"
+msgstr "Рух по колу"
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:21
+msgid "Movement Is Time Dependent"
+msgstr "Рух залежить від часу"
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:22
+msgid "Movement Speed Is Correct"
+msgstr "Швидкість руху правильна"
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:47
+msgid "You need to use delta in your code. Multiplying by delta makes the movement time-dependent."
+msgstr "У вашому коді потрібно використовувати величину \"дельта\". Множення на \"дельту\" робить рух залежним від часу."
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:48
+msgid "Both rotate() and move_local_x() need to multiply their value by delta, like this: rotate(2 * delta) and move_local_x(100 * delta)."
+msgstr "І для rotate(), і для move_local_x() потрібно помножити їхнє значення на delta, ось так: rotate(2 * delta) та move_local_x(100 * delta)."
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:55
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:24
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:41
+msgid "The _process function is missing; did you remove it?"
+msgstr "Функція _process відсутня; ви її видалили?"
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:69
+msgid "It looks like you stored values in variables before passing them to the functions."
+msgstr "Схоже, ви зберегли значення у змінних, перш ніж передати їх у функції."
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:70
+msgid "That works in GDScript, but we cannot check the values automatically here."
+msgstr "Це працює в GDScript, але тут ми не можемо автоматично перевіряти ці значення."
+
+#: course/lesson-11-time-delta/rotating-and-moving-delta/TestsRotatingMovingDelta.gd:71
+msgid "Please write the values directly inside the function calls, like this: rotate(2 * delta) and move_local_x(100 * delta)."
+msgstr "Будь ласка, вкажіть значення безпосередньо у викликах функцій, ось так: rotate(2 * delta) та move_local_x(100 * delta)."
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:7
+msgid "Rotating Character Is Time Dependent"
+msgstr "Обертання персонажа залежить від часу"
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:14
+msgid "Rotation Speed Is 2 Radians Per Second"
+msgstr "Швидкість обертання становить 2 радіани на секунду"
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:33
+msgid "You need to use delta in the rotate() call. Delta is what makes the rotation time-dependent. Try rotate(2 * delta)."
+msgstr "У виклику функції rotate() потрібно вказати параметр delta. Саме delta визначає, що обертання залежить від часу. Спробуйте виконати rotate(2 * delta)."
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:44
+msgid "It looks like you stored the value in a variable before using it."
+msgstr "Схоже, ви зберегли значення у змінній перед тим, як його використати."
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:45
+msgid "That's valid, but we can't check the value automatically."
+msgstr "Це правильно, але ми не можемо перевірити це значення автоматично."
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:46
+msgid "Please write it directly in the function call: rotate(2 * delta)."
+msgstr "Будь ласка, вкажіть це безпосередньо у виклику функції: rotate(2 * delta)."
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:49
+msgid "It looks like delta is not being multiplied."
+msgstr "Схоже, що операція множення на дельту не виконана."
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:50
+msgid "You need to use the * sign to multiply the speed by delta inside the parentheses, like this: rotate(2 * delta)."
+msgstr "Щоб помножити швидкість на величину delta в дужках, потрібно використовувати знак *, ось так: rotate(2 * delta)."
+
+#: course/lesson-11-time-delta/rotating-using-delta/TestsRotatingDelta.gd:60
+msgid "The rotation speed is not right. The robot should rotate 2 radians per second. Make sure the call looks like this: rotate(2 * delta)."
+msgstr "Швидкість обертання неправильна. Робот повинен обертатися зі швидкістю 2 радіани на секунду. Переконайтеся, що виклик виглядає так: rotate(2 * delta)."
+
+#: course/lesson-12-using-variables/clarify/TestClarifyCode.gd:17
+msgid "Angular Speed Variable Is Script Wide"
+msgstr "Змінна Angular Speed діє на всьому скрипті"
+
+#: course/lesson-12-using-variables/clarify/TestClarifyCode.gd:18
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:18
+msgid "Angular Speed Has Value Of 4"
+msgstr "Angular Speed має значення 4"
+
+#: course/lesson-12-using-variables/clarify/TestClarifyCode.gd:19
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:19
+msgid "Angular Speed Is Used In Process Function"
+msgstr "Швидкість обертання використовується у функції обробки"
+
+#: course/lesson-12-using-variables/clarify/TestClarifyCode.gd:24
+msgid "The angular_speed isn't script-wide. Did you define it outside of the function?"
+msgstr "Змінна angular_speed не діє в межах всього скрипта. Чи ви її визначили поза межами функції?"
+
+#: course/lesson-12-using-variables/clarify/TestClarifyCode.gd:30
+msgid "The angular speed variable doesn't exist or isn't script-wide. Make it script-wide first."
+msgstr "Змінна кутової швидкості не існує або не діє в межах всього скрипта. Спочатку зробіть її доступною для всього скрипта."
+
+#: course/lesson-12-using-variables/clarify/TestClarifyCode.gd:34
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:36
+msgid "Angular speed variable's value is %s; It should be 4."
+msgstr "Значення змінної кутової швидкості становить %s; воно має дорівнювати 4."
+
+#: course/lesson-12-using-variables/clarify/TestClarifyCode.gd:40
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:42
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:59
+msgid "The '_process(delta)' function is missing; did you remove it?"
+msgstr "Функція '_process(delta)' відсутня; ви її видалили?"
+
+#: course/lesson-12-using-variables/clarify/TestClarifyCode.gd:51
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:51
+msgid "The rotate() call must multiply angular_speed by delta (e.g. rotate(angular_speed * delta))."
+msgstr "У виклику функції rotate() необхідно помножити величину angular_speed на delta (наприклад, rotate(angular_speed * delta))."
+
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:17
+msgid "Has Angular Speed Variable"
+msgstr "Має змінну кутової швидкості"
+
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:20
+msgid "Each Function Uses The Same Variable"
+msgstr "Кожна функція використовує ту саму змінну"
+
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:21
+msgid "Angular Speed Is Used In Setter Function"
+msgstr "Швидкість обертання використовується у функції-сеттері"
+
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:26
+msgid "The angular_speed variable doesn't exist. Did you define it with the var keyword?"
+msgstr "Змінної angular_speed не існує. Чи визначили ви її за допомогою ключового слова var?"
+
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:32
+msgid "The angular speed variable doesn't exist, can't test if it has a value of 4."
+msgstr "Змінної для кутової швидкості не існує, тому неможливо перевірити, чи має вона значення 4."
+
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:63
+msgid "It looks like you declared angular_speed more than once. It should only be defined once."
+msgstr "Схоже, ви оголосили змінну angular_speed більше ніж один раз. Її слід визначити лише один раз."
+
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:70
+msgid "The 'set_angular_speed(new_angular_speed)' function is missing; did you remove it?"
+msgstr "Функція 'set_angular_speed(new_angular_speed)' відсутня; ви її видалили?"
+
+#: course/lesson-12-using-variables/fixing_error/TestFixingError.gd:78
+msgid "The set_angular_speed() function doesn't seem to use the angular_speed variable."
+msgstr "Схоже, що функція set_angular_speed() не використовує змінну angular_speed."
+
+#: course/lesson-12-using-variables/visuals/ErrorAccess.gd:10
+msgid "The identifier \"angular_speed\" isn't declared in the current scope (at line 6)."
+msgstr "Ідентифікатор \"angular_speed\" не оголошений в поточному обсязі (на лінії 6)."
+
+#: course/lesson-12-using-variables/visuals/ErrorAccess.gd:11
+msgid "The [code]set_angular_speed()[/code] function can't use the [code]angular_speed[/code] variable because it isn't script-wide. It also isn't in the [code]set_angular_speed()[/code] function."
+msgstr "Функція [code]set_angular_speed()[/code] не може використовувати змінну [code]angular_speed[/code], оскільки вона не є загальноскриптовою. Крім того, її немає у функції [code]set_angular_speed()[/code]."
+
+#: course/lesson-12-using-variables/visuals/ErrorAccess.gd:12
+msgid "Make sure you define the [code]angular_speed[/code] variable in the [code]set_angular_speed()[/code] function, or define it outside of functions so it's script-wide."
+msgstr "Переконайтеся, що ви визначили змінну [code]angular_speed[/code] у функції [code]set_angular_speed()[/code], або визначте її поза функціями, щоб вона діяла в усьому скрипті."
+
+#: course/lesson-13-conditions/limiting_health/TestLimitingHealth.gd:13
+msgid "Health Does Not Go Above 80"
+msgstr "Рівень здоров’я не перевищує 80"
+
+#: course/lesson-13-conditions/limiting_health/TestLimitingHealth.gd:14
+msgid "Health Limit Is Not Too Low"
+msgstr "Ліміт здоров'я не є занадто низьким"
+
+#: course/lesson-13-conditions/limiting_health/TestLimitingHealth.gd:15
+#: course/lesson-13-conditions/prevent_zero_health/TestPreventZeroHealth.gd:15
+msgid "Health Takes Different Values"
+msgstr "Здоров’я має різні значення"
+
+#: course/lesson-13-conditions/limiting_health/TestLimitingHealth.gd:20
+msgid "The health goes above 80 when we heal the character a lot. Did you set the health to 80 when that happens?"
+msgstr "Рівень здоров'я перевищує 80, коли ми сильно лікуємо персонажа. Ви встановили рівень здоров'я на 80, коли це відбувається?"
+
+#: course/lesson-13-conditions/limiting_health/TestLimitingHealth.gd:26
+msgid "The health limit is too low when we heal the character. Did you set the correct limit?"
+msgstr "Коли ми відновлюємо здоров'я персонажа, граничне значення занадто низьке. Чи правильно ви встановили це значення?"
+
+#: course/lesson-13-conditions/limiting_health/TestLimitingHealth.gd:35
+msgid ""
+"When healing the character twice by 40 points, the health should go up to 60, then 80. Instead, we got %s.\n"
+"Are you using the amount parameter?"
+msgstr ""
+"Коли персонажа двічі лікують на 40 очок, його здоров’я має зрости до 60, а потім до 80. Натомість ми отримали %s.\n"
+"Ви використовуєте параметр amount?"
+
+#: course/lesson-13-conditions/prevent_zero_health/TestPreventZeroHealth.gd:13
+msgid "Health Reaches Zero"
+msgstr "Рівень здоров’я дорівнює нулю"
+
+#: course/lesson-13-conditions/prevent_zero_health/TestPreventZeroHealth.gd:14
+msgid "Health Does Not Go Below Zero"
+msgstr "Рівень здоров’я не опускається нижче нуля"
+
+#: course/lesson-13-conditions/prevent_zero_health/TestPreventZeroHealth.gd:20
+msgid "The health stays above 0 when we damage the character a lot. Did you set the health to 0 when that happens?"
+msgstr "Рівень здоров'я залишається вище 0, навіть коли ми завдаємо персонажу значної шкоди. Чи ви встановили, щоб у такому випадку рівень здоров'я дорівнював 0?"
+
+#: course/lesson-13-conditions/prevent_zero_health/TestPreventZeroHealth.gd:26
+msgid "The health becomes negative if we deal 400 damage to the character. Did you set it to 0?"
+msgstr "Здоров'я стає від'ємним, якщо ми завдаємо персонажу 400 одиниць шкоди. Ви встановили це значення на 0?"
+
+#: course/lesson-13-conditions/prevent_zero_health/TestPreventZeroHealth.gd:32
+msgid ""
+"When damaging the character three times by 10 points, the health should go down to 10, then 0. Instead, we got %s.\n"
+"Are you using the amount parameter?"
+msgstr ""
+"Коли персонажу тричі завдають по 10 очок шкоди, його здоров’я має знизитися до 10, а потім до 0. Натомість ми отримали %s.\n"
+"Ви використовуєте параметр amount?"
+
+#: course/lesson-13-conditions/using_conditions/TestUsingConditions.gd:5
+msgid "Statement 1 Is True"
+msgstr "Твердження 1 є істинним"
+
+#: course/lesson-13-conditions/using_conditions/TestUsingConditions.gd:6
+msgid "Statement 2 Is True"
+msgstr "Твердження 2 є істинним"
+
+#: course/lesson-13-conditions/using_conditions/TestUsingConditions.gd:7
+msgid "Statement 3 Is True"
+msgstr "Твердження 3 є істинним"
+
+#: course/lesson-13-conditions/using_conditions/TestUsingConditions.gd:8
+msgid "Statement 4 Is True"
+msgstr "Твердження 4 є істинним"
+
+#: course/lesson-13-conditions/using_conditions/TestUsingConditions.gd:23
+msgid "The first comparison is not correct. Did you use the right comparison?"
+msgstr "Перше порівняння невірне. Чи правильно ви використали порівняння?"
+
+#: course/lesson-13-conditions/using_conditions/TestUsingConditions.gd:39
+msgid "The second comparison is not correct. Did you use the right comparison?"
+msgstr "Друге порівняння невірне. Чи правильно ви використали порівняння?"
+
+#: course/lesson-13-conditions/using_conditions/TestUsingConditions.gd:55
+msgid "The third comparison is not correct. Did you use the right comparison?"
+msgstr "Третє порівняння невірне. Чи правильно ви використали порівняння?"
+
+#: course/lesson-13-conditions/using_conditions/TestUsingConditions.gd:71
+msgid "The fourth comparison is not correct. Did you use the right comparison?"
+msgstr "Четверте порівняння невірне. Чи правильно ви використали порівняння?"
+
+#: course/lesson-14-multiplying/increase_max_health/TestHealthIncreased.gd:11
+msgid "Addition Is Used To Increase Level"
+msgstr "Додавання використовується для підвищення рівня"
+
+#: course/lesson-14-multiplying/increase_max_health/TestHealthIncreased.gd:12
+msgid "Multiplication Is Used To Increase Max Health"
+msgstr "Множення використовується для збільшення максимального запасу здоров’я"
+
+#: course/lesson-14-multiplying/increase_max_health/TestHealthIncreased.gd:13
+msgid "Level Is The Correct Value"
+msgstr "Рівень має правильне значення"
+
+#: course/lesson-14-multiplying/increase_max_health/TestHealthIncreased.gd:14
+msgid "Max Health Is The Correct Value"
+msgstr "Максимальне здоров’я має правильне значення"
+
+#: course/lesson-14-multiplying/increase_max_health/TestHealthIncreased.gd:28
+msgid "It looks like level isn't increasing every level. Did you add 1 to it?"
+msgstr "Схоже, що значення level не збільшується з кожним рівнем. Ви додали до нього 1?"
+
+#: course/lesson-14-multiplying/increase_max_health/TestHealthIncreased.gd:46
+msgid "It looks like max_health isn't increasing exponentially. Did you multiply it by a value greater than 1?"
+msgstr "Схоже, що значення max_health не зростає експоненціально. Чи помножили ви його на число, більше за 1?"
+
+#: course/lesson-14-multiplying/increase_max_health/TestHealthIncreased.gd:54
+msgid "Level variable's value is %s; It should be 3 after levelling up twice."
+msgstr "Значення змінної level становить %s; після двох підвищень рівня воно має дорівнювати 3."
+
+#: course/lesson-14-multiplying/increase_max_health/TestHealthIncreased.gd:61
+msgid "Max health variable's value is %s; It should be 121 after levelling up twice."
+msgstr "Значення змінної максимального здоров'я становить %s; після двох підвищень рівня воно має становити 121."
+
+#: course/lesson-14-multiplying/reducing_damage/TestReducingDamage.gd:28
+msgid "Multiplication Is Used To Reduce Damage Amount"
+msgstr "Множення використовується для зменшення величини шкоди"
+
+#: course/lesson-14-multiplying/reducing_damage/TestReducingDamage.gd:29
+msgid "Damage Amount Is Correct Value"
+msgstr "Сума шкоди має коректне значення"
+
+#: course/lesson-14-multiplying/reducing_damage/TestReducingDamage.gd:36
+#: course/lesson-9-adding-and-subtracting/taking-damage/TestDamagingRobot.gd:29
+msgid "It looks like the take_damage function is missing; did you remove it?"
+msgstr "Схоже, функція take_damage відсутня; ви її видалили?"
+
+#: course/lesson-14-multiplying/reducing_damage/TestReducingDamage.gd:108
+msgid "It looks like amount isn't reduced by a percentage. Did you multiply it by a value less than 1?"
+msgstr "Схоже, що сума не зменшується на певний відсоток. Чи помножили ви її на число, менше за 1?"
+
+#: course/lesson-14-multiplying/reducing_damage/TestReducingDamage.gd:114
+msgid "The character did not take half damage despite being level 3. Did you multiply the amount by 0.5 to reduce it?"
+msgstr "Персонаж не отримав половину шкоди, хоча він був 3-го рівня. Ви помножили значення на 0,5, щоб зменшити його?"
+
+#: course/lesson-14-multiplying/reducing_damage/TestReducingDamage.gd:118
+msgid "The character appears not to be taking full damage when their level is below 3. Did you use a condition to limit damage reduction to when the level is greater or equal to 3?"
+msgstr "Схоже, що персонаж не отримує повного обсягу шкоди, коли його рівень нижчий за 3. Чи ви використовували умову, щоб обмежити зменшення шкоди лише тими випадками, коли рівень дорівнює або перевищує 3?"
+
+#: course/lesson-14-multiplying/reducing_damage/TestReducingDamage.gd:120
+msgid "The character appears to be taking 0 damage when its level is less than 3. Did you subtract the amount to health when the level is less than 3?"
+msgstr "Здається, персонаж не отримує жодних пошкоджень, коли його рівень нижчий за 3. Чи ви віднімали цю величину від здоров’я, коли рівень був нижчим за 3?"
+
+#: course/lesson-16-2d-vectors/increase_scale/TestScaleIncreased.gd:11
+msgid "Use A Vector To Increase Scale"
+msgstr "Використайте вектор для збільшення масштабу"
+
+#: course/lesson-16-2d-vectors/increase_scale/TestScaleIncreased.gd:12
+msgid "The Scale Is Correct After Gaining Multiple Levels"
+msgstr "Масштаб залишається правильним після проходження декількох рівнів"
+
+#: course/lesson-16-2d-vectors/increase_scale/TestScaleIncreased.gd:35
+msgid "It looks like the scale isn't increasing by some vector. Did you add a vector to scale?"
+msgstr "Схоже, масштаб не збільшується на якийсь вектор. Ви додали вектор для масштабування?"
+
+#: course/lesson-16-2d-vectors/increase_scale/TestScaleIncreased.gd:45
+msgid "scale's value is %s; It should be (1.4, 1.4) after levelling up 2 times."
+msgstr "Значення шкали становить %s; після 2-х підвищень рівня воно має становити (1,4; 1,4)."
+
+#: course/lesson-16-2d-vectors/resetting_robot/TestRobotReset.gd:11
+msgid "Use Vector 2 To Reset Robot"
+msgstr "Скористайтеся Vector 2 для перезапуску робота"
+
+#: course/lesson-16-2d-vectors/resetting_robot/TestRobotReset.gd:12
+msgid "Robot Scale Is Reset"
+msgstr "Масштаб робота скинуто"
+
+#: course/lesson-16-2d-vectors/resetting_robot/TestRobotReset.gd:13
+msgid "Robot Position Is Reset"
+msgstr "Позицію робота скинуто"
+
+#: course/lesson-16-2d-vectors/resetting_robot/TestRobotReset.gd:72
+msgid "It looks like scale or position isn't reset using a Vector2 (directly or via a Vector2 variable)."
+msgstr "Схоже, що масштаб або положення не скидаються при використанні Vector2 (безпосередньо або через змінну Vector2)."
+
+#: course/lesson-16-2d-vectors/resetting_robot/TestRobotReset.gd:79
+msgid "scale's value is %s; It should be (1.0, 1.0) after resetting."
+msgstr "значення шкали становить %s; після скидання воно має дорівнювати (1,0; 1,0)."
+
+#: course/lesson-16-2d-vectors/resetting_robot/TestRobotReset.gd:86
+msgid "position's value is %s; It should be (0.0, 0.0) after resetting."
+msgstr "значення позиції становить %s; після скидання воно має дорівнювати (0,0, 0,0)."
+
+#: course/lesson-17-while-loops/while_move/TestPracticeBoardWhile.gd:13
+#: course/lesson-18-for-loops/for_move/TestPracticeBoardFor.gd:13
+msgid "Robot Moves To Bottom Row"
+msgstr "Робот переміщується в нижній ряд"
+
+#: course/lesson-17-while-loops/while_move/TestPracticeBoardWhile.gd:15
+msgid "Use a While Loop to Move"
+msgstr "Використовуйте цикл while для переміщення"
+
+#: course/lesson-17-while-loops/while_move/TestPracticeBoardWhile.gd:23
+msgid "The robot stopped above the bottom row. The cell.y member variable should be equal to board_size.y - 1 (the last row in the board)."
+msgstr "Робот зупинився над нижнім рядком. Властивість cell.y має дорівнювати board_size.y - 1 (останній рядок на дошці)."
+
+#: course/lesson-17-while-loops/while_move/TestPracticeBoardWhile.gd:26
+msgid "The robot moved below the bottom row. The cell.y member variable should be equal to board_size.y - 1 (the last row in the board)."
+msgstr "Робот перемістився нижче нижнього рядка. Властивість cell.y має дорівнювати board_size.y - 1 (останній рядок на дошці)."
+
+#: course/lesson-17-while-loops/while_move/TestPracticeBoardWhile.gd:40
+msgid "Your while loop needs to contain the code that moves the robot."
+msgstr "У вашому циклі while має міститися код, який керує рухом робота."
+
+#: course/lesson-18-for-loops/for_move/TestPracticeBoardFor.gd:15
+msgid "Use a For Loop to Move"
+msgstr "Використовуйте цикл for для переміщення"
+
+#: course/lesson-18-for-loops/for_move/TestPracticeBoardFor.gd:23
+msgid "The robot stopped above the bottom row. Its cell.y should be equal to board_size.y - 1."
+msgstr "Робот зупинився над нижнім рядом. Його значення cell.y має дорівнювати board_size.y - 1."
+
+#: course/lesson-18-for-loops/for_move/TestPracticeBoardFor.gd:26
+msgid "The robot moved below the bottom row. Its cell.y should be equal to board_size.y - 1."
+msgstr "Робот перемістився під нижній ряд. Його значення cell.y має дорівнювати board_size.y - 1."
+
+#: course/lesson-18-for-loops/for_move/TestPracticeBoardFor.gd:40
+msgid "Your for loop needs to contain the code that moves the robot."
+msgstr "У вашому циклі for має міститися код, який керує рухом робота."
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:40
+msgid "Use a For Loop to Draw Rectangles"
+msgstr "Використовуйте цикл for для малювання прямокутників"
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:41
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:40
+msgid "Draw Three Squares"
+msgstr "Намалюйте три квадрати"
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:43
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:41
+msgid "Squares Are All 100 By 100"
+msgstr "Усі квадрати мають розміри 100 на 100"
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:46
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:43
+msgid "Shapes Are 100 Pixels Apart"
+msgstr "Відстань між фігурами становить 100 пікселів"
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:62
+msgid "Your for loop needs to contain the code to draw the rectangles."
+msgstr "У вашому циклі for має бути код для малювання прямокутників."
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:67
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:48
+msgid "You drew %s squares but you need to draw 3."
+msgstr "Ви намалювали %s квадратів, але потрібно намалювати 3."
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:81
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:56
+msgid "Shape3D number %s is not a square of size 100 by 100."
+msgstr "Shape3D з номером %s не є квадратом розміром 100 на 100."
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:88
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:74
+msgid "There are fewer than 3 shapes, we can't test if shapes are 100 pixels apart."
+msgstr "Фігур менше ніж 3, тому ми не можемо перевірити, чи відстань між ними становить 100 пікселів."
+
+#: course/lesson-18-for-loops/for_rectangles/ForTestsDrawingRectangles.gd:96
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:81
+msgid "Shapes are not separated by 100 pixels on the X axis."
+msgstr "Фігури не віддалені одна від одної на 100 пікселів по осі X."
+
+#: course/lesson-19-creating-arrays/moving-turtle/TestMovingTurtle.gd:18
+msgid "Path contains values that are not Vector2"
+msgstr "Path містить значення, які не є об’єктами типу Vector2"
+
+#: course/lesson-19-creating-arrays/moving-turtle/TestMovingTurtle.gd:25
+msgid "Path Is Contiguous"
+msgstr "Шлях є суцільним"
+
+#: course/lesson-19-creating-arrays/moving-turtle/TestMovingTurtle.gd:26
+msgid "Turtle Reaches The Robot"
+msgstr "Черепашка досягає робота"
+
+#: course/lesson-19-creating-arrays/moving-turtle/TestMovingTurtle.gd:27
+msgid "Path Does Not Hit Obstacles"
+msgstr "Шлях не перетинає перешкод"
+
+#: course/lesson-19-creating-arrays/moving-turtle/TestMovingTurtle.gd:32
+msgid "No points found in variable turtle_path. Did you write Vector2 coordinates in the variable's array?"
+msgstr "У змінній turtle_path не знайдено точок. Чи записали ви координати типу Vector2 у масив цієї змінної?"
+
+#: course/lesson-19-creating-arrays/moving-turtle/TestMovingTurtle.gd:37
+msgid "We found at least two points that are not next to one another. Did you forget some coordinates, or did you try to move the turtle diagonally?"
+msgstr "Ми виявили щонайменше дві точки, які не розташовані поруч одна з одною. Чи ви забули вказати деякі координати, чи, можливо, намагалися перемістити черепашку по діагоналі?"
+
+#: course/lesson-19-creating-arrays/moving-turtle/TestMovingTurtle.gd:46
+msgid "The last point should be at the robot's coordinates, %s, but it is %s instead."
+msgstr "Останній пункт мав би знаходитися за координатами робота, %s, але замість цього він знаходиться за координатами %s."
+
+#: course/lesson-19-creating-arrays/moving-turtle/TestMovingTurtle.gd:55
+msgid "The turtle hit a rock at coordinates %s. You need to change its path."
+msgstr "Черепашка натрапила на камінь за координатами %s. Вам потрібно змінити її траєкторію руху."
+
+#: course/lesson-19-creating-arrays/selecting-units/TestSelectingUnits.gd:13
+msgid "All Units Are Selected"
+msgstr "Всі елементи виділено"
+
+#: course/lesson-19-creating-arrays/selecting-units/TestSelectingUnits.gd:14
+msgid "Only Units Are Selected"
+msgstr "Виділено тільки юнітів"
+
+#: course/lesson-19-creating-arrays/selecting-units/TestSelectingUnits.gd:20
+msgid "Unit in cell %s not selected."
+msgstr "Юніт в комірці %s не виділено."
+
+#: course/lesson-19-creating-arrays/selecting-units/TestSelectingUnits.gd:27
+msgid "Trying to select a cell that doesn't contain a unit: %s."
+msgstr "Спроба виділити комірку, яка не містить юнітів: %s."
+
+#: course/lesson-2-your-first-error/first-error/TestsFixError.gd:4
+msgid "Remove Errors"
+msgstr "Прибрати помилки"
+
+#: course/lesson-2-your-first-error/first-error/TestsFixError.gd:10
+msgid "There's still a comment in your code. You need to remove the comment sign (#)."
+msgstr "У вашому коді все ще є коментар. Вам потрібно видалити знак коментаря (#)."
+
+#: course/lesson-20-looping-over-arrays/drawing-in-loops/TestsDrawingInLoops.gd:41
+msgid "Rectangles Have The Correct Size"
+msgstr "Прямокутники мають правильні розміри"
+
+#: course/lesson-20-looping-over-arrays/drawing-in-loops/TestsDrawingInLoops.gd:42
+msgid "Rectangles Do Not Overlap"
+msgstr "Прямокутники не перекриваються"
+
+#: course/lesson-20-looping-over-arrays/drawing-in-loops/TestsDrawingInLoops.gd:47
+msgid "We expected 4 polygons, but you drew %s instead."
+msgstr "Ми очікували 4 багатокутники, але ви намалювали %s."
+
+#: course/lesson-20-looping-over-arrays/drawing-in-loops/TestsDrawingInLoops.gd:51
+msgid "At least one of the rectangles does not have the expected size."
+msgstr "Принаймні один із прямокутників не відповідає очікуваному розміру."
+
+#: course/lesson-20-looping-over-arrays/drawing-in-loops/TestsDrawingInLoops.gd:62
+msgid "At least two drawn shape intersect. Did you pass arguments big enough to the jump() function?"
+msgstr "Принаймні дві намальовані фігури перетинаються. Чи передали ви до функції jump() аргументи достатнього розміру?"
+
+#: course/lesson-20-looping-over-arrays/robot-path/TestRobotPath.gd:18
+msgid "Robot Moves Along Blue Path"
+msgstr "Робот рухається по синьому маршруту"
+
+#: course/lesson-20-looping-over-arrays/robot-path/TestRobotPath.gd:20
+msgid "Code Uses Move To"
+msgstr "Код використовує Move To"
+
+#: course/lesson-20-looping-over-arrays/robot-path/TestRobotPath.gd:25
+msgid "The robot's path changed. Did you change the robot_path array?"
+msgstr "Траєкторія руху робота змінилася. Ви змінили масив robot_path?"
+
+#: course/lesson-20-looping-over-arrays/robot-path/TestRobotPath.gd:28
+msgid "The robot didn't move at all. Did you call robot.move_to()?"
+msgstr "Робот взагалі не рухався. Ви викликали функцію robot.move_to()?"
+
+#: course/lesson-20-looping-over-arrays/robot-path/TestRobotPath.gd:33
+msgid "The robot moved fewer times than it should have. Did you use a loop and move once for each point in the robot_path array?"
+msgstr "Робот перемістився менше разів, ніж мав би. Чи використовували ви цикл і виконували переміщення один раз для кожної точки в масиві robot_path?"
+
+#: course/lesson-20-looping-over-arrays/robot-path/TestRobotPath.gd:45
+msgid "The robot's movement path doesn't match the robot_path array. They should be the same."
+msgstr "Траєкторія руху робота не збігається з масивом robot_path. Вони повинні збігатися."
+
+#: course/lesson-20-looping-over-arrays/robot-path/TestRobotPath.gd:58
+msgid "Did you use a for loop to call robot.move_to() with each cell in robot_path?"
+msgstr "Чи використовували ви цикл for для виклику функції robot.move_to() для кожної комірки в масиві robot_path?"
+
+#: course/lesson-21-strings/string_array/TestsStringArray.gd:12
+msgid "Use For Loop"
+msgstr "Використання циклу For"
+
+#: course/lesson-21-strings/string_array/TestsStringArray.gd:13
+msgid "Robot Combo Is Correct"
+msgstr "Комбінація робота правильна"
+
+#: course/lesson-21-strings/string_array/TestsStringArray.gd:20
+msgid "The run function is missing; did you remove it?"
+msgstr "Функція run відсутня; ви її видалили?"
+
+#: course/lesson-21-strings/string_array/TestsStringArray.gd:23
+msgid "Your code has no for loop. You need to use a for loop to complete this practice, even if there are other solutions!"
+msgstr "У вашому коді немає циклу for. Щоб виконати це завдання, вам потрібно використати цикл for, навіть якщо існують інші варіанти вирішення!"
+
+#: course/lesson-21-strings/string_array/TestsStringArray.gd:34
+msgid "Your code does not play any animations. Did you remember to call play_animation() in your for loop?"
+msgstr "У вашому коді не відтворюються жодні анімації. Чи не забули ви викликати функцію play_animation() у циклі for?"
+
+#: course/lesson-21-strings/string_array/TestsStringArray.gd:48
+msgid "It seems you're passing the entire array of combos instead of a single animation name at a time."
+msgstr "Схоже, ви передаєте весь масив комбінацій, а не по одній назві анімації за раз."
+
+#: course/lesson-21-strings/string_array/TestsStringArray.gd:63
+msgid "Your code does not use the iterator. Did you remember to call play_animation(%s) in your for loop?"
+msgstr "У вашому коді не використовується ітератор. Ви не забули викликати функцію play_animation(%s) у циклі for?"
+
+#: course/lesson-21-strings/string_array/TestsStringArray.gd:85
+msgid "The combo isn't correct. Did you use the right actions in the right order?"
+msgstr "Це комбо не є правильним. Чи ви виконали потрібні дії у правильному порядку?"
+
+#: course/lesson-21-strings/string_error/TestsStringError.gd:17
+msgid "Robot Name Is A String"
+msgstr "Ім'я робота — це рядок"
+
+#: course/lesson-21-strings/string_error/TestsStringError.gd:22
+msgid "The robot_name variable doesn't exist."
+msgstr "Змінної robot_name не існує."
+
+#: course/lesson-21-strings/string_error/TestsStringError.gd:26
+msgid "The robot_name variable is set to 0. Did you change its value?"
+msgstr "Змінна robot_name має значення 0. Ви змінили її значення?"
+
+#: course/lesson-21-strings/string_error/TestsStringError.gd:28
+msgid "The robot_name isn't a string. Did you add quotes around the value?"
+msgstr "robot_name не є рядком. Ви поставили лапки навколо значення?"
+
+#: course/lesson-22-functions-return-values/convert-grid-coordinates/TestConvertGridCoordinates.gd:16
+msgid "Function Maps Cell To World Coordinates"
+msgstr "Функція, що перетворює координати клітинок у світові координати"
+
+#: course/lesson-22-functions-return-values/convert-grid-coordinates/TestConvertGridCoordinates.gd:21
+msgid "Function convert_to_world_coordinates() does not exist. Did you make a typo or not define it?"
+msgstr "Функція convert_to_world_coordinates() не існує. Ви, можливо, припустилися помилки при наборі тексту чи не визначили її?"
+
+#: course/lesson-22-functions-return-values/convert-grid-coordinates/TestConvertGridCoordinates.gd:24
+msgid "We didn't find any \"return\" keyword in your code. Did you forget to return the value from the convert_to_world_coordinates() function?"
+msgstr "Ми не знайшли у вашому коді ключового слова \"return\". Чи не забули ви повернути значення з функції convert_to_world_coordinates()?"
+
+#: course/lesson-22-functions-return-values/convert-grid-coordinates/TestConvertGridCoordinates.gd:30
+msgid "When converting cell %s to world coordinates, we got %s, but we expected %s."
+msgstr "Під час перетворення координат комірки %s у світові координати ми отримали %s, хоча очікували %s."
+
+#: course/lesson-22-functions-return-values/visuals/grid_demo/GridDemo.gd:35
+#: course/lesson-22-functions-return-values/visuals/grid_demo/GridDemo.gd:65
+msgid "Hover over a cell to see its pixel position"
+msgstr "Наведіть курсор на комірку, щоб побачити її координати в пікселях"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:13
+msgid "Used Pop Front"
+msgstr "Використання Pop Front"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:14
+msgid "Used Append"
+msgstr "Використання Append"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:15
+msgid "Completed Orders Contain All Elements"
+msgstr "Виконані замовлення містять усі елементи"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:16
+msgid "Starting Data Unchanged"
+msgstr "Початкові дані не змінилися"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:21
+msgid "We found no call to the pop_front() function. Did you forget to call it?"
+msgstr "Ми не знайшли виклику функції pop_front(). Можливо, ви забули її викликати?"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:27
+msgid "We found no call to the append() function. Did you forget to call it?"
+msgstr "Ми не знайшли виклику функції append(). Можливо, ви забули її викликати?"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:35
+msgid "The completed_orders array is empty. Are you sure you appended the elements?"
+msgstr "Масив completed_orders порожній. Ви впевнені, що додали елементи?"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:39
+msgid "We expected %s, but got %s instead"
+msgstr "Ми очікували %s, але замість цього отримали %s"
+
+#: course/lesson-23-append-to-arrays/clearing-meals/TestClearingMeals.gd:48
+msgid "It looks like you removed %s from waiting_orders."
+msgstr "Схоже, ви видалили %s із waiting_orders."
+
+#: course/lesson-23-append-to-arrays/popping-crates/TestPoppingCrates.gd:11
+msgid "Used Pop Back"
+msgstr "Використання Pop Back"
+
+#: course/lesson-23-append-to-arrays/popping-crates/TestPoppingCrates.gd:12
+msgid "Used While Loop"
+msgstr "Використання While Loop"
+
+#: course/lesson-23-append-to-arrays/popping-crates/TestPoppingCrates.gd:13
+msgid "Crates Array Is Empty"
+msgstr "Масив ящиків порожній"
+
+#: course/lesson-23-append-to-arrays/popping-crates/TestPoppingCrates.gd:30
+msgid "We found no call to the pop_back() function. Did you forget to call it?"
+msgstr "Не знайдено виклику функції pop_back(). Ви забули її викликати?"
+
+#: course/lesson-23-append-to-arrays/popping-crates/TestPoppingCrates.gd:36
+msgid "You didn't use the while keyword"
+msgstr "Ви не використали ключове слово while"
+
+#: course/lesson-23-append-to-arrays/popping-crates/TestPoppingCrates.gd:44
+msgid "The crate array is not empty"
+msgstr "Масив ящиків не порожній"
+
+#: course/lesson-24-access-array-indices/align-tracks/TestAlignTracks.gd:27
+msgid "First Track Is Well Positioned"
+msgstr "Першу доріжку розміщено добре"
+
+#: course/lesson-24-access-array-indices/align-tracks/TestAlignTracks.gd:28
+msgid "Third Track Is Well Positioned"
+msgstr "Третю доріжку розміщено добре"
+
+#: course/lesson-24-access-array-indices/align-tracks/TestAlignTracks.gd:29
+msgid "Fourth Track Is Well Positioned"
+msgstr "Четверту доріжку розміщено добре"
+
+#: course/lesson-24-access-array-indices/align-tracks/TestAlignTracks.gd:30
+msgid "All Other Tracks Are Aligned To Grid"
+msgstr "Решту доріжок вирівняно за сіткою"
+
+#: course/lesson-24-access-array-indices/find-crystals/TestFindCrystals.gd:15
+msgid "Correct Items Have Been Picked"
+msgstr "Потрібні товари було відібрано"
+
+#: course/lesson-24-access-array-indices/find-crystals/TestFindCrystals.gd:16
+msgid "Picked Correct Item Amount"
+msgstr "Вибрано правильну кількість товару"
+
+#: course/lesson-25-creating-dictionaries/adding-items/TestAddingItems.gd:16
+msgid "Add Item Function Works As Intended"
+msgstr "Функція \"Додати товар\" працює як передбачено"
+
+#: course/lesson-25-creating-dictionaries/adding-items/TestAddingItems.gd:17
+msgid "Add Item Function Uses Addition"
+msgstr "Функція \"Додати елемент\" використовує операцію додавання"
+
+#: course/lesson-25-creating-dictionaries/adding-items/TestAddingItems.gd:30
+msgid "The amount of items isn't correct. Does each key have the correct value?"
+msgstr "Кількість елементів некоректна. Чи для кожного ключа вказано правильне значення?"
+
+#: course/lesson-25-creating-dictionaries/creating-inventory/TestInventory.gd:17
+msgid "Inventory Has Correct Keys"
+msgstr "Інвентар має правильні ключі"
+
+#: course/lesson-25-creating-dictionaries/creating-inventory/TestInventory.gd:18
+msgid "Inventory Has Correct Values"
+msgstr "Інвентар має правильні значення"
+
+#: course/lesson-25-creating-dictionaries/creating-inventory/TestInventory.gd:26
+msgid "The amount of items is not as expected. The inventory should have %s items but your inventory has %s."
+msgstr "Кількість предметів не відповідає очікуваній. У інвентарі мало б бути %s предметів, але у вашому інвентарі їх %s."
+
+#: course/lesson-25-creating-dictionaries/creating-inventory/TestInventory.gd:29
+msgid "Are you missing any items?"
+msgstr "Чи не пропустили ви якісь предмети?"
+
+#: course/lesson-25-creating-dictionaries/creating-inventory/TestInventory.gd:36
+#: course/lesson-25-creating-dictionaries/creating-inventory/TestInventory.gd:54
+msgid "The inventory doesn't contain all the required items. Make sure you have '%s' as keys in your inventory dictionary."
+msgstr "Інвентар не містить усіх необхідних предметів. Переконайтеся, що у словнику інвентарю є ключі '%s'."
+
+#: course/lesson-25-creating-dictionaries/creating-inventory/TestInventory.gd:59
+msgid "The values for one or more items aren't correct. You need %s healing hearts, %s gems, and %s sword."
+msgstr "Значення одного або кількох предметів неправильні. Вам потрібно %s лікувальних сердець, %s самоцвітів та %s мечів."
+
+#: course/lesson-26-looping-over-dictionaries/display-inventory/TestDisplayInventory.gd:11
+msgid "All Items Are Displayed"
+msgstr "Всі товари відображаються"
+
+#: course/lesson-26-looping-over-dictionaries/display-inventory/TestDisplayInventory.gd:12
+#: course/lesson-26-looping-over-dictionaries/place-units/TestPlaceUnits.gd:12
+msgid "Code Uses A For Loop"
+msgstr "У коді використовується цикл For"
+
+#: course/lesson-26-looping-over-dictionaries/display-inventory/TestDisplayInventory.gd:19
+msgid "The number of items displayed does not match the number of items in the inventory. Did you display each item exactly once?"
+msgstr "Кількість відображених предметів не збігається з кількістю предметів у інвентарі. Чи ви відобразили кожен предмет саме один раз?"
+
+#: course/lesson-26-looping-over-dictionaries/display-inventory/TestDisplayInventory.gd:29
+msgid "The displayed items do not match the inventory variable's content. Did you call the display_item() function for each item in the inventory?"
+msgstr "Відображені предмети не відповідають вмісту змінної інвентарю. Чи ви викликали функцію display_item() для кожного предмета в інвентарі?"
+
+#: course/lesson-26-looping-over-dictionaries/display-inventory/TestDisplayInventory.gd:44
+msgid "Your code does not use a for loop to call display_item(). Please make sure you display each item inside the loop."
+msgstr "У вашому коді не використовується цикл for для виклику функції display_item(). Переконайтеся, що кожен елемент відображається всередині циклу."
+
+#: course/lesson-26-looping-over-dictionaries/place-units/TestPlaceUnits.gd:11
+msgid "All Units Are Displayed"
+msgstr "Всі юніти відображаються"
+
+#: course/lesson-26-looping-over-dictionaries/place-units/TestPlaceUnits.gd:19
+msgid "The number of units displayed does not match the number of units in the units dictionary. Did you place each unit exactly once?"
+msgstr "Кількість відображених юнітів не збігається з кількістю у словнику юнітів. Чи ви розмістили кожен юніт саме один раз?"
+
+#: course/lesson-26-looping-over-dictionaries/place-units/TestPlaceUnits.gd:29
+msgid "The displayed units do not match the units variable's content. Did you call the place_unit() function for each unit in the units dictionary?"
+msgstr "Зображені юніти не відповідають вмісту змінної units. Чи викликали ви функцію place_unit() для кожного юніта у словнику units?"
+
+#: course/lesson-26-looping-over-dictionaries/place-units/TestPlaceUnits.gd:43
+msgid "Your code does not use a for loop to call place_unit(). Please make sure you place each unit inside the loop."
+msgstr "У вашому коді не використовується цикл for для виклику функції place_unit(). Будь ласка, переконайтеся, що кожен юніт розміщений у циклі."
+
+#: course/lesson-27-value-types/display-energy/TestDisplayingEnergy.gd:11
+msgid "Displayed Energy Matches Energy Value"
+msgstr "Показана енергія відповідає значенню енергії"
+
+#: course/lesson-27-value-types/display-energy/TestDisplayingEnergy.gd:17
+msgid "The energy variable is not an int anymore. Did you change the energy value?"
+msgstr "Змінна energy більше не є цілим числом. Ви змінили значення energy?"
+
+#: course/lesson-27-value-types/display-energy/TestDisplayingEnergy.gd:21
+msgid "The value of the energy variable does not match the displayed text. Did you call the str() function?"
+msgstr "Значення змінної energy не збігається з текстом, що відображається. Чи ви викликали функцію str()?"
+
+#: course/lesson-27-value-types/player-input/TestPlayerInput.gd:13
+msgid "Item Count Is Int"
+msgstr "Кількість елементів — ціле число"
+
+#: course/lesson-27-value-types/player-input/TestPlayerInput.gd:14
+msgid "Item Count Matches Player Input"
+msgstr "Кількість предметів відповідає вводу гравця"
+
+#: course/lesson-27-value-types/player-input/TestPlayerInput.gd:19
+msgid "Item count is not of type int. Did you use the int() function to convert the player_input value?"
+msgstr "Кількість елементів не має типу int. Чи використовували ви функцію int() для перетворення значення player_input?"
+
+#: course/lesson-27-value-types/player-input/TestPlayerInput.gd:27
+msgid "Item count is not of type int. We can't compare it to the player_input value."
+msgstr "Кількість предметів не є типом int. Ми не можемо порівняти її зі значенням player_input."
+
+#: course/lesson-27-value-types/player-input/TestPlayerInput.gd:31
+msgid "Player input is not of its original type anymore. Did you change its value?"
+msgstr "Ввід гравця більше не відповідає початковому типу. Ви змінили його значення?"
+
+#: course/lesson-28-specifying-types/fix-hints/TestFixHints.gd:42
+msgid "Vector Has Correct Hint"
+msgstr "Вектор має коректну підказку"
+
+#: course/lesson-28-specifying-types/fix-hints/TestFixHints.gd:43
+msgid "Text Has Correct Hint"
+msgstr "Текст має коректну підказку"
+
+#: course/lesson-28-specifying-types/fix-hints/TestFixHints.gd:44
+msgid "Whole Number Has Correct Hint"
+msgstr "Ціле число має коректну підказку"
+
+#: course/lesson-28-specifying-types/fix-hints/TestFixHints.gd:45
+msgid "Decimal Number Has Correct Hint"
+msgstr "Дробове число має коректну підказку"
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:80
+msgid "Whole Number Has Correct Value"
+msgstr "Ціле число має коректне значення"
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:81
+msgid "Text Has Correct Value"
+msgstr "Текст має коректне значення"
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:82
+msgid "Vector Has Correct Value"
+msgstr "Вектор має коректне значення"
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:83
+msgid "Decimal Number Has Correct Value"
+msgstr "Дробове число має коректне значення"
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:88
+msgid "It looks like you changed the type hint of 'whole_number'. The type should stay 'int'. Only change the value after the '=' sign."
+msgstr "Схоже, ви змінили підказку щодо типу для 'whole_number'. Тип має залишатися 'int'. Змінюйте лише значення після знака '='."
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:90
+msgid "The value of 'whole_number' does not match its type hint (int). Change the value after '=' to a whole number with no decimal point, for example: 4"
+msgstr "Значення 'whole_number' не відповідає вказаному типу (int). Замініть значення після '=' на ціле число без десяткової крапки, наприклад: 4"
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:96
+msgid "It looks like you changed the type hint of 'text'. The type should stay 'String'. Only change the value after the '=' sign."
+msgstr "Схоже, ви змінили підказку щодо типу для 'text'. Тип повинен залишатися 'String'. Змінюйте лише значення після знака '='."
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:98
+msgid "The value of 'text' does not match its type hint (String). Change the value after '=' to a text string surrounded by quotes, for example: \"Hello, world!\""
+msgstr "Значення 'text' не відповідає вказаному типу (String). Замініть значення після '=' на текстовий рядок, укладений у лапки, наприклад: \"Hello, world!\""
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:104
+msgid "It looks like you changed the type hint of 'vector'. The type should stay 'Vector2'. Only change the value after the '=' sign."
+msgstr "Схоже, ви змінили підказку щодо типу 'vector'. Тип має залишатися 'Vector2'. Змінюйте лише значення після знака '='."
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:106
+msgid "The value of 'vector' does not match its type hint (Vector2). Change the value after '=' to a Vector2, for example: Vector2(1, 1)"
+msgstr "Значення 'vector' не відповідає вказаному типу (Vector2). Замініть значення після '=' на Vector2, наприклад: Vector2(1, 1)"
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:112
+msgid "It looks like you changed the type hint of 'decimal_number'. The type should stay 'float'. Only change the value after the '=' sign."
+msgstr "Схоже, ви змінили підказку щодо типу для 'decimal_number'. Тип має залишатися 'float'. Змінюйте лише значення після знака '='."
+
+#: course/lesson-28-specifying-types/fix-values/TestFixValues.gd:114
+msgid "The value of 'decimal_number' does not match its type hint (float). Change the value after '=' to a decimal number with a decimal point, for example: 3.14"
+msgstr "Значення 'decimal_number' не відповідає вказаному типу (float). Замініть значення після '=' на десяткове число з десятковою крапкою, наприклад: 3.14"
+
+#: course/lesson-3-standing-on-shoulders-of-giants/make-upright/TestsMakeRobotUpright.gd:6
+msgid "Character Is Upright"
+msgstr "Персонаж у вертикальному положенні"
+
+#: course/lesson-3-standing-on-shoulders-of-giants/make-upright/TestsMakeRobotUpright.gd:12
+msgid "The robot is turned counter-clockwise! Did you turn it less than 0.5 radians?"
+msgstr "Робот повертається проти годинникової стрілки! Чи повернули ви його менше ніж на 0,5 радіана?"
+
+#: course/lesson-3-standing-on-shoulders-of-giants/make-upright/TestsMakeRobotUpright.gd:14
+msgid "The robot is turned too far clockwise! Did you turn it more than 0.5 radians?"
+msgstr "Робот занадто сильно повернувся за годинниковою стрілкою! Ви повернули його більше ніж на 0,5 радіана?"
+
+#: course/lesson-3-standing-on-shoulders-of-giants/make-visible/TestsMakeCharacterVisible.gd:5
+msgid "Character Is Visible"
+msgstr "Персонаж є видимим"
+
+#: course/lesson-3-standing-on-shoulders-of-giants/make-visible/TestsMakeCharacterVisible.gd:11
+msgid "The character is still invisible! Did you call the show() function?"
+msgstr "Персонаж досі невидимий! Ви викликали функцію show()?"
+
+#: course/lesson-4-drawing-a-rectangle/drawing_bigger_rectangle/TestsDrawingBiggerRectangle.gd:11
+msgid "Draw Rectangle Of 220 By 260"
+msgstr "Намалюйте прямокутник зі сторонами 220 × 260"
+
+#: course/lesson-4-drawing-a-rectangle/drawing_bigger_rectangle/TestsDrawingBiggerRectangle.gd:16
+#: course/lesson-4-drawing-a-rectangle/drawing_rectangle/TestsDrawingRectangle.gd:16
+#: course/lesson-4-drawing-a-rectangle/turning_right/TestsTurningRight.gd:16
+msgid "Nothing drawn. Did you call move_forward()?"
+msgstr "Нічого не намальовано. Чи викликали ви move_forward()?"
+
+#: course/lesson-4-drawing-a-rectangle/drawing_bigger_rectangle/TestsDrawingBiggerRectangle.gd:19
+msgid "The drawn shape is not a rectangle with a width of 220 and a length of 260."
+msgstr "Намальована фігура не є прямокутником шириною 220 і довжиною 260."
+
+#: course/lesson-4-drawing-a-rectangle/drawing_rectangle/TestsDrawingRectangle.gd:11
+msgid "Draw Rectangle Of 200 By 120"
+msgstr "Намалюйте прямокутник зі сторонами 200 × 120"
+
+#: course/lesson-4-drawing-a-rectangle/drawing_rectangle/TestsDrawingRectangle.gd:19
+msgid "The drawn shape is not a rectangle with a width of 200 and a length of 120."
+msgstr "Намальована фігура не є прямокутником шириною 200 і довжиною 120."
+
+#: course/lesson-4-drawing-a-rectangle/turning_right/TestsTurningRight.gd:11
+msgid "Draw Corner Of 200 By 200"
+msgstr "Намалюйте кут зі сторонами 200 × 200"
+
+#: course/lesson-4-drawing-a-rectangle/turning_right/TestsTurningRight.gd:19
+msgid "The drawn shape is not a corner connected by two lines of length 200."
+msgstr "Намальована фігура не є кутом, утвореним відрізками довжиною 200."
+
+#: course/lesson-5-your-first-function/TestsDrawingSquare.gd:11
+msgid "Draw Square Of 200 Pixels"
+msgstr "Намалювати квадрат розміром 200 пікселів"
+
+#: course/lesson-5-your-first-function/TestsDrawingSquare.gd:18
+msgid "Nothing drawn. Did you not call move_forward()?"
+msgstr "Нічого не намальовано. Ви не викликали функцію move_forward()?"
+
+#: course/lesson-5-your-first-function/TestsDrawingSquare.gd:28
+msgid "The drawn shape is not a square of length 200 pixels."
+msgstr "Намальована фігура не є квадратом зі стороною 200 пікселів."
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:19
+msgid "Draw Three Squares Of 200 Pixels"
+msgstr "Намалюйте три квадрати розміром 200 пікселів"
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:26
+msgid "Reuse The draw_square() Function"
+msgstr "Повторне використання функції draw_square()"
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:34
+msgid "You need to use the predefined draw_square() function inside draw_three_squares() in this exercise. This avoids duplicating the turtle instructions by hand."
+msgstr "У цьому завданні вам потрібно використати вбудовану функцію draw_square() всередині функції draw_three_squares(). Це дозволить уникнути ручного повторення команд для черепашки."
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:39
+msgid "You need to define a function named draw_three_squares()."
+msgstr "Вам потрібно визначити функцію з іменем draw_three_squares()."
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:57
+msgid "Nothing drawn. Did you not call draw_square()?"
+msgstr "Нічого не намальовано. Ви не викликали функцію draw_square()?"
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:60
+msgid "You only drew one square. You need to draw three."
+msgstr "Ви намалювали лише один квадрат. Потрібно намалювати три."
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:62
+msgid "You need to draw three squares."
+msgstr "Вам потрібно намалювати три квадрати."
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:65
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:67
+msgid "You drew more than three squares. You need to draw only three!"
+msgstr "Ви намалювали більше трьох квадратів. Потрібно намалювати лише три!"
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:73
+msgid "Shape3D number %s has too few corners! Did you change the draw_square() function?"
+msgstr "У фігурі Shape3D під номером %s занадто мало кутів! Чи змінили ви функцію draw_square()?"
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:80
+msgid "Shape3D number %s has too many corners! Did you change the draw_square() function?"
+msgstr "У фігурі Shape3D під номером %s занадто багато кутів! Чи змінили ви функцію draw_square()?"
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:87
+msgid "Shape3D number %s is not a square of length 200 pixels. Did you change the draw_square() function?"
+msgstr "Фігура Shape3D під номером %s не є квадратом зі стороною 200 пікселів. Чи змінили ви функцію draw_square()?"
+
+#: course/lesson-5-your-first-function/TestsDrawingThreeSquares.gd:99
+msgid "The squares should not overlap. Did you move the turtle between drawing each square?"
+msgstr "Квадрати не повинні перекриватися. Чи переміщували ви черепашку між малюванням кожного квадрата?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners/TestsDrawingCorners.gd:14
+msgid "Draw Corners Of Varying Lengths"
+msgstr "Малювання кутів різної довжини"
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners/TestsDrawingCorners.gd:19
+#: course/lesson-6-multiple-function-parameters/drawing_corners_advanced/TestsDrawingCornersAdvanced.gd:19
+#: course/lesson-6-multiple-function-parameters/drawing_rectangles/TestsDrawingRectangles.gd:23
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:21
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:41
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:56
+msgid "The turtle did not draw anything. Make sure your function calls move_forward(length) to move the turtle."
+msgstr "Черепашка нічого не намалювала. Переконайтеся, що ваша функція викликає move_forward(length) для переміщення черепашки."
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners/TestsDrawingCorners.gd:21
+#: course/lesson-6-multiple-function-parameters/drawing_corners_advanced/TestsDrawingCornersAdvanced.gd:21
+#: course/lesson-6-multiple-function-parameters/drawing_rectangles/TestsDrawingRectangles.gd:25
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:23
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:43
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:58
+msgid "The turtle drew fewer than 2 shapes. Make sure your function is repeatable."
+msgstr "Черепашка намалювала менше ніж 2 фігури. Переконайтеся, що ваша функція є повторюваною."
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners/TestsDrawingCorners.gd:23
+#: course/lesson-6-multiple-function-parameters/drawing_corners_advanced/TestsDrawingCornersAdvanced.gd:23
+#: course/lesson-6-multiple-function-parameters/drawing_rectangles/TestsDrawingRectangles.gd:27
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:25
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:45
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:60
+msgid "The turtle drew more than 2 shapes. Make sure your function only draws one shape."
+msgstr "Черепашка намалювала більше ніж 2 фігури. Переконайтеся, що ваша функція малює лише одну фігуру."
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners/TestsDrawingCorners.gd:28
+#: course/lesson-6-multiple-function-parameters/drawing_corners_advanced/TestsDrawingCornersAdvanced.gd:28
+msgid "The drawn shape has too few points. Did you call move_forward() less than 2 times?"
+msgstr "Намальована фігура має занадто мало точок. Чи ви викликали функцію move_forward() менше ніж 2 рази?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners/TestsDrawingCorners.gd:30
+#: course/lesson-6-multiple-function-parameters/drawing_corners_advanced/TestsDrawingCornersAdvanced.gd:30
+msgid "The drawn shape has too many points. Did you call move_forward() more than 2 times?"
+msgstr "Намальована фігура має занадто багато точок. Чи ви викликали функцію move_forward() більше ніж 2 рази?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners/TestsDrawingCorners.gd:32
+msgid "The drawn shape doesn't have the expected size. Did you use the length parameter?"
+msgstr "Намальована фігура не має очікуваного розміру. Ви використовували параметр довжини?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners_advanced/TestsDrawingCornersAdvanced.gd:14
+msgid "Draw Corners Of Varying Sizes And Angles"
+msgstr "Малювання кутів різного розміру та кута нахилу"
+
+#: course/lesson-6-multiple-function-parameters/drawing_corners_advanced/TestsDrawingCornersAdvanced.gd:32
+msgid "The drawn corner doesn't match the expected corner. Are you not using the angle parameter in your code?"
+msgstr "Намальований кут не збігається з очікуваним. Чи не використовуєте ви у своєму коді параметр angle?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_rectangles/TestsDrawingRectangles.gd:18
+msgid "Draw Rectangles Of Varying Sizes"
+msgstr "Намалюйте прямокутники різного розміру"
+
+#: course/lesson-6-multiple-function-parameters/drawing_rectangles/TestsDrawingRectangles.gd:32
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:68
+msgid "The drawn shape has too few points. Did you call move_forward() less than 4 times?"
+msgstr "Намальована фігура має занадто мало точок. Чи ви викликали функцію move_forward() менше ніж 4 рази?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_rectangles/TestsDrawingRectangles.gd:34
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:64
+msgid "The drawn shape has too many points. Did you call move_forward() more than 4 times?"
+msgstr "Намальована фігура має занадто багато точок. Чи ви викликали функцію move_forward() більше ніж 4 рази?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_rectangles/TestsDrawingRectangles.gd:37
+msgid "The length and height are inverted. Did you swap the length and height function arguments?"
+msgstr "Довжина та висота переплутані. Чи не поміняли ви місцями аргументи функцій, що визначають довжину та висоту?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_rectangles/TestsDrawingRectangles.gd:39
+#: course/lesson-7-member-variables/draw_rectangle_at_position/TestsDrawingRectangles.gd:31
+msgid "The drawn shapes don't have the expected length and height. Did you forget to use the length and height parameter?"
+msgstr "Намальовані фігури не мають очікуваної довжини та висоти. Чи не забули ви вказати параметри довжини та висоти?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:14
+msgid "Turtle Ends Facing Towards The Right"
+msgstr "Черепашка завершила рух повернутою вправо"
+
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:15
+msgid "Turtle Starts Each Square Facing Towards The Right"
+msgstr "Черепашка починає кожен квадрат будучи повернутою вправо"
+
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:16
+msgid "Draw Squares Of Varying Sizes"
+msgstr "Намалюйте квадрати різних розмірів"
+
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:35
+msgid "The turtle should turn four times to draw a square so that it always starts drawing the squares in the same direction. Did you call turn_right() four times?"
+msgstr "Щоб намалювати квадрат, черепашка повинна зробити чотири повороти, причому починати малювати квадрати вона має завжди в одному й тому ж напрямку. Чи викликали ви функцію turn_right() чотири рази?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:48
+msgid "The turtle should be facing towards the right to draw squares in the same direction every time. Did you call turn_right(90) four times in your function?"
+msgstr "Щоб квадрати малювалися щоразу в одному напрямку, черепашка має бути повернена вправо. Чи ви чотири рази викликали функцію turn_right(90) у своїй функції?"
+
+#: course/lesson-6-multiple-function-parameters/drawing_squares/TestsDrawingSquares.gd:72
+msgid "The shape is not a square or not turned in the expected direction. Did you use 90 degree angles when calling turn_right()?"
+msgstr "Фігура не є квадратом або повернена не в очікуваному напрямку. Чи використовували ви кути 90 градусів під час виклику turn_right()?"
+
+#: course/lesson-7-member-variables/draw_rectangle_at_position/TestsDrawingRectangles.gd:11
+msgid "Rectangle Starts At 120 By 100"
+msgstr "Прямокутник починається з координати 120 на 100"
+
+#: course/lesson-7-member-variables/draw_rectangle_at_position/TestsDrawingRectangles.gd:12
+msgid "Rectangle Size Is 200 By 120"
+msgstr "Розмір прямокутника становить 200 на 120"
+
+#: course/lesson-7-member-variables/draw_rectangle_at_position/TestsDrawingRectangles.gd:17
+#: course/lesson-7-member-variables/draw_rectangle_at_position/TestsDrawingRectangles.gd:29
+msgid "We didn't find any drawn rectangles. Did you forget to call draw_rectangle()?"
+msgstr "Ми не знайшли жодного намальованого прямокутника. Можливо, ви забули викликати функцію draw_rectangle()?"
+
+#: course/lesson-7-member-variables/draw_rectangle_at_position/TestsDrawingRectangles.gd:23
+msgid "The rectangle doesn't start at position (120, 100). Did you not set the position right?"
+msgstr "Прямокутник не починається з точки (120, 100). Можливо, ви неправильно вказали координати?"
+
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:42
+msgid "First Shape Is At 100 By 100"
+msgstr "Перша фігура знаходиться на координаті 100 на 100"
+
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:64
+msgid "No shape drawn. Did you forget to call draw_rectangle()?"
+msgstr "Фігура не намальована. Ви, мабуть, забули викликати функцію draw_rectangle()?"
+
+#: course/lesson-7-member-variables/draw_rectangles_at_positions/TestsDrawingRectangles.gd:67
+msgid "The first square should be drawn at (100, 100). Instead, you drew it at %s."
+msgstr "Перший квадрат слід намалювати в точці (100, 100). Натомість ви намалювали його в точці %s."
+
+#: course/lesson-8-defining-variables/define-health-variable/TestHasHealthVar.gd:15
+msgid "Has Health Variable"
+msgstr "Має змінну Health"
+
+#: course/lesson-8-defining-variables/define-health-variable/TestHasHealthVar.gd:16
+msgid "Health Has Value Of 100"
+msgstr "Значення Health дорівнює 100"
+
+#: course/lesson-8-defining-variables/define-health-variable/TestHasHealthVar.gd:21
+msgid "The health variable doesn't exist. Did you define it with the var keyword?"
+msgstr "Змінна health не існує. Чи визначили ви її за допомогою ключового слова var?"
+
+#: course/lesson-8-defining-variables/define-health-variable/TestHasHealthVar.gd:27
+msgid "Health variable doesn't exist, can't test if it has a value of 100."
+msgstr "Змінна health не існує, тому неможливо перевірити, чи має вона значення 100."
+
+#: course/lesson-8-defining-variables/define-health-variable/TestHasHealthVar.gd:31
+msgid "Health's value is a text string. It should be a number. You need to remove quotes around the value."
+msgstr "Значення параметра health є текстовим рядком. А воно має бути числом. Вам потрібно видалити лапки навколо цього значення."
+
+#: course/lesson-8-defining-variables/define-health-variable/TestHasHealthVar.gd:33
+msgid "Health's value should be a whole number. Instead it's a %s."
+msgstr "Значення health має бути цілим числом. Натомість воно %s."
+
+#: course/lesson-8-defining-variables/define-health-variable/TestHasHealthVar.gd:36
+msgid "Health variable's value is %s; It should be 100."
+msgstr "Значення змінної health становить %s; воно має дорівнювати 100."
+
+#: course/lesson-9-adding-and-subtracting/healing/TestHealingRobot.gd:11
+msgid "Robot Heals The Right Amount"
+msgstr "Робот лікує саме стільки, скільки потрібно"
+
+#: course/lesson-9-adding-and-subtracting/healing/TestHealingRobot.gd:12
+msgid "Heal Function Uses Addition"
+msgstr "Функція heal використовує додавання"
+
+#: course/lesson-9-adding-and-subtracting/healing/TestHealingRobot.gd:17
+msgid "The robot's health decreased instead of increasing. Did you add the amount to health?"
+msgstr "Рівень здоров'я робота зменшився, а не збільшився. Ви додали це значення до рівня здоров'я?"
+
+#: course/lesson-9-adding-and-subtracting/healing/TestHealingRobot.gd:20
+msgid "The robot didn't heal as expected. It has %s, but it should have 100 health."
+msgstr "Робот не відновив здоров'я, як очікувалося. У нього %s очок здоров'я, хоча мало б бути 100."
+
+#: course/lesson-9-adding-and-subtracting/healing/TestHealingRobot.gd:29
+msgid "It doesn't look like you're adding anything to health."
+msgstr "Схоже, ви нічого не додаєте до здоров'я."
+
+#: course/lesson-9-adding-and-subtracting/taking-damage/TestDamagingRobot.gd:13
+msgid "Robot Takes The Right Amount Of Damage"
+msgstr "Робот отримує потрібну кількість пошкоджень"
+
+#: course/lesson-9-adding-and-subtracting/taking-damage/TestDamagingRobot.gd:14
+msgid "Subtract Amount From Health"
+msgstr "Відняти суму від запасу здоров’я"
+
+#: course/lesson-9-adding-and-subtracting/taking-damage/TestDamagingRobot.gd:19
+msgid "The health goes above 100 when we damage the robot. Did you subract amount from health?"
+msgstr "Коли ми завдаємо шкоди роботу, показник здоров’я перевищує 100. Ви віднімали цю величину від показника здоров’я?"
+
+#: course/lesson-9-adding-and-subtracting/taking-damage/TestDamagingRobot.gd:22
+msgid "The robot didn't take as much damage as expected. It has %s health, but it should have 50 health after taking damage."
+msgstr "Робот отримав не стільки шкоди, скільки очікувалося. У нього %s очок здоров'я, але після отримання шкоди у нього мало б бути 50 очок здоров'я."
+
+#: course/lesson-9-adding-and-subtracting/taking-damage/TestDamagingRobot.gd:51
+msgid "It doesn't look like you're subtracting amount from health."
+msgstr "Схоже, ви не віднімаєте суму від здоров’я."
+
+#: ui/UILesson.gd:306
+msgid "Learn More"
+msgstr "Дізнатись більше"
+
+#: ui/UILesson.gd:351
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+
+#: ui/UILesson.gd:399
+msgid ""
+"\n"
+"[hr]\n"
+msgstr ""
+"\n"
+"[hr]\n"
+
+#: ui/UINavigator.gd:434
+msgid "(no previous history)"
+msgstr "(попереднього вікна не знайдено)"
+
+#: ui/UIPractice.gd:286
+msgid "Hint %s"
+msgstr "Підказка %s"
+
+#: ui/UIPractice.gd:321
+msgid "Validating Your Code..."
+msgstr "Перевіряємо ваш код..."
+
+#: ui/UIPractice.gd:372
+msgid "The function '%s' calls itself, this creates an infinite loop"
+msgstr "Функція '%s' викликає сама себе, виникає нескінченний цикл"
+
+#: ui/UIPractice.gd:383
+msgid "You have a loop that runs forever without a break statement. This would freeze the app."
+msgstr "У вас є цикл while, який виконується нескінченно без оператора break. Це призведе до зависання програми."
+
+#: ui/UIPractice.gd:426
+msgid "You typed \"%s\"; did you mean \"%s\"?"
+msgstr "Ви ввели \"%s\"; можливо, ви мали на увазі \"%s\"?"
+
+#: ui/UIPractice.gd:443
+msgid "Running Your Code..."
+msgstr "Виконуємо ваш код..."
+
+#: ui/UIPractice.gd:455
+msgid "There is a division by zero in your code. You cannot divide by zero in code. Please ensure you have no \"/ 0\" or \"% 0\" in your code."
+msgstr "У вашому коді є ділення на нуль. Не можна ділити на нуль у коді. Переконайтеся, що в коді немає «/ 0» або «% 0»."
+
+#: ui/UIPractice.gd:601
+msgid "Running Tests..."
+msgstr "Проводимо тести..."
+
+#: ui/components/BreadCrumbs.gd:66
+msgid " > "
+msgstr " > "
+
+#: ui/components/popups/ReportFormPopup.gd:55
+msgid "Select the kind of issue and describe it in the box below, then click \"Send report\" to open the contact page on our website with the report prefilled."
+msgstr "Виберіть тип проблеми та опишіть її у полі нижче, а потім натисніть \"Надіслати повідомлення\", щоб відкрити сторінку зв’язку на нашому веб-сайті, де форма повідомлення вже буде заповнена."
+
+#: ui/components/popups/ReportFormPopup.gd:59
+msgid "For questions and help with learning, [url=%s]join the community on Discord[/url]."
+msgstr "Якщо у вас виникнуть питання або знадобиться допомога з навчанням, [url=%s]приєднуйтесь до спільноти на Discord[/url]."
+
+#: ui/components/popups/ReportFormPopup.gd:135
+msgid "Translations are unofficial and maintained by the community. If you'd like to help, [url=https://github.com/GDQuest/learn-gdscript-translations/#readme]learn how to help translate the app[/url]."
+msgstr "Переклади є неофіційними та підтримуються спільнотою. Якщо ви хочете допомогти, [url=https://github.com/GDQuest/learn-gdscript-translations/#readme]дізнайтеся, як допомогти з перекладом додатка[/url]."
+
+#: ui/components/popups/SettingsPopup.gd:147
+msgid "{percentage}% of text translated. {completed}/{total} lessons fully translated."
+msgstr "{percentage}% тексту перекладено. {completed}/{total} уроків повністю перекладено."
+
+#: ui/screens/course_outliner/CourseLessonDetails.gd:73
+msgid "100%"
+msgstr "100%"
+
+#: ui/screens/course_outliner/CourseLessonDetails.gd:86
+#: ui/screens/course_outliner/CourseLessonDetails.gd:115
+#: ui/screens/course_outliner/CourseLessonDetails.gd:117
+msgid "Open Anyway"
+msgstr "Відкрити всерівно"
+
+#: ui/screens/course_outliner/CourseLessonDetails.gd:114
+msgid "Open Lesson"
+msgstr "Відкрити урок"
+
+#: ui/screens/course_outliner/CourseLessonDetails.gd:116
+msgid "Continue Lesson"
+msgstr "Продовжити урок"
+
+#: ui/screens/course_outliner/CourseLessonList.gd:33
+msgid "This course is {percentage}% translated. Incomplete lessons will contain English text."
+msgstr "Курс перекладений на {percentage}%. Неповні уроки міститимуть текст англійською."
+
+#: ui/screens/lesson/quizzes/UIQuizChoice.gd:28
+msgid "(select all that apply)"
+msgstr "(виберіть усі правильні відповіді)"
+
+#: ui/screens/lesson/quizzes/UIQuizInputField.gd:31
+msgid "You need to type a whole number for this answer. Example: 42"
+msgstr "Для відповіді потрібно ввести ціле число. Приклад: 42"
+
+#: ui/screens/lesson/quizzes/UIQuizInputField.gd:35
+msgid "You need to type a decimal for this answer. Use a \".\" to separate the decimal part. Example: 3.14"
+msgstr "Для відповіді вам потрібно ввести десятковий дріб. Дробову частину відокремлюйте крапкою \".\". Приклад: 3.14"
+
+#: ui/screens/practice/PracticeInfoPanel.gd:145
+msgid "Method descriptions"
+msgstr "Описи методів"
+
+#: ui/screens/practice/PracticeInfoPanel.gd:161
+msgid "Property descriptions"
+msgstr "Описи властивостей"
+
+#: ui/screens/practice/PracticeInfoPanel.gd:189
+msgid "You've completed this practice before."
+msgstr "Ви уже виконали цю вправу."
+
+#: ui/screens/practice/PracticeInfoPanel.gd:193
+msgid ""
+"You've used the provided solution.\n"
+"This practice will not count towards your course progress."
+msgstr ""
+"Ви скористалися запропонованим рішенням.\n"
+"Це завдання не враховуватиметься при підрахунку прогресу у проходженні курсу."
+
+#: ui/screens/welcome_screen/WelcomeScreen.gd:52
+msgid "CONTINUE"
+msgstr "ПРОДОВЖИТИ"
+
+msgid "Learn to Code From Zero with Godot"
+msgstr "Навчіться програмувати з нуля з Godot"
+
+#~ msgid ""
+#~ "Sorry, we don't have this particular error message covered yet!\n"
+#~ "\n"
+#~ "Please, use the [b]Report[/b] button in the top-right corner to tell us more about how you've got it, and we will try to improve our knowledge base for the next version of the application.\n"
+#~ "\n"
+#~ "[center]Thank you![/center]"
+#~ msgstr ""
+#~ "Вибачте, ми ще не написали пояснення щодо цієї помилки!\n"
+#~ "\n"
+#~ "Скористайтеся кнопкою [b]Повідомити про проблему[/b] в правому верхньому куті, щоб розповісти нам більше про те, як ви на неї натрапили, і до наступної версії програми ми постараємося покращити нашу базу знань.\n"
+#~ "\n"
+#~ "[center]Дякую![/center]"
+
+#~ msgid "Placeholder text"
+#~ msgstr "Текст-заповнювач"
+
+#~ msgid "Explanation"
+#~ msgstr "Пояснення"
+
+#~ msgid "in"
+#~ msgstr "в"
+
+#~ msgid "CHRISTMAS SALE - 50% OFF"
+#~ msgstr "РІЗДВЯНИЙ РОЗПРОДАЖ – ЗНИЖКА 50%"
+
+#~ msgid "CHRISTMAS SALE"
+#~ msgstr "РІЗДВЯНИЙ РОЗПРОДАЖ"
+
+#, fuzzy
+#~ msgid ""
+#~ "Get [b]50%[/b] off on all our Godot courses with the \n"
+#~ "coupon code [b]DISCOUNT50[/b]"
+#~ msgstr ""
+#~ "[center]Отримайте [b]50% знижку[/b] на всі наші курси Godot за \n"
+#~ "купоном із кодом [b]DISCOUNT50[/b][/center]"
+
+#, fuzzy
+#~ msgid "Only until "
+#~ msgstr "Пропозиція діє до"
+
+#~ msgid "CHECK OUT OUR COURSES"
+#~ msgstr "ПЕРЕГЛЯНУТИ НАШІ КУРСИ"
+
+#~ msgid ""
+#~ "Use the link below to report a bug or an error in a lesson: [b][url=https://github.com/GDQuest/learn-gdscript/issues]Report an issue on GitHub[/url][/b]\n"
+#~ "\n"
+#~ "[font=res://ui/theme/fonts/font_title.tres]Missing translations[/font]\n"
+#~ "\n"
+#~ "If some text in the app is not translated into your language, it is most likely because the translation for your language is incomplete. Our translations are maintained by volunteers and not every language is fully covered yet.\n"
+#~ "\n"
+#~ "If you want to help translate the app, you can find instructions on how to contribute here: [b][url=https://github.com/GDQuest/learn-gdscript-translations/#readme]Contribute to translations[/url][/b]\n"
+#~ "\n"
+#~ "[font=res://ui/theme/fonts/font_title.tres]What is GitHub[/font]\n"
+#~ "\n"
+#~ "GitHub is a website where developers share and work on open-source projects. Open-source means the code is public and anyone can read it, report problems, or help improve it.\n"
+#~ "\n"
+#~ "This app is open-source, and we currently use GitHub to track bugs and improvements.\n"
+#~ "\n"
+#~ "[font=res://ui/theme/fonts/font_title.tres]How to report an issue[/font]\n"
+#~ "\n"
+#~ "1. Click the first link at the top of this page to go to the [i]GitHub Issues[/i] page.\n"
+#~ "2. Use the search bar to verify that your issue has not been reported already.\n"
+#~ "3. Click the [i]New Issue[/i] button.\n"
+#~ "4. Fill out the form to describe what went wrong.\n"
+#~ "\n"
+#~ "You will need a free GitHub account to do this.\n"
+#~ "\n"
+#~ "Please include as much detail as you can, such as what device you are using and what you were doing when the problem happened. A screenshot also helps a lot.\n"
+#~ "\n"
+#~ "[center]Thank you for helping make this app better.[/center]"
+#~ msgstr ""
+#~ "[font=res://ui/theme/fonts/font_title.tres]Як повідомити про проблему[/font]\n"
+#~ "\n"
+
+#, fuzzy
+#~ msgid "To order"
+#~ msgstr "для передзамовлень"

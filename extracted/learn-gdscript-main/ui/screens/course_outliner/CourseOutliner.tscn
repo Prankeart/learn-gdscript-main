@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b23uaygwr4udc"]
+
+[ext_resource type="Script" uid="uid://bfpid7jc46r62" path="res://ui/screens/course_outliner/CourseOutliner.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bgmk3s68qov2" path="res://ui/screens/course_outliner/CourseLessonList.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://e7swcfscuvmu" path="res://ui/screens/course_outliner/CourseLessonDetails.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://b3mhn551rchk6" path="res://ui/components/popups/ConfirmPopup.tscn" id="7"]
+
+[node name="CourseOutliner" type="PanelContainer" unique_id=695105099]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1")
+
+[node name="ClearColor" type="ColorRect" parent="." unique_id=1439216820]
+layout_mode = 2
+color = Color(0.188235, 0.188235, 0.286275, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=171084803]
+layout_mode = 2
+
+[node name="Layout" type="VBoxContainer" parent="MarginContainer" unique_id=754030920]
+layout_mode = 2
+
+[node name="TitleBox" type="HBoxContainer" parent="MarginContainer/Layout" unique_id=1134699094]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Layout/TitleBox" unique_id=162856062]
+layout_mode = 2
+theme_type_variation = &"LabelSlimTitle"
+text = "Course Index - "
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/Layout/TitleBox" unique_id=1650628784]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelTitle"
+text = "Course Title Goes Here"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Layout" unique_id=1089064792]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="LeftColumn" type="VBoxContainer" parent="MarginContainer/Layout/HBoxContainer" unique_id=371607661]
+layout_mode = 2
+
+[node name="LessonList" parent="MarginContainer/Layout/HBoxContainer/LeftColumn" unique_id=1141099537 instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Layout/HBoxContainer/LeftColumn" unique_id=1856694102]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/Layout/HBoxContainer/LeftColumn/PanelContainer" unique_id=695176687]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="MarginContainer/Layout/HBoxContainer/LeftColumn/PanelContainer/Buttons" unique_id=1800407149]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Reset Progress"
+
+[node name="LessonDetails" parent="MarginContainer/Layout/HBoxContainer" unique_id=1508243306 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ConfirmResetPopup" parent="." unique_id=311974735 instance=ExtResource("7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+title = "Confirm Resetting Progress"
+text_content = "[center]Are you sure you want to reset the course progress?
+This cannot be undone.[/center]"
+min_size = Vector2(420, 320)
+strict = true

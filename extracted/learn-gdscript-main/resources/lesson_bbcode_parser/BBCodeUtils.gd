@@ -1,0 +1,366 @@
+@tool
+class_name BBCodeUtils
+extends RefCounted
+
+static var snake_case_regex := RegEx.create_from_string("(?<=[a-z])(?=[A-Z])|[^a-zA-Z]")
+
+
+static func get_lesson_block_count(lesson: BBCodeParser.ParseNode) -> int:
+	var child_count := 0
+	for child in lesson.children:
+		if child is BBCodeParser.ParseNode and child.tag in BBCodeParserData.CONTENT_PRODUCING_TAGS:
+			child_count += 1
+	return child_count
+
+
+static func get_lesson_block_type(lesson: BBCodeParser.ParseNode, block_index: int) -> int:
+	var child = lesson.children[block_index]
+	if child is BBCodeParser.ParseNode and child.tag in BBCodeParserData.CONTENT_PRODUCING_TAGS:
+		return child.tag
+	return BBCodeParserData.Tag.UNKNOWN
+
+
+static func get_lesson_title_for_index(lesson: BBCodeParser.ParseNode, block_index: int) -> String:
+	# Go backwards to find the nearest title above the block.
+	for i: int in range(block_index, -1, -1):
+		var child: Variant = lesson.children[i]
+		if child is BBCodeParser.ParseNode:
+			var child_node: BBCodeParser.ParseNode = child
+			if child_node.tag == BBCodeParserData.Tag.TITLE:
+				return clean_text_content(_get_text_content(child_node))
+			if (
+				child_node.tag in BBCodeParserData.CONTENT_PRODUCING_TAGS
+				and child_node.tag != BBCodeParserData.Tag.PARAGRAPH
+			):
+				break
+	return ""
+
+
+# Returns the fully resolved text of a PARAGRAPH node, including inline glossary tags.
+static func get_paragraph_text(paragraph: BBCodeParser.ParseNode) -> String:
+	return clean_text_content(_get_text_content(paragraph))
+
+
+static func get_note_title(note: BBCodeParser.ParseNode) -> String:
+	return note.attributes.get("title", "")
+
+
+static func get_visual_path(visual: BBCodeParser.ParseNode) -> String:
+	return visual.attributes.get("path", "")
+
+
+static func get_lesson_title(lesson: BBCodeParser.ParseNode) -> String:
+	return lesson.attributes.get("title", "")
+
+
+static func get_lesson_practice_count(lesson: BBCodeParser.ParseNode) -> int:
+	var practice_count := 0
+	for child in lesson.children:
+		if child is BBCodeParser.ParseNode and child.tag == BBCodeParserData.Tag.PRACTICE:
+			practice_count += 1
+	return practice_count
+
+
+static func get_lesson_practice(
+	lesson: BBCodeParser.ParseNode,
+	practice_index: int,
+) -> BBCodeParser.ParseNode:
+	assert(
+		practice_index >= 0 and practice_index < get_lesson_practice_count(lesson),
+		"Invalid practice index",
+	)
+	var practice_count := 0
+	for child in lesson.children:
+		if child is BBCodeParser.ParseNode and child.tag == BBCodeParserData.Tag.PRACTICE:
+			if practice_index == practice_count:
+				return child
+			practice_count += 1
+	return null
+
+
+static func get_lesson_quiz_count(lesson: BBCodeParser.ParseNode) -> int:
+	var quiz_count := 0
+	for child in lesson.children:
+		if (
+			child is BBCodeParser.ParseNode
+			and child.tag in [BBCodeParserData.Tag.QUIZ_CHOICE, BBCodeParserData.Tag.QUIZ_INPUT]
+		):
+			quiz_count += 1
+	return quiz_count
+
+
+static func get_lesson_quiz(
+	lesson: BBCodeParser.ParseNode,
+	quiz_index: int,
+) -> BBCodeParser.ParseNode:
+	assert(quiz_index >= 0 and quiz_index < get_lesson_quiz_count(lesson), "Invalid quiz index")
+	var quiz_count := 0
+	for child in lesson.children:
+		if (
+			child is BBCodeParser.ParseNode
+			and child.tag in [BBCodeParserData.Tag.QUIZ_CHOICE, BBCodeParserData.Tag.QUIZ_INPUT]
+		):
+			if quiz_index == quiz_count:
+				return child
+			quiz_count += 1
+	return null
+
+
+static func get_practice_title(practice: BBCodeParser.ParseNode) -> String:
+	return practice.attributes.get("title", "")
+
+
+static func get_practice_script_slice_path(practice: BBCodeParser.ParseNode) -> String:
+	for child: BBCodeParser.ParseNode in practice.children:
+		if child.tag == BBCodeParserData.Tag.SCRIPT_SLICE:
+			return child.attributes.get("path", "")
+	return ""
+
+
+static func get_practice_script_slice_name(practice: BBCodeParser.ParseNode) -> String:
+	for child: BBCodeParser.ParseNode in practice.children:
+		if child.tag == BBCodeParserData.Tag.SCRIPT_SLICE:
+			return child.attributes.get("name", "")
+	return ""
+
+
+static func get_practice_validator_path(practice: BBCodeParser.ParseNode) -> String:
+	for child: BBCodeParser.ParseNode in practice.children:
+		if child.tag == BBCodeParserData.Tag.VALIDATOR:
+			return child.attributes.get("path", "")
+	return ""
+
+
+static func get_practice_documentation(practice: BBCodeParser.ParseNode) -> PackedStringArray:
+	var docs := PackedStringArray()
+	for child: BBCodeParser.ParseNode in practice.children:
+		if child.tag == BBCodeParserData.Tag.DOCS:
+			var split_strings = _get_text_content(child).split(",")
+			for documentation_entry: String in split_strings:
+				var entry := documentation_entry.strip_edges()
+				if not entry.is_empty():
+					docs.push_back(entry)
+	return docs
+
+
+static func get_practice_starting_code(practice: BBCodeParser.ParseNode) -> String:
+	for child: BBCodeParser.ParseNode in practice.children:
+		if child.tag == BBCodeParserData.Tag.STARTING_CODE:
+			return clean_text_content(_get_text_content(child))
+	return ""
+
+
+static func get_practice_cursor(practice: BBCodeParser.ParseNode) -> Vector2i:
+	for child: BBCodeParser.ParseNode in practice.children:
+		if child.tag == BBCodeParserData.Tag.CURSOR:
+			var child_attributes_line: int = int(child.attributes.get("line", 0) as String)
+			var child_attributes_column: int = int(child.attributes.get("column", 0) as String)
+			return Vector2i(child_attributes_line, child_attributes_column)
+	return Vector2i.ZERO
+
+
+static func get_practice_id(practice: BBCodeParser.ParseNode) -> String:
+	return practice.attributes.get("id", "")
+
+
+class QuizData:
+	var tag: int = BBCodeParserData.Tag.UNKNOWN
+	var question := ""
+	var question_tr := ""
+	var content_tr := ""
+	var explanation_tr := ""
+	var answers := []
+	var answers_tr := []
+	var valid_answers := []
+	var shuffle := false
+	var multiple := false
+
+
+	func get_answer_count() -> int:
+		return valid_answers.size()
+
+
+	func get_correct_answer_string() -> String:
+		match valid_answers.size():
+			0:
+				return ""
+			1:
+				return str(valid_answers[0])
+			2:
+				return "%s and %s" % [valid_answers[0], valid_answers[1]]
+			_:
+				var answer_list := valid_answers.duplicate()
+				var last_answer = answer_list.pop_back()
+				return "%s, and %s" % [", ".join(PackedStringArray(answer_list)), last_answer]
+
+
+static func get_quiz_id(quiz: BBCodeParser.ParseNode) -> String:
+	var quiz_attributes_id: String = quiz.attributes.get("en_id", "")
+	# should only be available in translated lessons
+	if not quiz_attributes_id:
+		quiz_attributes_id = quiz.attributes.get("question", "")
+	return _to_snake_case(quiz_attributes_id)
+
+
+static func get_quiz_data(quiz: BBCodeParser.ParseNode) -> QuizData:
+	var data := QuizData.new()
+	data.tag = quiz.tag
+	data.question = quiz.attributes.get("question", "")
+	data.question_tr = quiz.attributes.get("tr", "")
+	data.shuffle = quiz.attributes.get("shuffle", "false") == "true"
+	data.multiple = quiz.attributes.get("multiple", "false") == "true"
+	data.content_tr = get_comments(quiz)
+
+	if quiz.tag == BBCodeParserData.Tag.QUIZ_INPUT:
+		var quiz_attributes_answer: String = quiz.attributes.get("answer", "")
+		data.valid_answers = [quiz_attributes_answer.strip_edges()]
+
+	for child in quiz.children:
+		if child is BBCodeParser.ParseNode:
+			var child_node: BBCodeParser.ParseNode = child
+			match child.tag:
+				BBCodeParserData.Tag.EXPLANATION:
+					data.explanation_tr = child_node.attributes.get("tr", "")
+				BBCodeParserData.Tag.OPTION:
+					var answer: String = clean_text_content(_get_text_content(child_node))
+					data.answers.push_back(answer)
+					data.answers_tr.push_back(child_node.attributes.get("tr", ""))
+					var child_attributes_correct: bool = child_node.attributes.get("correct", false)
+					if child_attributes_correct:
+						data.valid_answers.push_back(answer)
+				_:
+					pass
+
+	return data
+
+
+static func clean_text_content(text: String) -> String:
+	text = text.strip_edges()
+	var lines := text.split("\n")
+	var cleaned_lines := []
+	var is_previous_line_blank := false
+	for line in lines:
+		var is_blank: bool = line.strip_edges() == ""
+		if is_blank and is_previous_line_blank:
+			continue
+		cleaned_lines.append(line)
+		is_previous_line_blank = is_blank
+	return "\n".join(PackedStringArray(cleaned_lines))
+
+
+static func get_comments(node: BBCodeParser.ParseNode) -> String:
+	var comments := []
+
+	for child in node.children:
+		if child is BBCodeParser.ParseNode and child.tag == BBCodeParserData.Tag.TR:
+			comments.append((child as BBCodeParser.ParseNode).attributes.get("note", ""))
+
+	return "\n".join(comments)
+
+
+static func _get_text_content(node: BBCodeParser.ParseNode) -> String:
+	var text := ""
+	for child in node.children:
+		if child is String:
+			text += child
+		elif child is BBCodeParser.ParseNode:
+			var parse_node: BBCodeParser.ParseNode = child
+			text += _get_child_node_text_content(parse_node)
+	return text
+
+
+static func _get_child_node_text_content(child_node: BBCodeParser.ParseNode) -> String:
+	if child_node.tag == BBCodeParserData.Tag.GLOSSARY:
+		# This pre-renders the glossary into the [url] tag that we need to make
+		# glossary links work with the RichTextLabel node.
+		# TODO: this is also used by the translation pipeline, see if we can't
+		# refactor that to preserve the BBCode tag and convert it only in the
+		# lesson code. https://github.com/GDQuest/learn-gdscript/issues/1468
+		var term: String = child_node.attributes.get("term", "")
+		var display_text := _get_text_content(child_node)
+		return "[url=%s]%s[/url]" % [term, display_text]
+	return _get_text_content(child_node)
+
+
+static func _to_snake_case(input_string: String, separator := "_") -> String:
+	return snake_case_regex \
+			.sub(input_string, " ", true) \
+			.strip_edges() \
+			.replace(" ", separator) \
+			.to_lower()
+
+
+## Returns the raw code of a [code_listing] node, to display in a CodeEdit.
+static func get_code_listing_text(node: BBCodeParser.ParseNode) -> String:
+	var text := ""
+	for child in node.children:
+		if child is String:
+			text += child
+	return clean_text_content(text)
+
+
+## Finds the first child node with the given tag and returns its content
+## blocks. Returns an empty array when there is no such child.
+static func get_child_content_blocks(node: BBCodeParser.ParseNode, tag: int) -> Array:
+	for child: Variant in node.children:
+		if child is BBCodeParser.ParseNode and child.tag == tag:
+			return get_content_blocks(child)
+	return []
+
+
+## Returns the content blocks of every [hint] child of a practice node, as an
+## array of block arrays (one per hint, in order).
+static func get_practice_hint_blocks(practice: BBCodeParser.ParseNode) -> Array:
+	var hints := []
+	for child: Variant in practice.children:
+		if child is BBCodeParser.ParseNode and child.tag == BBCodeParserData.Tag.HINT:
+			hints.append(get_content_blocks(child))
+	return hints
+
+
+## Splits the children of a content container node into an ordered list of
+## blocks: String text chunks separated by blank lines, and CODE_LISTING
+## ParseNodes for code listings. Text chunks are translatable; code listings
+## are opaque nodes that get rendered as code editors, never translated.
+##
+## By default, text nested in child nodes (e.g. inline [glossary] tags) is
+## collected. Pass direct_children_only for containers with structural
+## children that must be skipped, like quizzes ([option], [explanation]...).
+static func get_content_blocks(
+	node: BBCodeParser.ParseNode,
+	direct_children_only := false,
+) -> Array:
+	var blocks := []
+	var text := ""
+
+	for child in node.children:
+		if child is String:
+			text += child
+		elif child is BBCodeParser.ParseNode:
+			var child_node: BBCodeParser.ParseNode = child
+			if child_node.tag == BBCodeParserData.Tag.CODE_LISTING:
+				blocks.append_array(_split_text_chunks(text))
+				text = ""
+				blocks.append(child_node)
+			elif not direct_children_only:
+				text += _get_child_node_text_content(child_node)
+
+	blocks.append_array(_split_text_chunks(text))
+
+	return blocks
+
+
+## Splits a text block into chunks separated by blank lines.
+static func _split_text_chunks(text: String) -> Array:
+	var chunks := []
+	var current := PackedStringArray()
+	for line: String in clean_text_content(text).split("\n"):
+		if line.strip_edges() == "":
+			if not current.is_empty():
+				chunks.append("\n".join(current))
+				current = PackedStringArray()
+		else:
+			current.append(line)
+	if not current.is_empty():
+		chunks.append("\n".join(current))
+	return chunks

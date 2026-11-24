@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cofiop4n6pyjg"]
+
+[ext_resource type="PackedScene" uid="uid://cbxo4pmcdfrbf" path="res://course/common/GDScriptCodeExample.tscn" id="1"]
+
+[node name="Control" type="PanelContainer" unique_id=266067210]
+custom_minimum_size = Vector2(0, 120)
+offset_right = 614.0
+offset_bottom = 114.0
+size_flags_horizontal = 3
+
+[node name="GDScriptCodeExample2" parent="." unique_id=1816922197 instance=ExtResource("1")]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+text = "func draw_square(side_length):
+	#..."

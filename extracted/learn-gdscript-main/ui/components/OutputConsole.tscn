@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://csvdvacbgm85x"]
+
+[ext_resource type="Script" uid="uid://cbc5bjsaovefy" path="res://ui/components/OutputConsole.gd" id="2"]
+[ext_resource type="PackedScene" path="res://ui/components/popups/ExternalErrorPopup.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://ui/components/popups/ErrorOverlayPopup.tscn" id="5"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_normal.tres" id="6"]
+[ext_resource type="Script" uid="uid://dmptnpr0crwmq" path="res://ui/components/SmoothScrollContainer.gd" id="7"]
+
+[node name="OutputConsole" type="PanelContainer" unique_id=1277880461]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+script = ExtResource("2")
+
+[node name="Panel" type="Panel" parent="." unique_id=554613429]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=552118436]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=88819212]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=440620391]
+layout_mode = 2
+theme_type_variation = &"LabelSmallTitle"
+theme_override_colors/font_color = Color(0.572549, 0.560784, 0.721569, 1)
+text = "Output"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1426649461]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("7")
+
+[node name="MessageList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=62162487]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ErrorPopup" type="ColorRect" parent="." unique_id=1079407188]
+unique_name_in_owner = true
+visible = false
+top_level = true
+layout_mode = 2
+color = Color(0.0352941, 0.0392157, 0.129412, 0.313726)
+
+[node name="ErrorOverlayPopup" parent="ErrorPopup" unique_id=2013705554 instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -181.0
+offset_right = 290.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+exclusive = true
+
+[node name="ExternalErrorPopup" parent="." unique_id=1075294941 instance=ExtResource("4")]
+unique_name_in_owner = true
+visible = false
+top_level = true
+layout_mode = 2

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bps55s2pqvx7h"]
+
+[ext_resource type="PackedScene" uid="uid://bwrce1b73mmw3" path="res://course/lesson-23-append-to-arrays/visuals/Crate.tscn" id="1"]
+[ext_resource type="Script" uid="uid://j0wrx7dnduo5" path="res://course/lesson-23-append-to-arrays/visuals/CrateStack.gd" id="6"]
+
+[node name="PoppingCrates" type="MarginContainer" unique_id=567087216]
+offset_right = 120.0
+offset_bottom = 400.0
+theme_override_constants/margin_bottom = 40
+script = ExtResource("6")
+
+[node name="Column" type="VBoxContainer" parent="." unique_id=1317915344]
+custom_minimum_size = Vector2(120, 400)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Crate" parent="Column" unique_id=353265652 instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="Crate2" parent="Column" unique_id=109108951 instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="Crate3" parent="Column" unique_id=1178941735 instance=ExtResource("1")]
+layout_mode = 2

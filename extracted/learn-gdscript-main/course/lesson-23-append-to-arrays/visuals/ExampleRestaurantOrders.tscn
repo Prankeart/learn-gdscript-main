@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bb2kn0nuyxktu"]
+
+[ext_resource type="PackedScene" path="res://ui/components/RunnableCodeExample.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://course/lesson-23-append-to-arrays/visuals/OrderMeals.tscn" id="2"]
+
+[node name="PrintForLoop" type="PanelContainer" unique_id=247228933]
+offset_right = 14.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="RunnableCodeExample" parent="." unique_id=1398372664 instance=ExtResource("1")]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+scene = ExtResource("2")

@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://dixlw2sxglksd"]
+
+[ext_resource type="PackedScene" path="res://ui/components/BreadCrumbs.tscn" id="2"]
+[ext_resource type="StyleBox" path="res://ui/theme/styles/panel_breadcrumbs.tres" id="3"]
+[ext_resource type="Script" uid="uid://p0baorn0vev3" path="res://ui/UINavigator.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://dnsq0sexvhou0" path="res://ui/assets/icons/icon_settings.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cx5pgbsm7s2qp" path="res://ui/assets/icons/icon_report.png" id="6"]
+[ext_resource type="PackedScene" path="res://ui/screens/course_outliner/CourseOutliner.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://c7j3aoveyx42a" path="res://ui/assets/icons/navigation_back.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://b2h3smb6gipdy" path="res://ui/assets/icons/navigation_outliner.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://jenfh4moki2e" path="res://ui/assets/icons/icon_godot_head.svg" id="10"]
+[ext_resource type="PackedScene" path="res://ui/components/FullScreenButton.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://ui/components/popups/LessonDonePopup.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://ui/components/QuitButton.tscn" id="13"]
+[ext_resource type="PackedScene" path="res://ui/components/GDQuestCreditsLabel.tscn" id="15"]
+
+[node name="UINavigator" type="PanelContainer" unique_id=1195579484]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("4")
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=589902555]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="PanelContainer" parent="Layout" unique_id=1142096464]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Layout/Header" unique_id=1792892609]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 0
+
+[node name="HeaderContent" type="HBoxContainer" parent="Layout/Header/MarginContainer" unique_id=1720970000]
+layout_mode = 2
+
+[node name="HomeButton" type="Button" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=432730034]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Go back to the main menu"
+mouse_default_cursor_shape = 2
+icon = ExtResource("10")
+flat = true
+
+[node name="OutlinerButton" type="Button" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=852144902]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Open the course index"
+mouse_default_cursor_shape = 2
+icon = ExtResource("9")
+flat = true
+
+[node name="BackButton" type="Button" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=375237761]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Go back in your navigation history"
+mouse_default_cursor_shape = 2
+icon = ExtResource("8")
+flat = true
+
+[node name="BreadCrumbs" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=2073787700 instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=1941836464]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReportButton" type="Button" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=404748892]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Report an issue"
+mouse_default_cursor_shape = 2
+icon = ExtResource("6")
+flat = true
+
+[node name="SettingsButton" type="Button" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=1978516027]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Configure the app"
+mouse_default_cursor_shape = 2
+icon = ExtResource("5")
+flat = true
+
+[node name="FullScreenButton" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=150737344 instance=ExtResource("11")]
+layout_mode = 2
+
+[node name="QuitButton" parent="Layout/Header/MarginContainer/HeaderContent" unique_id=1645660088 instance=ExtResource("13")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Content" type="Panel" parent="Layout" unique_id=59830397]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ScreenContainer" type="PanelContainer" parent="Layout/Content" unique_id=291767987]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="CourseOutliner" parent="Layout/Content" unique_id=32806929 instance=ExtResource("7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="LessonDonePopup" parent="." unique_id=27419743 instance=ExtResource("12")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="GDQuestCreditsLabel" parent="." unique_id=1214855319 instance=ExtResource("15")]
+layout_mode = 2
